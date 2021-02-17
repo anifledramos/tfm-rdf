@@ -1,0 +1,524 @@
+<http://dbpedia.org/resource/Abraham_Lincoln> <http://xmlns.com/foaf/0.1/name> "Abraham Lincoln"@en .
+<http://dbpedia.org/resource/Abraham_Lincoln> <http://xmlns.com/foaf/0.1/surname> "Lincoln"@en .
+<http://dbpedia.org/resource/Abraham_Lincoln> <http://xmlns.com/foaf/0.1/givenName> "Abraham"@en .
+<http://dbpedia.org/resource/Abraham_Lincoln> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Abraham_Lincoln> <http://purl.org/dc/elements/1.1/description> "16th President of the United States"@en .
+<http://dbpedia.org/resource/Abraham_Lincoln> <http://dbpedia.org/ontology/birthDate> "1809-02-12"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Abraham_Lincoln> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Hardin_County,_Kentucky> .
+<http://dbpedia.org/resource/Abraham_Lincoln> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Kentucky> .
+<http://dbpedia.org/resource/Abraham_Lincoln> <http://dbpedia.org/ontology/deathDate> "1865-04-15"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Aristotle> <http://xmlns.com/foaf/0.1/name> "Aristotle"@en .
+<http://dbpedia.org/resource/Aristotle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Aristotle> <http://purl.org/dc/elements/1.1/description> "Greek philosopher"@en .
+<http://dbpedia.org/resource/Aristotle> <http://dbpedia.org/ontology/birthDate> "-0384"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Aristotle> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Stagira_(ancient_city)> .
+<http://dbpedia.org/resource/Aristotle> <http://dbpedia.org/ontology/deathDate> "-0322"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Aristotle> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Chalcis> .
+<http://dbpedia.org/resource/Alain_Connes> <http://xmlns.com/foaf/0.1/name> "Alain Connes"@en .
+<http://dbpedia.org/resource/Alain_Connes> <http://xmlns.com/foaf/0.1/surname> "Connes"@en .
+<http://dbpedia.org/resource/Alain_Connes> <http://xmlns.com/foaf/0.1/givenName> "Alain"@en .
+<http://dbpedia.org/resource/Alain_Connes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alain_Connes> <http://purl.org/dc/elements/1.1/description> "Mathematician"@en .
+<http://dbpedia.org/resource/Alain_Connes> <http://dbpedia.org/ontology/birthDate> "1947-04-01"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alain_Connes> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Draguignan> .
+<http://dbpedia.org/resource/Allan_Dwan> <http://xmlns.com/foaf/0.1/name> "Allan Dwan"@en .
+<http://dbpedia.org/resource/Allan_Dwan> <http://xmlns.com/foaf/0.1/surname> "Dwan"@en .
+<http://dbpedia.org/resource/Allan_Dwan> <http://xmlns.com/foaf/0.1/givenName> "Allan"@en .
+<http://dbpedia.org/resource/Allan_Dwan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Allan_Dwan> <http://purl.org/dc/elements/1.1/description> "Film director, film producer, screenwriter"@en .
+<http://dbpedia.org/resource/Allan_Dwan> <http://dbpedia.org/ontology/birthDate> "1885-04-03"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Allan_Dwan> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Toronto> .
+<http://dbpedia.org/resource/Allan_Dwan> <http://dbpedia.org/ontology/deathDate> "1981-12-28"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Ayn_Rand> <http://xmlns.com/foaf/0.1/name> "Ayn Rand"@en .
+<http://dbpedia.org/resource/Ayn_Rand> <http://xmlns.com/foaf/0.1/surname> "Rand"@en .
+<http://dbpedia.org/resource/Ayn_Rand> <http://xmlns.com/foaf/0.1/givenName> "Ayn"@en .
+<http://dbpedia.org/resource/Ayn_Rand> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Ayn_Rand> <http://purl.org/dc/elements/1.1/description> "Novelist, philosopher, playwright, screenwriter"@en .
+<http://dbpedia.org/resource/Ayn_Rand> <http://dbpedia.org/ontology/birthDate> "1905-02-02"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Ayn_Rand> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Saint_Petersburg> .
+<http://dbpedia.org/resource/Ayn_Rand> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Russian_Empire> .
+<http://dbpedia.org/resource/Ayn_Rand> <http://dbpedia.org/ontology/deathDate> "1982-03-06"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Ayn_Rand> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/New_York_City> .
+<http://dbpedia.org/resource/Ayn_Rand> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/United_States> .
+<http://dbpedia.org/resource/Andre_Agassi> <http://xmlns.com/foaf/0.1/name> "Andre Agassi"@en .
+<http://dbpedia.org/resource/Andre_Agassi> <http://xmlns.com/foaf/0.1/surname> "Agassi"@en .
+<http://dbpedia.org/resource/Andre_Agassi> <http://xmlns.com/foaf/0.1/givenName> "Andre"@en .
+<http://dbpedia.org/resource/Andre_Agassi> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Andre_Agassi> <http://purl.org/dc/elements/1.1/description> "American tennis player"@en .
+<http://dbpedia.org/resource/Andre_Agassi> <http://dbpedia.org/ontology/birthDate> "1970-04-29"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Andre_Agassi> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Las_Vegas_Valley> .
+<http://dbpedia.org/resource/Andre_Agassi> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Nevada> .
+<http://dbpedia.org/resource/Aldous_Huxley> <http://xmlns.com/foaf/0.1/name> "Aldous Leonard Huxley"@en .
+<http://dbpedia.org/resource/Aldous_Huxley> <http://xmlns.com/foaf/0.1/surname> "Huxley"@en .
+<http://dbpedia.org/resource/Aldous_Huxley> <http://xmlns.com/foaf/0.1/givenName> "Aldous Leonard"@en .
+<http://dbpedia.org/resource/Aldous_Huxley> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Aldous_Huxley> <http://purl.org/dc/elements/1.1/description> "Writer; author"@en .
+<http://dbpedia.org/resource/Aldous_Huxley> <http://dbpedia.org/ontology/birthDate> "1894-07-26"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Aldous_Huxley> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Surrey> .
+<http://dbpedia.org/resource/Aldous_Huxley> <http://dbpedia.org/ontology/deathDate> "1963-11-22"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Andrei_Tarkovsky> <http://xmlns.com/foaf/0.1/name> "Andrei Tarkovsky"@en .
+<http://dbpedia.org/resource/Andrei_Tarkovsky> <http://xmlns.com/foaf/0.1/surname> "Tarkovsky"@en .
+<http://dbpedia.org/resource/Andrei_Tarkovsky> <http://xmlns.com/foaf/0.1/givenName> "Andrei"@en .
+<http://dbpedia.org/resource/Andrei_Tarkovsky> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Andrei_Tarkovsky> <http://purl.org/dc/elements/1.1/description> "Film director"@en .
+<http://dbpedia.org/resource/Andrei_Tarkovsky> <http://dbpedia.org/ontology/birthDate> "1932-04-04"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Andrei_Tarkovsky> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Soviet_Union> .
+<http://dbpedia.org/resource/Andrei_Tarkovsky> <http://dbpedia.org/ontology/deathDate> "1986-12-29"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Arthur_Schopenhauer> <http://xmlns.com/foaf/0.1/name> "Arthur Schopenhauer"@en .
+<http://dbpedia.org/resource/Arthur_Schopenhauer> <http://xmlns.com/foaf/0.1/surname> "Schopenhauer"@en .
+<http://dbpedia.org/resource/Arthur_Schopenhauer> <http://xmlns.com/foaf/0.1/givenName> "Arthur"@en .
+<http://dbpedia.org/resource/Arthur_Schopenhauer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Arthur_Schopenhauer> <http://purl.org/dc/elements/1.1/description> "German philosopher"@en .
+<http://dbpedia.org/resource/Arthur_Schopenhauer> <http://dbpedia.org/ontology/birthDate> "1788-02-22"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Arthur_Schopenhauer> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Gda%C5%84sk> .
+<http://dbpedia.org/resource/Arthur_Schopenhauer> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Polish%E2%80%93Lithuanian_Commonwealth> .
+<http://dbpedia.org/resource/Arthur_Schopenhauer> <http://dbpedia.org/ontology/deathDate> "1860-09-21"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Arthur_Schopenhauer> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Frankfurt> .
+<http://dbpedia.org/resource/Arthur_Schopenhauer> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/German_Confederation> .
+<http://dbpedia.org/resource/Albert_Sidney_Johnston> <http://xmlns.com/foaf/0.1/name> "Albert Sidney Johnston"@en .
+<http://dbpedia.org/resource/Albert_Sidney_Johnston> <http://xmlns.com/foaf/0.1/surname> "Johnston"@en .
+<http://dbpedia.org/resource/Albert_Sidney_Johnston> <http://xmlns.com/foaf/0.1/givenName> "Albert Sidney"@en .
+<http://dbpedia.org/resource/Albert_Sidney_Johnston> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Albert_Sidney_Johnston> <http://purl.org/dc/elements/1.1/description> "Confederate Army general"@en .
+<http://dbpedia.org/resource/Albert_Sidney_Johnston> <http://dbpedia.org/ontology/birthDate> "1803-02-02"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Albert_Sidney_Johnston> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Washington,_Kentucky> .
+<http://dbpedia.org/resource/Albert_Sidney_Johnston> <http://dbpedia.org/ontology/deathDate> "1862-04-06"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Albert_Sidney_Johnston> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Hardin_County,_Tennessee> .
+<http://dbpedia.org/resource/Albert_Einstein> <http://xmlns.com/foaf/0.1/name> "Albert Einstein"@en .
+<http://dbpedia.org/resource/Albert_Einstein> <http://xmlns.com/foaf/0.1/surname> "Einstein"@en .
+<http://dbpedia.org/resource/Albert_Einstein> <http://xmlns.com/foaf/0.1/givenName> "Albert"@en .
+<http://dbpedia.org/resource/Albert_Einstein> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Albert_Einstein> <http://purl.org/dc/elements/1.1/description> "Physicist"@en .
+<http://dbpedia.org/resource/Albert_Einstein> <http://dbpedia.org/ontology/birthDate> "1879-03-14"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Albert_Einstein> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Ulm> .
+<http://dbpedia.org/resource/Albert_Einstein> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Baden-W%C3%BCrttemberg> .
+<http://dbpedia.org/resource/Albert_Einstein> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/German_Empire> .
+<http://dbpedia.org/resource/Albert_Einstein> <http://dbpedia.org/ontology/deathDate> "1955-04-18"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Albert_Einstein> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Princeton,_New_Jersey> .
+<http://dbpedia.org/resource/Alfred_Korzybski> <http://xmlns.com/foaf/0.1/name> "Alfred Korzybski"@en .
+<http://dbpedia.org/resource/Alfred_Korzybski> <http://xmlns.com/foaf/0.1/surname> "Korzybski"@en .
+<http://dbpedia.org/resource/Alfred_Korzybski> <http://xmlns.com/foaf/0.1/givenName> "Alfred"@en .
+<http://dbpedia.org/resource/Alfred_Korzybski> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alfred_Korzybski> <http://purl.org/dc/elements/1.1/description> "Polish scientist and philosopher"@en .
+<http://dbpedia.org/resource/Alfred_Korzybski> <http://dbpedia.org/ontology/birthDate> "1879-07-03"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alfred_Korzybski> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Warsaw> .
+<http://dbpedia.org/resource/Alfred_Korzybski> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Vistula_Land> .
+<http://dbpedia.org/resource/Alfred_Korzybski> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Russian_Empire> .
+<http://dbpedia.org/resource/Alfred_Korzybski> <http://dbpedia.org/ontology/deathDate> "1950-03-01"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alfred_Korzybski> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Lakeville,_Connecticut> .
+<http://dbpedia.org/resource/Alfred_Korzybski> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/United_States> .
+<http://dbpedia.org/resource/Alexander_the_Great> <http://xmlns.com/foaf/0.1/name> "Alexander the Great"@en .
+<http://dbpedia.org/resource/Alexander_the_Great> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alexander_the_Great> <http://purl.org/dc/elements/1.1/description> "Greek military commander"@en .
+<http://dbpedia.org/resource/Alexander_the_Great> <http://dbpedia.org/ontology/birthDate> "0356-07-20"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alexander_the_Great> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Pella> .
+<http://dbpedia.org/resource/Alexander_the_Great> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Macedonia_(ancient_kingdom)> .
+<http://dbpedia.org/resource/Alexander_the_Great> <http://dbpedia.org/ontology/deathDate> "0323-06-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alexander_the_Great> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Babylon> .
+<http://dbpedia.org/resource/Attila> <http://xmlns.com/foaf/0.1/name> "Attila the Hun"@en .
+<http://dbpedia.org/resource/Attila> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Attila> <http://purl.org/dc/elements/1.1/description> "Khan of the Huns from 434 until his death"@en .
+<http://dbpedia.org/resource/Attila> <http://dbpedia.org/ontology/birthDate> "0406"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Alfred_Hitchcock> <http://xmlns.com/foaf/0.1/name> "Alfred Joseph Hitchcock"@en .
+<http://dbpedia.org/resource/Alfred_Hitchcock> <http://xmlns.com/foaf/0.1/surname> "Hitchcock"@en .
+<http://dbpedia.org/resource/Alfred_Hitchcock> <http://xmlns.com/foaf/0.1/givenName> "Alfred Joseph"@en .
+<http://dbpedia.org/resource/Alfred_Hitchcock> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alfred_Hitchcock> <http://purl.org/dc/elements/1.1/description> "British film director and film producer"@en .
+<http://dbpedia.org/resource/Alfred_Hitchcock> <http://dbpedia.org/ontology/birthDate> "1899-08-13"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alfred_Hitchcock> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Leytonstone> .
+<http://dbpedia.org/resource/Alfred_Hitchcock> <http://dbpedia.org/ontology/deathDate> "1980-04-29"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alfred_Hitchcock> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Bel_Air,_Los_Angeles> .
+<http://dbpedia.org/resource/Alfred_Nobel> <http://xmlns.com/foaf/0.1/name> "Alfred Bernhard Nobel"@en .
+<http://dbpedia.org/resource/Alfred_Nobel> <http://xmlns.com/foaf/0.1/surname> "Nobel"@en .
+<http://dbpedia.org/resource/Alfred_Nobel> <http://xmlns.com/foaf/0.1/givenName> "Alfred Bernhard"@en .
+<http://dbpedia.org/resource/Alfred_Nobel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alfred_Nobel> <http://purl.org/dc/elements/1.1/description> "Chemist, engineer and inventor of dynamite"@en .
+<http://dbpedia.org/resource/Alfred_Nobel> <http://dbpedia.org/ontology/birthDate> "1833-10-21"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alfred_Nobel> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Stockholm> .
+<http://dbpedia.org/resource/Alfred_Nobel> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Sweden> .
+<http://dbpedia.org/resource/Alfred_Nobel> <http://dbpedia.org/ontology/deathDate> "1896-12-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alfred_Nobel> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Sanremo> .
+<http://dbpedia.org/resource/Alfred_Nobel> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Italy> .
+<http://dbpedia.org/resource/Alexander_Graham_Bell> <http://xmlns.com/foaf/0.1/name> "Alexander Graham Bell"@en .
+<http://dbpedia.org/resource/Alexander_Graham_Bell> <http://xmlns.com/foaf/0.1/surname> "Bell"@en .
+<http://dbpedia.org/resource/Alexander_Graham_Bell> <http://xmlns.com/foaf/0.1/givenName> "Alexander Graham"@en .
+<http://dbpedia.org/resource/Alexander_Graham_Bell> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alexander_Graham_Bell> <http://purl.org/dc/elements/1.1/description> "Telephone inventor"@en .
+<http://dbpedia.org/resource/Alexander_Graham_Bell> <http://dbpedia.org/ontology/birthDate> "1847-03-03"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alexander_Graham_Bell> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Edinburgh> .
+<http://dbpedia.org/resource/Alexander_Graham_Bell> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Scotland> .
+<http://dbpedia.org/resource/Alexander_Graham_Bell> <http://dbpedia.org/ontology/deathDate> "1922-08-02"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alexander_Graham_Bell> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Baddeck,_Nova_Scotia> .
+<http://dbpedia.org/resource/Alexander_Graham_Bell> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Nova_Scotia> .
+<http://dbpedia.org/resource/Andy_Warhol> <http://xmlns.com/foaf/0.1/name> "Andy Warhol"@en .
+<http://dbpedia.org/resource/Andy_Warhol> <http://xmlns.com/foaf/0.1/surname> "Warhol"@en .
+<http://dbpedia.org/resource/Andy_Warhol> <http://xmlns.com/foaf/0.1/givenName> "Andy"@en .
+<http://dbpedia.org/resource/Andy_Warhol> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Andy_Warhol> <http://purl.org/dc/elements/1.1/description> "American artist, avant-garde filmmaker, writer and social figure"@en .
+<http://dbpedia.org/resource/Andy_Warhol> <http://dbpedia.org/ontology/birthDate> "1928-08-06"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Andy_Warhol> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Pittsburgh> .
+<http://dbpedia.org/resource/Andy_Warhol> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Pennsylvania> .
+<http://dbpedia.org/resource/Andy_Warhol> <http://dbpedia.org/ontology/deathDate> "1987-02-22"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Akira_Kurosawa> <http://xmlns.com/foaf/0.1/name> "Akira Kurosawa"@en .
+<http://dbpedia.org/resource/Akira_Kurosawa> <http://xmlns.com/foaf/0.1/surname> "Kurosawa"@en .
+<http://dbpedia.org/resource/Akira_Kurosawa> <http://xmlns.com/foaf/0.1/givenName> "Akira"@en .
+<http://dbpedia.org/resource/Akira_Kurosawa> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Akira_Kurosawa> <http://purl.org/dc/elements/1.1/description> "Japanese film director, screenwriter, producer, and editor"@en .
+<http://dbpedia.org/resource/Akira_Kurosawa> <http://dbpedia.org/ontology/birthDate> "1910-03-23"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Akira_Kurosawa> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/%C5%8Cta,_Tokyo> .
+<http://dbpedia.org/resource/Akira_Kurosawa> <http://dbpedia.org/ontology/deathDate> "1998-09-06"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Akira_Kurosawa> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Setagaya> .
+<http://dbpedia.org/resource/A._E._van_Vogt> <http://xmlns.com/foaf/0.1/name> "A. E. Van Vogt"@en .
+<http://dbpedia.org/resource/A._E._van_Vogt> <http://xmlns.com/foaf/0.1/surname> "Van Vogt"@en .
+<http://dbpedia.org/resource/A._E._van_Vogt> <http://xmlns.com/foaf/0.1/givenName> "A. E."@en .
+<http://dbpedia.org/resource/A._E._van_Vogt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/A._E._van_Vogt> <http://purl.org/dc/elements/1.1/description> "Canadian writer"@en .
+<http://dbpedia.org/resource/A._E._van_Vogt> <http://dbpedia.org/ontology/birthDate> "1912-04-26"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/A._E._van_Vogt> <http://dbpedia.org/ontology/deathDate> "2000-01-26"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alfons_Maria_Jakob> <http://xmlns.com/foaf/0.1/name> "Alfons Maria Jakob"@en .
+<http://dbpedia.org/resource/Alfons_Maria_Jakob> <http://xmlns.com/foaf/0.1/surname> "Jakob"@en .
+<http://dbpedia.org/resource/Alfons_Maria_Jakob> <http://xmlns.com/foaf/0.1/givenName> "Alfons Maria"@en .
+<http://dbpedia.org/resource/Alfons_Maria_Jakob> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alfons_Maria_Jakob> <http://purl.org/dc/elements/1.1/description> "German neurologist"@en .
+<http://dbpedia.org/resource/Alfons_Maria_Jakob> <http://dbpedia.org/ontology/birthDate> "1884-07-02"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alfons_Maria_Jakob> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Aschaffenburg> .
+<http://dbpedia.org/resource/Alfons_Maria_Jakob> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Bavaria> .
+<http://dbpedia.org/resource/Alfons_Maria_Jakob> <http://dbpedia.org/ontology/deathDate> "1931-10-17"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alfons_Maria_Jakob> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Hamburg> .
+<http://dbpedia.org/resource/Anna_Kournikova> <http://xmlns.com/foaf/0.1/name> "Anna Sergeyevna Kournikova"@en .
+<http://dbpedia.org/resource/Anna_Kournikova> <http://xmlns.com/foaf/0.1/surname> "Kournikova"@en .
+<http://dbpedia.org/resource/Anna_Kournikova> <http://xmlns.com/foaf/0.1/givenName> "Anna Sergeyevna"@en .
+<http://dbpedia.org/resource/Anna_Kournikova> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Anna_Kournikova> <http://purl.org/dc/elements/1.1/description> "Tennis player and model"@en .
+<http://dbpedia.org/resource/Anna_Kournikova> <http://dbpedia.org/ontology/birthDate> "1981-06-07"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Anna_Kournikova> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Moscow> .
+<http://dbpedia.org/resource/Arne_Kaijser> <http://xmlns.com/foaf/0.1/name> "Arne Kaijser"@en .
+<http://dbpedia.org/resource/Arne_Kaijser> <http://xmlns.com/foaf/0.1/surname> "Kaijser"@en .
+<http://dbpedia.org/resource/Arne_Kaijser> <http://xmlns.com/foaf/0.1/givenName> "Arne"@en .
+<http://dbpedia.org/resource/Arne_Kaijser> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Arne_Kaijser> <http://purl.org/dc/elements/1.1/description> "Swedish academic"@en .
+<http://dbpedia.org/resource/Arne_Kaijser> <http://dbpedia.org/ontology/birthDate> "1950"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Andrey_Markov> <http://xmlns.com/foaf/0.1/name> "Andrey Andreyevich Markov"@en .
+<http://dbpedia.org/resource/Andrey_Markov> <http://xmlns.com/foaf/0.1/surname> "Markov"@en .
+<http://dbpedia.org/resource/Andrey_Markov> <http://xmlns.com/foaf/0.1/givenName> "Andrey Andreyevich"@en .
+<http://dbpedia.org/resource/Andrey_Markov> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Andrey_Markov> <http://purl.org/dc/elements/1.1/description> "Russian mathematician"@en .
+<http://dbpedia.org/resource/Andrey_Markov> <http://dbpedia.org/ontology/birthDate> "1856-06-14"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Andrey_Markov> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Ryazan> .
+<http://dbpedia.org/resource/Andrey_Markov> <http://dbpedia.org/ontology/deathDate> "1922-07-20"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Andrey_Markov> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Saint_Petersburg> .
+<http://dbpedia.org/resource/A._A._Milne> <http://xmlns.com/foaf/0.1/name> "A. A. Milne"@en .
+<http://dbpedia.org/resource/A._A._Milne> <http://xmlns.com/foaf/0.1/surname> "Milne"@en .
+<http://dbpedia.org/resource/A._A._Milne> <http://xmlns.com/foaf/0.1/givenName> "A. A."@en .
+<http://dbpedia.org/resource/A._A._Milne> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/A._A._Milne> <http://purl.org/dc/elements/1.1/description> "English novelist, playwright, poet"@en .
+<http://dbpedia.org/resource/A._A._Milne> <http://dbpedia.org/ontology/birthDate> "1882-01-18"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/A._A._Milne> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Hampstead> .
+<http://dbpedia.org/resource/A._A._Milne> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/London> .
+<http://dbpedia.org/resource/A._A._Milne> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/England> .
+<http://dbpedia.org/resource/A._A._Milne> <http://dbpedia.org/ontology/deathDate> "1956-01-31"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/A._A._Milne> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Hartfield> .
+<http://dbpedia.org/resource/A._A._Milne> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Sussex> .
+<http://dbpedia.org/resource/A._A._Milne> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/England> .
+<http://dbpedia.org/resource/Alvin_Toffler> <http://xmlns.com/foaf/0.1/name> "Alvin Toffler"@en .
+<http://dbpedia.org/resource/Alvin_Toffler> <http://xmlns.com/foaf/0.1/surname> "Toffler"@en .
+<http://dbpedia.org/resource/Alvin_Toffler> <http://xmlns.com/foaf/0.1/givenName> "Alvin"@en .
+<http://dbpedia.org/resource/Alvin_Toffler> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alvin_Toffler> <http://purl.org/dc/elements/1.1/description> "American writer"@en .
+<http://dbpedia.org/resource/Alvin_Toffler> <http://dbpedia.org/ontology/birthDate> "1928-10-04"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Albert_Speer> <http://xmlns.com/foaf/0.1/name> "Albert Speer"@en .
+<http://dbpedia.org/resource/Albert_Speer> <http://xmlns.com/foaf/0.1/surname> "Speer"@en .
+<http://dbpedia.org/resource/Albert_Speer> <http://xmlns.com/foaf/0.1/givenName> "Albert"@en .
+<http://dbpedia.org/resource/Albert_Speer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Albert_Speer> <http://purl.org/dc/elements/1.1/description> "German architect and minister for armaments"@en .
+<http://dbpedia.org/resource/Albert_Speer> <http://dbpedia.org/ontology/birthDate> "1905-03-19"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Albert_Speer> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Mannheim> .
+<http://dbpedia.org/resource/Albert_Speer> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/German_Empire> .
+<http://dbpedia.org/resource/Albert_Speer> <http://dbpedia.org/ontology/deathDate> "1981-09-01"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Ada_Lovelace> <http://xmlns.com/foaf/0.1/name> "Lovelace, Ada King, Countess of"@en .
+<http://dbpedia.org/resource/Ada_Lovelace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Ada_Lovelace> <http://purl.org/dc/elements/1.1/description> "Mathematician"@en .
+<http://dbpedia.org/resource/Ada_Lovelace> <http://dbpedia.org/ontology/birthDate> "1815-12-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Ada_Lovelace> <http://dbpedia.org/ontology/deathDate> "1852-11-27"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Ada_Lovelace> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Marylebone> .
+<http://dbpedia.org/resource/Albert_Camus> <http://xmlns.com/foaf/0.1/name> "Albert Camus"@en .
+<http://dbpedia.org/resource/Albert_Camus> <http://xmlns.com/foaf/0.1/surname> "Camus"@en .
+<http://dbpedia.org/resource/Albert_Camus> <http://xmlns.com/foaf/0.1/givenName> "Albert"@en .
+<http://dbpedia.org/resource/Albert_Camus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Albert_Camus> <http://purl.org/dc/elements/1.1/description> "Algerian-French author and philosopher"@en .
+<http://dbpedia.org/resource/Albert_Camus> <http://dbpedia.org/ontology/birthDate> "1913-11-07"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Albert_Camus> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Dr%C3%A9an> .
+<http://dbpedia.org/resource/Albert_Camus> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Algeria> .
+<http://dbpedia.org/resource/Albert_Camus> <http://dbpedia.org/ontology/deathDate> "1960-01-04"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Albert_Camus> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Villeblevin> .
+<http://dbpedia.org/resource/August_Derleth> <http://xmlns.com/foaf/0.1/name> "August Derleth"@en .
+<http://dbpedia.org/resource/August_Derleth> <http://xmlns.com/foaf/0.1/surname> "Derleth"@en .
+<http://dbpedia.org/resource/August_Derleth> <http://xmlns.com/foaf/0.1/givenName> "August"@en .
+<http://dbpedia.org/resource/August_Derleth> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/August_Derleth> <http://purl.org/dc/elements/1.1/description> "Novelist, short story writer, poet, editor, anthologist"@en .
+<http://dbpedia.org/resource/August_Derleth> <http://dbpedia.org/ontology/birthDate> "1909-02-24"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/August_Derleth> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Sauk_City,_Wisconsin> .
+<http://dbpedia.org/resource/August_Derleth> <http://dbpedia.org/ontology/deathDate> "1971-07-04"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/August_Derleth> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Sauk_City,_Wisconsin> .
+<http://dbpedia.org/resource/Agatha_Christie> <http://xmlns.com/foaf/0.1/name> "Agatha Mary Christie"@en .
+<http://dbpedia.org/resource/Agatha_Christie> <http://xmlns.com/foaf/0.1/surname> "Christie"@en .
+<http://dbpedia.org/resource/Agatha_Christie> <http://xmlns.com/foaf/0.1/givenName> "Agatha Mary"@en .
+<http://dbpedia.org/resource/Agatha_Christie> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Agatha_Christie> <http://purl.org/dc/elements/1.1/description> "English author"@en .
+<http://dbpedia.org/resource/Agatha_Christie> <http://dbpedia.org/ontology/birthDate> "1890-09-15"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Agatha_Christie> <http://dbpedia.org/ontology/deathDate> "1976-01-12"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Agatha_Christie> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Torquay> .
+<http://dbpedia.org/resource/Agatha_Christie> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Devon> .
+<http://dbpedia.org/resource/Agatha_Christie> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/England> .
+<http://dbpedia.org/resource/Agatha_Christie> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Wallingford,_Oxfordshire> .
+<http://dbpedia.org/resource/Agatha_Christie> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Oxfordshire> .
+<http://dbpedia.org/resource/Agatha_Christie> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/England> .
+<http://dbpedia.org/resource/Aaron> <http://xmlns.com/foaf/0.1/name> "Aaron"@en .
+<http://dbpedia.org/resource/Aaron> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Aaron> <http://purl.org/dc/elements/1.1/description> "High Priest of Israel, prophet"@en .
+<http://dbpedia.org/resource/Allen_Ginsberg> <http://xmlns.com/foaf/0.1/name> "Allen Ginsberg"@en .
+<http://dbpedia.org/resource/Allen_Ginsberg> <http://xmlns.com/foaf/0.1/surname> "Ginsberg"@en .
+<http://dbpedia.org/resource/Allen_Ginsberg> <http://xmlns.com/foaf/0.1/givenName> "Allen"@en .
+<http://dbpedia.org/resource/Allen_Ginsberg> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Allen_Ginsberg> <http://purl.org/dc/elements/1.1/description> "poet, activist, essayist"@en .
+<http://dbpedia.org/resource/Allen_Ginsberg> <http://dbpedia.org/ontology/birthDate> "1926-06-03"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Allen_Ginsberg> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Newark,_New_Jersey> .
+<http://dbpedia.org/resource/Allen_Ginsberg> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/New_Jersey> .
+<http://dbpedia.org/resource/Allen_Ginsberg> <http://dbpedia.org/ontology/deathDate> "1997-04-05"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Allen_Ginsberg> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/New_York_City> .
+<http://dbpedia.org/resource/Anatoly_Karpov> <http://xmlns.com/foaf/0.1/name> "Anatoly Karpov"@en .
+<http://dbpedia.org/resource/Anatoly_Karpov> <http://xmlns.com/foaf/0.1/surname> "Karpov"@en .
+<http://dbpedia.org/resource/Anatoly_Karpov> <http://xmlns.com/foaf/0.1/givenName> "Anatoly"@en .
+<http://dbpedia.org/resource/Anatoly_Karpov> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Anatoly_Karpov> <http://purl.org/dc/elements/1.1/description> "Chess player"@en .
+<http://dbpedia.org/resource/Anatoly_Karpov> <http://dbpedia.org/ontology/birthDate> "1951-05-23"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Anatoly_Karpov> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Zlatoust> .
+<http://dbpedia.org/resource/Anatoly_Karpov> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Russian_Soviet_Federative_Socialist_Republic> .
+<http://dbpedia.org/resource/Anatoly_Karpov> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Soviet_Union> .
+<http://dbpedia.org/resource/Aristophanes> <http://xmlns.com/foaf/0.1/name> "Aristophanes"@en .
+<http://dbpedia.org/resource/Aristophanes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Aristophanes> <http://purl.org/dc/elements/1.1/description> "Athenian comic dramatist"@en .
+<http://dbpedia.org/resource/Aristophanes> <http://dbpedia.org/ontology/birthDate> "-0446"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Aristophanes> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Classical_Athens> .
+<http://dbpedia.org/resource/Aristophanes> <http://dbpedia.org/ontology/deathDate> "-0386"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Aristophanes> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Delphi> .
+<http://dbpedia.org/resource/Albert_Schweitzer> <http://xmlns.com/foaf/0.1/name> "Albert Schweitzer"@en .
+<http://dbpedia.org/resource/Albert_Schweitzer> <http://xmlns.com/foaf/0.1/surname> "Schweitzer"@en .
+<http://dbpedia.org/resource/Albert_Schweitzer> <http://xmlns.com/foaf/0.1/givenName> "Albert"@en .
+<http://dbpedia.org/resource/Albert_Schweitzer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Albert_Schweitzer> <http://purl.org/dc/elements/1.1/description> "German theologian, musician, philosopher, and physician"@en .
+<http://dbpedia.org/resource/Albert_Schweitzer> <http://dbpedia.org/ontology/birthDate> "1875-01-14"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Albert_Schweitzer> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Kaysersberg> .
+<http://dbpedia.org/resource/Albert_Schweitzer> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Alsace-Lorraine> .
+<http://dbpedia.org/resource/Albert_Schweitzer> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Haut-Rhin> .
+<http://dbpedia.org/resource/Albert_Schweitzer> <http://dbpedia.org/ontology/deathDate> "1965-09-04"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Albert_Schweitzer> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Lambar%C3%A9n%C3%A9> .
+<http://dbpedia.org/resource/Albert_Schweitzer> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Gabon> .
+<http://dbpedia.org/resource/Alexis_Carrel> <http://xmlns.com/foaf/0.1/name> "Alexis Carrel"@en .
+<http://dbpedia.org/resource/Alexis_Carrel> <http://xmlns.com/foaf/0.1/surname> "Carrel"@en .
+<http://dbpedia.org/resource/Alexis_Carrel> <http://xmlns.com/foaf/0.1/givenName> "Alexis"@en .
+<http://dbpedia.org/resource/Alexis_Carrel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alexis_Carrel> <http://purl.org/dc/elements/1.1/description> "French surgeon and biologist"@en .
+<http://dbpedia.org/resource/Alexis_Carrel> <http://dbpedia.org/ontology/birthDate> "1873-06-28"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alexis_Carrel> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Sainte-Foy-l%C3%A8s-Lyon> .
+<http://dbpedia.org/resource/Alexis_Carrel> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Rh%C3%B4ne_(department)> .
+<http://dbpedia.org/resource/Alexis_Carrel> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/France> .
+<http://dbpedia.org/resource/Alexis_Carrel> <http://dbpedia.org/ontology/deathDate> "1944-11-05"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Anatole_France> <http://xmlns.com/foaf/0.1/name> "Jacques Anatole Fran\u00E7ois Thibault"@en .
+<http://dbpedia.org/resource/Anatole_France> <http://xmlns.com/foaf/0.1/surname> "Thibault"@en .
+<http://dbpedia.org/resource/Anatole_France> <http://xmlns.com/foaf/0.1/givenName> "Jacques Anatole Fran\u00E7ois"@en .
+<http://dbpedia.org/resource/Anatole_France> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Anatole_France> <http://purl.org/dc/elements/1.1/description> "French novelist"@en .
+<http://dbpedia.org/resource/Anatole_France> <http://dbpedia.org/ontology/birthDate> "1844-04-16"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Anatole_France> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Paris> .
+<http://dbpedia.org/resource/Anatole_France> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/France> .
+<http://dbpedia.org/resource/Anatole_France> <http://dbpedia.org/ontology/deathDate> "1924-10-12"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Anatole_France> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Tours> .
+<http://dbpedia.org/resource/Anatole_France> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/France> .
+<http://dbpedia.org/resource/Andr%C3%A9_Gide> <http://xmlns.com/foaf/0.1/name> "Andr\u00E9 Gide"@en .
+<http://dbpedia.org/resource/Andr%C3%A9_Gide> <http://xmlns.com/foaf/0.1/surname> "Gide"@en .
+<http://dbpedia.org/resource/Andr%C3%A9_Gide> <http://xmlns.com/foaf/0.1/givenName> "Andr\u00E9"@en .
+<http://dbpedia.org/resource/Andr%C3%A9_Gide> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Andr%C3%A9_Gide> <http://purl.org/dc/elements/1.1/description> "French novelist and essayist"@en .
+<http://dbpedia.org/resource/Andr%C3%A9_Gide> <http://dbpedia.org/ontology/birthDate> "1869-11-22"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Andr%C3%A9_Gide> <http://dbpedia.org/ontology/deathDate> "1951-02-19"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Avicenna> <http://xmlns.com/foaf/0.1/name> "Avicenna"@en .
+<http://dbpedia.org/resource/Avicenna> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Avicenna> <http://purl.org/dc/elements/1.1/description> "Islamic polymath"@en .
+<http://dbpedia.org/resource/Avicenna> <http://dbpedia.org/ontology/birthDate> "0980"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Avicenna> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Bukhara> .
+<http://dbpedia.org/resource/Avicenna> <http://dbpedia.org/ontology/deathDate> "1037"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Avicenna> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Hamadan> .
+<http://dbpedia.org/resource/Avicenna> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Iran> .
+<http://dbpedia.org/resource/Augustin-Jean_Fresnel> <http://xmlns.com/foaf/0.1/name> "Augustin-Jean Fresnel"@en .
+<http://dbpedia.org/resource/Augustin-Jean_Fresnel> <http://xmlns.com/foaf/0.1/surname> "Fresnel"@en .
+<http://dbpedia.org/resource/Augustin-Jean_Fresnel> <http://xmlns.com/foaf/0.1/givenName> "Augustin-Jean"@en .
+<http://dbpedia.org/resource/Augustin-Jean_Fresnel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Augustin-Jean_Fresnel> <http://purl.org/dc/elements/1.1/description> "French physicist and engineer"@en .
+<http://dbpedia.org/resource/Augustin-Jean_Fresnel> <http://dbpedia.org/ontology/birthDate> "1788-05-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Augustin-Jean_Fresnel> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Broglie,_Eure> .
+<http://dbpedia.org/resource/Augustin-Jean_Fresnel> <http://dbpedia.org/ontology/deathDate> "1827-07-14"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Augustin-Jean_Fresnel> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Ville-d'Avray> .
+<http://dbpedia.org/resource/Abner_Doubleday> <http://xmlns.com/foaf/0.1/name> "Abner Doubleday"@en .
+<http://dbpedia.org/resource/Abner_Doubleday> <http://xmlns.com/foaf/0.1/surname> "Doubleday"@en .
+<http://dbpedia.org/resource/Abner_Doubleday> <http://xmlns.com/foaf/0.1/givenName> "Abner"@en .
+<http://dbpedia.org/resource/Abner_Doubleday> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Abner_Doubleday> <http://purl.org/dc/elements/1.1/description> "Union Army general"@en .
+<http://dbpedia.org/resource/Abner_Doubleday> <http://dbpedia.org/ontology/birthDate> "1819-06-26"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Abner_Doubleday> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Ballston_Spa,_New_York> .
+<http://dbpedia.org/resource/Abner_Doubleday> <http://dbpedia.org/ontology/deathDate> "1893-01-26"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Abner_Doubleday> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Mendham_Borough,_New_Jersey> .
+<http://dbpedia.org/resource/Alan_Garner> <http://xmlns.com/foaf/0.1/name> "Alan Garner"@en .
+<http://dbpedia.org/resource/Alan_Garner> <http://xmlns.com/foaf/0.1/surname> "Garner"@en .
+<http://dbpedia.org/resource/Alan_Garner> <http://xmlns.com/foaf/0.1/givenName> "Alan"@en .
+<http://dbpedia.org/resource/Alan_Garner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alan_Garner> <http://purl.org/dc/elements/1.1/description> "English fiction writer and folklorist"@en .
+<http://dbpedia.org/resource/Alan_Garner> <http://dbpedia.org/ontology/birthDate> "1934-10-17"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alan_Garner> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Congleton> .
+<http://dbpedia.org/resource/Alan_Garner> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Cheshire> .
+<http://dbpedia.org/resource/Anaximander> <http://xmlns.com/foaf/0.1/name> "Anaximander"@en .
+<http://dbpedia.org/resource/Anaximander> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Anaximander> <http://purl.org/dc/elements/1.1/description> "Ancient Greek philosopher"@en .
+<http://dbpedia.org/resource/Anaximander> <http://dbpedia.org/ontology/birthDate> "-0610"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Anaximander> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Miletus> .
+<http://dbpedia.org/resource/Anaximander> <http://dbpedia.org/ontology/deathDate> "-0546"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Aleister_Crowley> <http://xmlns.com/foaf/0.1/name> "Aleister Crowley"@en .
+<http://dbpedia.org/resource/Aleister_Crowley> <http://xmlns.com/foaf/0.1/surname> "Crowley"@en .
+<http://dbpedia.org/resource/Aleister_Crowley> <http://xmlns.com/foaf/0.1/givenName> "Aleister"@en .
+<http://dbpedia.org/resource/Aleister_Crowley> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Aleister_Crowley> <http://purl.org/dc/elements/1.1/description> "poet, mountaineer, occultist"@en .
+<http://dbpedia.org/resource/Aleister_Crowley> <http://dbpedia.org/ontology/birthDate> "1875-10-12"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Aleister_Crowley> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Royal_Leamington_Spa> .
+<http://dbpedia.org/resource/Aleister_Crowley> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Warwickshire> .
+<http://dbpedia.org/resource/Aleister_Crowley> <http://dbpedia.org/ontology/deathDate> "1947-12-01"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Aleister_Crowley> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Hastings> .
+<http://dbpedia.org/resource/Aleister_Crowley> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/East_Sussex> .
+<http://dbpedia.org/resource/Alan_Turing> <http://xmlns.com/foaf/0.1/name> "Alan Mathison Turing"@en .
+<http://dbpedia.org/resource/Alan_Turing> <http://xmlns.com/foaf/0.1/surname> "Turing"@en .
+<http://dbpedia.org/resource/Alan_Turing> <http://xmlns.com/foaf/0.1/givenName> "Alan Mathison"@en .
+<http://dbpedia.org/resource/Alan_Turing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alan_Turing> <http://purl.org/dc/elements/1.1/description> "Computer scientist, mathematician, and cryptographer"@en .
+<http://dbpedia.org/resource/Alan_Turing> <http://dbpedia.org/ontology/birthDate> "1912-06-23"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alan_Turing> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Paddington> .
+<http://dbpedia.org/resource/Alan_Turing> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/London> .
+<http://dbpedia.org/resource/Alan_Turing> <http://dbpedia.org/ontology/deathDate> "1954-06-07"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alan_Turing> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Manchester> .
+<http://dbpedia.org/resource/Alexander_Mackenzie> <http://xmlns.com/foaf/0.1/name> "Alexander Mackenzie"@en .
+<http://dbpedia.org/resource/Alexander_Mackenzie> <http://xmlns.com/foaf/0.1/surname> "Mackenzie"@en .
+<http://dbpedia.org/resource/Alexander_Mackenzie> <http://xmlns.com/foaf/0.1/givenName> "Alexander"@en .
+<http://dbpedia.org/resource/Alexander_Mackenzie> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alexander_Mackenzie> <http://purl.org/dc/elements/1.1/description> "2nd Prime Minister of Canada (1873\u20131878)"@en .
+<http://dbpedia.org/resource/Alexander_Mackenzie> <http://dbpedia.org/ontology/birthDate> "1822-01-28"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alexander_Mackenzie> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Logierait> .
+<http://dbpedia.org/resource/Alexander_Mackenzie> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Scotland> .
+<http://dbpedia.org/resource/Alexander_Mackenzie> <http://dbpedia.org/ontology/deathDate> "1892-04-17"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alexander_Mackenzie> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Toronto> .
+<http://dbpedia.org/resource/Alfonso_Cuar%C3%B3n> <http://xmlns.com/foaf/0.1/name> "Alfonso Cuaron"@en .
+<http://dbpedia.org/resource/Alfonso_Cuar%C3%B3n> <http://xmlns.com/foaf/0.1/surname> "Cuaron"@en .
+<http://dbpedia.org/resource/Alfonso_Cuar%C3%B3n> <http://xmlns.com/foaf/0.1/givenName> "Alfonso"@en .
+<http://dbpedia.org/resource/Alfonso_Cuar%C3%B3n> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alfonso_Cuar%C3%B3n> <http://purl.org/dc/elements/1.1/description> "Mexican film director"@en .
+<http://dbpedia.org/resource/Alfonso_Cuar%C3%B3n> <http://dbpedia.org/ontology/birthDate> "1961-11-28"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alfonso_Cuar%C3%B3n> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Mexico_City> .
+<http://dbpedia.org/resource/Ashoka> <http://xmlns.com/foaf/0.1/name> "Ashoka"@en .
+<http://dbpedia.org/resource/Ashoka> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Ashoka> <http://purl.org/dc/elements/1.1/description> "Indian monarch"@en .
+<http://dbpedia.org/resource/Ashoka> <http://dbpedia.org/ontology/birthDate> "-0304"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Ashoka> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Pataliputra> .
+<http://dbpedia.org/resource/Ashoka> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Patna> .
+<http://dbpedia.org/resource/Ashoka> <http://dbpedia.org/ontology/deathDate> "-0232"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Ashoka> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Pataliputra> .
+<http://dbpedia.org/resource/Ashoka> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Patna> .
+<http://dbpedia.org/resource/Antoninus_Pius> <http://xmlns.com/foaf/0.1/name> "Antoninus Pius"@en .
+<http://dbpedia.org/resource/Antoninus_Pius> <http://xmlns.com/foaf/0.1/surname> "Pius"@en .
+<http://dbpedia.org/resource/Antoninus_Pius> <http://xmlns.com/foaf/0.1/givenName> "Antoninus"@en .
+<http://dbpedia.org/resource/Antoninus_Pius> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Antoninus_Pius> <http://purl.org/dc/elements/1.1/description> "Roman emperor"@en .
+<http://dbpedia.org/resource/Antoninus_Pius> <http://dbpedia.org/ontology/birthDate> "0086-09-19"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Antoninus_Pius> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Lanuvium> .
+<http://dbpedia.org/resource/Antoninus_Pius> <http://dbpedia.org/ontology/deathDate> "0161-03-07"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Antoninus_Pius> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Lorium> .
+<http://dbpedia.org/resource/Alfred_Lawson> <http://xmlns.com/foaf/0.1/name> "Alfred Lawson"@en .
+<http://dbpedia.org/resource/Alfred_Lawson> <http://xmlns.com/foaf/0.1/surname> "Lawson"@en .
+<http://dbpedia.org/resource/Alfred_Lawson> <http://xmlns.com/foaf/0.1/givenName> "Alfred"@en .
+<http://dbpedia.org/resource/Alfred_Lawson> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alfred_Lawson> <http://purl.org/dc/elements/1.1/description> "Baseball player, author, aircraft manufacturer, philosopher"@en .
+<http://dbpedia.org/resource/Alfred_Lawson> <http://dbpedia.org/ontology/birthDate> "1869-03-24"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alfred_Lawson> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/London> .
+<http://dbpedia.org/resource/Alfred_Lawson> <http://dbpedia.org/ontology/deathDate> "1954-11-29"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alfred_Lawson> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/San_Antonio> .
+<http://dbpedia.org/resource/Augustus> <http://xmlns.com/foaf/0.1/name> "Augustus"@en .
+<http://dbpedia.org/resource/Augustus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Augustus> <http://purl.org/dc/elements/1.1/description> "first Roman Emperor"@en .
+<http://dbpedia.org/resource/Augustus> <http://dbpedia.org/ontology/birthDate> "-0063-09-23"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Augustus> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Rome> .
+<http://dbpedia.org/resource/Augustus> <http://dbpedia.org/ontology/deathDate> "2014-10-19"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Augustus> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Nola> .
+<http://dbpedia.org/resource/Arabian_Prince> <http://xmlns.com/foaf/0.1/name> "Arabian Prince"@en .
+<http://dbpedia.org/resource/Arabian_Prince> <http://xmlns.com/foaf/0.1/surname> "Prince"@en .
+<http://dbpedia.org/resource/Arabian_Prince> <http://xmlns.com/foaf/0.1/givenName> "Arabian"@en .
+<http://dbpedia.org/resource/Arabian_Prince> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Arabian_Prince> <http://purl.org/dc/elements/1.1/description> "American rapper"@en .
+<http://dbpedia.org/resource/Arabian_Prince> <http://dbpedia.org/ontology/birthDate> "1965-06-17"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Arabian_Prince> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Compton,_California> .
+<http://dbpedia.org/resource/Andr%C3%A9-Marie_Amp%C3%A8re> <http://xmlns.com/foaf/0.1/name> "Andr\u00E9-Marie Amp\u00E8re"@en .
+<http://dbpedia.org/resource/Andr%C3%A9-Marie_Amp%C3%A8re> <http://xmlns.com/foaf/0.1/surname> "Amp\u00E8re"@en .
+<http://dbpedia.org/resource/Andr%C3%A9-Marie_Amp%C3%A8re> <http://xmlns.com/foaf/0.1/givenName> "Andr\u00E9-Marie"@en .
+<http://dbpedia.org/resource/Andr%C3%A9-Marie_Amp%C3%A8re> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Andr%C3%A9-Marie_Amp%C3%A8re> <http://purl.org/dc/elements/1.1/description> "French physicist and mathematician"@en .
+<http://dbpedia.org/resource/Andr%C3%A9-Marie_Amp%C3%A8re> <http://dbpedia.org/ontology/birthDate> "1775-01-22"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Andr%C3%A9-Marie_Amp%C3%A8re> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Pol%C3%A9mieux> .
+<http://dbpedia.org/resource/Andr%C3%A9-Marie_Amp%C3%A8re> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Lyon> .
+<http://dbpedia.org/resource/Andr%C3%A9-Marie_Amp%C3%A8re> <http://dbpedia.org/ontology/deathDate> "1836-06-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Andr%C3%A9-Marie_Amp%C3%A8re> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Marseille> .
+<http://dbpedia.org/resource/Ambrose> <http://xmlns.com/foaf/0.1/name> "Ambrose"@en .
+<http://dbpedia.org/resource/Ambrose> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Ambrose> <http://purl.org/dc/elements/1.1/description> "bishop of Milan; one of the four original doctors of the Church"@en .
+<http://dbpedia.org/resource/Ambrose> <http://dbpedia.org/ontology/birthDate> "0337"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Ambrose> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Trier> .
+<http://dbpedia.org/resource/Ambrose> <http://dbpedia.org/ontology/deathDate> "0397-04-04"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Ambrose> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Milan> .
+<http://dbpedia.org/resource/Ambrose> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Italy> .
+<http://dbpedia.org/resource/Amalaric> <http://xmlns.com/foaf/0.1/name> "Amalaric"@en .
+<http://dbpedia.org/resource/Amalaric> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Amalaric> <http://purl.org/dc/elements/1.1/description> "King of Visigoths"@en .
+<http://dbpedia.org/resource/Amalaric> <http://dbpedia.org/ontology/deathDate> "0531"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Ahab> <http://xmlns.com/foaf/0.1/name> "Ahab"@en .
+<http://dbpedia.org/resource/Ahab> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Ahab> <http://purl.org/dc/elements/1.1/description> "King of Israel"@en .
+<http://dbpedia.org/resource/Ahab> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Samaria> .
+<http://dbpedia.org/resource/Ahab> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Kingdom_of_Israel_(Samaria)> .
+<http://dbpedia.org/resource/Ahab> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Ramoth-Gilead> .
+<http://dbpedia.org/resource/Ahab> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Kingdom_of_Israel_(Samaria)> .
+<http://dbpedia.org/resource/Amos_Bronson_Alcott> <http://xmlns.com/foaf/0.1/name> "Amos Bronson Alcott"@en .
+<http://dbpedia.org/resource/Amos_Bronson_Alcott> <http://xmlns.com/foaf/0.1/surname> "Alcott"@en .
+<http://dbpedia.org/resource/Amos_Bronson_Alcott> <http://xmlns.com/foaf/0.1/givenName> "Amos Bronson"@en .
+<http://dbpedia.org/resource/Amos_Bronson_Alcott> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Amos_Bronson_Alcott> <http://purl.org/dc/elements/1.1/description> "American teacher and writer"@en .
+<http://dbpedia.org/resource/Amos_Bronson_Alcott> <http://dbpedia.org/ontology/birthDate> "1799-11-29"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Amos_Bronson_Alcott> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Wolcott,_Connecticut> .
+<http://dbpedia.org/resource/Amos_Bronson_Alcott> <http://dbpedia.org/ontology/deathDate> "1888-03-04"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Amos_Bronson_Alcott> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Boston> .
+<http://dbpedia.org/resource/Amos_Bronson_Alcott> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Massachusetts> .
+<http://dbpedia.org/resource/Angilbert> <http://xmlns.com/foaf/0.1/name> "Angilbert"@en .
+<http://dbpedia.org/resource/Angilbert> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Angilbert> <http://purl.org/dc/elements/1.1/description> "Frank/served Charlemagne as diplomat/abbot/poet/semi-son-in-law"@en .
+<http://dbpedia.org/resource/Angilbert> <http://dbpedia.org/ontology/deathDate> "0814-02-18"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Alcuin> <http://xmlns.com/foaf/0.1/name> "Alcuin"@en .
+<http://dbpedia.org/resource/Alcuin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Alcuin> <http://purl.org/dc/elements/1.1/description> "English scholar and abbot"@en .
+<http://dbpedia.org/resource/Alcuin> <http://dbpedia.org/ontology/birthDate> "0735"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Alcuin> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/York> .
+<http://dbpedia.org/resource/Alcuin> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Kingdom_of_Northumbria> .
+<http://dbpedia.org/resource/Alcuin> <http://dbpedia.org/ontology/deathDate> "0804"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://dbpedia.org/resource/Alcuin> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Tours> .
+<http://dbpedia.org/resource/Antonio_Vivaldi> <http://xmlns.com/foaf/0.1/name> "Antonio Lucio Vivaldi"@en .
+<http://dbpedia.org/resource/Antonio_Vivaldi> <http://xmlns.com/foaf/0.1/surname> "Vivaldi"@en .
+<http://dbpedia.org/resource/Antonio_Vivaldi> <http://xmlns.com/foaf/0.1/givenName> "Antonio Lucio"@en .
+<http://dbpedia.org/resource/Antonio_Vivaldi> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://dbpedia.org/resource/Antonio_Vivaldi> <http://purl.org/dc/elements/1.1/description> "Italian composer, violinist"@en .
+<http://dbpedia.org/resource/Antonio_Vivaldi> <http://dbpedia.org/ontology/birthDate> "1678-03-04"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Antonio_Vivaldi> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Venice> .
+<http://dbpedia.org/resource/Antonio_Vivaldi> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Republic_of_Venice> .
+<http://dbpedia.org/resource/Antonio_Vivaldi> <http://dbpedia.org/ontology/deathDate> "1741-07-28"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Antonio_Vivaldi> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Vienna> .
