@@ -30,6 +30,7 @@ package org.rdfhdt.hdt.dictionary;
 import org.rdfhdt.hdt.dictionary.impl.FourSectionDictionary;
 import org.rdfhdt.hdt.dictionary.impl.FourSectionDictionaryBig;
 import org.rdfhdt.hdt.dictionary.impl.HashDictionary;
+import org.rdfhdt.hdt.dictionary.impl.JNIDictionary;
 import org.rdfhdt.hdt.exceptions.IllegalFormatException;
 import org.rdfhdt.hdt.hdt.HDTFactory;
 import org.rdfhdt.hdt.hdt.HDTVocabulary;
@@ -77,7 +78,10 @@ public class DictionaryFactory {
 	
 	public static DictionaryPrivate createDictionary(HDTOptions spec) {
 		String name = spec.get("dictionary.type");
-		if(name==null || HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION.equals(name)) {
+		if(name==null || HDTVocabulary.DICTIONARY_TYPE_K2.equals(name)) {
+			return new JNIDictionary(spec);
+		}
+		else if (HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION.equals(name)){
 			return new FourSectionDictionary(spec);
 		}
 		else if (DICTIONARY_TYPE_FOUR_SECTION_BIG.equals(name)){

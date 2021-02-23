@@ -5,129 +5,98 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import org.rdfhdt.hdt.dictionary.DictionaryPrivate;
-import org.rdfhdt.hdt.dictionary.DictionarySection;
+import org.rdfhdt.hdt.dictionary.DictionarySectionPrivate;
 import org.rdfhdt.hdt.dictionary.TempDictionary;
-import org.rdfhdt.hdt.enums.TripleComponentRole;
+import org.rdfhdt.hdt.dictionary.impl.section.DictionarySectionFactory;
+import org.rdfhdt.hdt.dictionary.impl.section.K2DictionarySection;
+import org.rdfhdt.hdt.exceptions.IllegalFormatException;
+import org.rdfhdt.hdt.hdt.HDTVocabulary;
 import org.rdfhdt.hdt.header.Header;
 import org.rdfhdt.hdt.listener.ProgressListener;
 import org.rdfhdt.hdt.options.ControlInfo;
+import org.rdfhdt.hdt.options.HDTOptions;
+import org.rdfhdt.hdt.options.ControlInfo.Type;
 import org.rdfhdt.hdt.util.io.CountInputStream;
+import org.rdfhdt.hdt.util.listener.IntermediateListener;
 
-public class JNIDictionary implements DictionaryPrivate { 
+public class JNIDictionary extends BaseDictionary { 
 
-	@Override
-	public CharSequence idToString(int id, TripleComponentRole position) {
-		// TODO Auto-generated method stub
-		return null;
+	public JNIDictionary(HDTOptions spec, DictionarySectionPrivate s, DictionarySectionPrivate p, DictionarySectionPrivate o, DictionarySectionPrivate sh) {
+	super(spec);
+	this.subjects = s;
+	this.predicates = p;
+	this.objects = o;
+	this.shared = sh;
 	}
-
-	@Override
-	public int stringToId(CharSequence str, TripleComponentRole position) {
-		// TODO Auto-generated method stub
-		return 0;
+	
+	
+	public JNIDictionary(HDTOptions spec) {
+		super(spec);
+		subjects = new K2DictionarySection(spec);
+		predicates = new K2DictionarySection(spec);
+		objects = new K2DictionarySection(spec);
+		shared = new K2DictionarySection(spec);
 	}
-
-	@Override
-	public long getNumberOfElements() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public long size() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public long getNsubjects() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public long getNpredicates() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public long getNobjects() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public long getNshared() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public DictionarySection getSubjects() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public DictionarySection getPredicates() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public DictionarySection getObjects() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public DictionarySection getShared() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void populateHeader(Header header, String rootNode) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public String getType() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void close() throws IOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void load(InputStream input, ControlInfo ci, ProgressListener listener) throws IOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mapFromFile(CountInputStream in, File f, ProgressListener listener) throws IOException {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public void load(TempDictionary other, ProgressListener listener) {
-		// TODO Auto-generated method stub
-		
+		IntermediateListener iListener = new IntermediateListener(listener);
+		subjects.load(other.getSubjects(), iListener);
+		predicates.load(other.getPredicates(), iListener);
+		objects.load(other.getObjects(), iListener);
+		shared.load(other.getShared(), iListener);
 	}
-
+	
+	@Override
+	public void mapFromFile(CountInputStream in, File f, ProgressListener listener) throws IOException {
+	}
+	
 	@Override
 	public void save(OutputStream output, ControlInfo ci, ProgressListener listener) throws IOException {
-		// TODO Auto-generated method stub
+		ci.setType(Type.DICTIONARY);
+		ci.setFormat(HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION);
+		ci.setInt("elements", this.getNumberOfElements());
+		ci.save(output);
+
+		IntermediateListener iListener = new IntermediateListener(listener);
+		shared.save(output, iListener);
+		subjects.save(output, iListener);
+		predicates.save(output, iListener);
+		objects.save(output, iListener);
+
+	}
+	
+	@Override
+	public void load(InputStream input, ControlInfo ci, ProgressListener listener) throws IOException {
+		if(ci.getType()!=ControlInfo.Type.DICTIONARY) {
+			throw new IllegalFormatException("Trying to read a dictionary section, but was not dictionary.");
+		}
 		
+		IntermediateListener iListener = new IntermediateListener(listener);
+
+		shared = DictionarySectionFactory.loadFrom(input, iListener);
+		subjects = DictionarySectionFactory.loadFrom(input, iListener);
+		predicates = DictionarySectionFactory.loadFrom(input, iListener);
+		objects = DictionarySectionFactory.loadFrom(input, iListener);
+	}
+	
+	@Override
+	public void populateHeader(Header header, String rootNode) {
+		header.insert(rootNode, HDTVocabulary.DICTIONARY_TYPE, HDTVocabulary.DICTIONARY_TYPE_K2);
+		header.insert(rootNode, HDTVocabulary.DICTIONARY_NUMSHARED, getNshared());
+		header.insert(rootNode, HDTVocabulary.DICTIONARY_SIZE_STRINGS, size());
+	}
+	
+	@Override
+	public String getType() {
+		return HDTVocabulary.DICTIONARY_TYPE_K2;
+	}
+	@Override
+	public void close() throws IOException {
+		shared.close();
+		subjects.close();
+		predicates.close();
+		objects.close();
 	}
 
 }
