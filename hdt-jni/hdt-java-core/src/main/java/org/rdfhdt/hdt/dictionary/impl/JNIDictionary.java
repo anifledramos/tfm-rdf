@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import org.rdfhdt.hdt.dictionary.DictionarySectionPrivate;
 import org.rdfhdt.hdt.dictionary.TempDictionary;
 import org.rdfhdt.hdt.dictionary.impl.section.DictionarySectionFactory;
-import org.rdfhdt.hdt.dictionary.impl.section.K2DictionarySection;
+import org.rdfhdt.hdt.dictionary.impl.section.JNIDictionarySection;
 import org.rdfhdt.hdt.exceptions.IllegalFormatException;
 import org.rdfhdt.hdt.hdt.HDTVocabulary;
 import org.rdfhdt.hdt.header.Header;
@@ -20,7 +20,7 @@ import org.rdfhdt.hdt.util.io.CountInputStream;
 import org.rdfhdt.hdt.util.listener.IntermediateListener;
 
 public class JNIDictionary extends BaseDictionary { 
-
+	
 	public JNIDictionary(HDTOptions spec, DictionarySectionPrivate s, DictionarySectionPrivate p, DictionarySectionPrivate o, DictionarySectionPrivate sh) {
 	super(spec);
 	this.subjects = s;
@@ -29,13 +29,12 @@ public class JNIDictionary extends BaseDictionary {
 	this.shared = sh;
 	}
 	
-	
 	public JNIDictionary(HDTOptions spec) {
 		super(spec);
-		subjects = new K2DictionarySection(spec);
-		predicates = new K2DictionarySection(spec);
-		objects = new K2DictionarySection(spec);
-		shared = new K2DictionarySection(spec);
+		subjects = new JNIDictionarySection(spec);
+		predicates = new JNIDictionarySection(spec);
+		objects = new JNIDictionarySection(spec);
+		shared = new JNIDictionarySection(spec);
 	}
 	
 	@Override
@@ -82,14 +81,14 @@ public class JNIDictionary extends BaseDictionary {
 	
 	@Override
 	public void populateHeader(Header header, String rootNode) {
-		header.insert(rootNode, HDTVocabulary.DICTIONARY_TYPE, HDTVocabulary.DICTIONARY_TYPE_K2);
+		header.insert(rootNode, HDTVocabulary.DICTIONARY_TYPE, HDTVocabulary.DICTIONARY_TYPE_JNI);
 		header.insert(rootNode, HDTVocabulary.DICTIONARY_NUMSHARED, getNshared());
 		header.insert(rootNode, HDTVocabulary.DICTIONARY_SIZE_STRINGS, size());
 	}
 	
 	@Override
 	public String getType() {
-		return HDTVocabulary.DICTIONARY_TYPE_K2;
+		return HDTVocabulary.DICTIONARY_TYPE_JNI;
 	}
 	@Override
 	public void close() throws IOException {
@@ -98,5 +97,5 @@ public class JNIDictionary extends BaseDictionary {
 		predicates.close();
 		objects.close();
 	}
-
+		
 }

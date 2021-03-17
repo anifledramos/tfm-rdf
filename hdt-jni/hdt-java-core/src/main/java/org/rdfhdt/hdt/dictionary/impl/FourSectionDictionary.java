@@ -169,4 +169,6 @@ public class FourSectionDictionary extends BaseDictionary {
 		predicates.close();
 		objects.close();
 	}
+	
+	protected native long _writeDictionary(String filename);
 }

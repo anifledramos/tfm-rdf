@@ -7,6 +7,10 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+#undef org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection_TYPE_INDEX
+#define org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection_TYPE_INDEX 2L
+#undef org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection_DEFAULT_BLOCK_SIZE
+#define org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection_DEFAULT_BLOCK_SIZE 16L
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
  * Method:    _writeJNIDictionary
@@ -14,6 +18,38 @@ extern "C" {
  */
 JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1writeJNIDictionary
   (JNIEnv *, jobject, jstring);
+
+/*
+ * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
+ * Method:    _createJNIDictionary
+ * Signature: (Ljava/util/Iterator;I)V
+ */
+JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1createJNIDictionary
+  (JNIEnv *, jobject, jobject, jint);
+
+/*
+ * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
+ * Method:    locate
+ * Signature: (Ljava/lang/String;I)I
+ */
+JNIEXPORT jint JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection_locate
+  (JNIEnv *, jobject, jstring, jint);
+
+/*
+ * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
+ * Method:    extract
+ * Signature: (II)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection_extract
+  (JNIEnv *, jobject, jint, jint);
+
+/*
+ * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
+ * Method:    _saveJNIDictionary
+ * Signature: (Ljava/io/OutputStream;)V
+ */
+JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1saveJNIDictionary
+  (JNIEnv *, jobject, jobject);
 
 #ifdef __cplusplus
 }

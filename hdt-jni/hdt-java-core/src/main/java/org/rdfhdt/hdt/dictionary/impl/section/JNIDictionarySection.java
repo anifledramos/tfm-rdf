@@ -46,7 +46,6 @@ import org.rdfhdt.hdt.util.Mutable;
 import org.rdfhdt.hdt.util.crc.CRC32;
 import org.rdfhdt.hdt.util.crc.CRC8;
 import org.rdfhdt.hdt.util.crc.CRCInputStream;
-import org.rdfhdt.hdt.util.crc.CRCOutputStream;
 import org.rdfhdt.hdt.util.io.IOUtil;
 import org.rdfhdt.hdt.util.string.ByteStringUtil;
 import org.rdfhdt.hdt.util.string.CompactString;
@@ -56,7 +55,18 @@ import org.rdfhdt.hdt.util.string.ReplazableString;
  * @author delfina.ramos
  *
  */
-public class K2DictionarySection implements DictionarySectionPrivate {
+public class JNIDictionarySection implements DictionarySectionPrivate {
+	
+	static {
+		try {
+			System.loadLibrary("jnidictionary");
+		} catch (Exception e) {
+			throw new RuntimeException("Unable to load shared library for K2Triples", e);
+		}
+	}
+
+	public static String JNIDic;
+	
 	public static final int TYPE_INDEX = 2;
 	public static final int DEFAULT_BLOCK_SIZE = 16;
 	
@@ -66,7 +76,7 @@ public class K2DictionarySection implements DictionarySectionPrivate {
 	protected int numstrings;
 	protected SequenceLog64 blocks;
 	
-	public K2DictionarySection(HDTOptions spec) {
+	public JNIDictionarySection(HDTOptions spec) {
 		this.blocksize = (int) spec.getInt("pfc.blocksize");
 		if(blocksize==0) {
 			blocksize = DEFAULT_BLOCK_SIZE;
@@ -87,6 +97,7 @@ public class K2DictionarySection implements DictionarySectionPrivate {
 		this.blocks = new SequenceLog64(32, numentries/blocksize);
 		this.numstrings = 0;
 		
+		Long bucketsize = numentries/blocksize;
 		
 		ByteArrayOutputStream byteOut = new ByteArrayOutputStream(16*1024);
 		
@@ -124,7 +135,9 @@ public class K2DictionarySection implements DictionarySectionPrivate {
 
 			byteOut.flush();
 			text = byteOut.toByteArray();
-
+			
+			_createJNIDictionary(it, bucketsize.intValue());
+			
 			// DEBUG
 			//dumpAll();
 		} catch (IOException e) {
@@ -351,4 +364,12 @@ public class K2DictionarySection implements DictionarySectionPrivate {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	protected native String _writeJNIDictionary(String filename);
+	protected native void _createJNIDictionary(Iterator<CharSequence> it, int bucketsize);
+	protected native int locate(String str, int strLen);
+	protected native String extract(int id, int strLen);
+	protected native void _saveJNIDictionary(OutputStream out);
+	
+
 }

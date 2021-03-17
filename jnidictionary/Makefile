@@ -1,4 +1,4 @@
-CPP=gcc
+CPP=g++
 
 OBJECTS=
 
@@ -44,10 +44,10 @@ use_tree:
 	gcc $(CPPFLAGS) -o $(DEST)/use_tree src/usararbol.c $(OBJECTS) -lm
 
 jni_interface:
-	gcc $(CPPFLAGS) $(INCLUDES_JNI) -c src/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.c -o obj/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.o
+	g++ $(CPPFLAGS) $(INCLUDES_JNI) -c src/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.c -o obj/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.o
 
 jni: jni_interface
-	gcc $(CPPFLAGS_JNI) $(INCLUDES_JNI) -o $(LIBNAME) $(OBJECTS) obj/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.o -lm
+	g++ $(CPPFLAGS_JNI) $(INCLUDES_JNI) -o $(LIBNAME) $(OBJECTS) obj/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.o -lm
 			
 clean:
 	rm -f $(OBJECTS) i$(OBJECTS_BUILD) $(BINS)
