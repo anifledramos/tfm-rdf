@@ -1,5 +1,5 @@
-
 #include "org_rdfhdt_hdt_triples_impl_K2Triples.h"
+
 #include "k2triples-common.h"
 #include "k2triples-builder.h"
 #include "k2triples-ops.h"

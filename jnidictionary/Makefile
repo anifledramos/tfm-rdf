@@ -14,8 +14,7 @@ CPPFLAGS=-Wall -g -fPIC -shared
 CPPFLAGS_NOWARN=-w -g -shared 
 
 CPPFLAGS_JNI=-shared -fPIC -O3 -Wno-deprecated -Wall -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-unused-but-set-variable -Wno-unknown-warning-option
-INCLUDES_JNI=-I /usr/local/include -I /usr/local/include/linux -I ./include -I /opt/local/include -I /usr/include -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux
-
+INCLUDES_JNI=-I /usr/local/include -I /usr/local/include/linux -I ./include -I /opt/local/include -I /usr/include -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux -I libCSD/libcds/includes
 
 LIBNAME=lib/libjnidictionary.so
  
@@ -44,7 +43,7 @@ use_tree:
 	gcc $(CPPFLAGS) -o $(DEST)/use_tree src/usararbol.c $(OBJECTS) -lm
 
 jni_interface:
-	g++ $(CPPFLAGS) $(INCLUDES_JNI) -c src/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.c -o obj/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.o
+	g++ $(CPPFLAGS) $(INCLUDES_JNI) -L lib/libcds.a -c src/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.c -o obj/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.o
 
 jni: jni_interface
 	g++ $(CPPFLAGS_JNI) $(INCLUDES_JNI) -o $(LIBNAME) $(OBJECTS) obj/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.o -lm
