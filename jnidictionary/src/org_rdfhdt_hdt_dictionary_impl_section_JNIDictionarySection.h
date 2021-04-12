@@ -22,10 +22,10 @@ JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDiction
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
  * Method:    _createJNIDictionary
- * Signature: (Ljava/util/Iterator;I)V
+ * Signature: ([BI)V
  */
 JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1createJNIDictionary
-  (JNIEnv *, jobject, jobject, jint);
+  (JNIEnv *, jobject, jbyteArray, jint);
 
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection

@@ -31,6 +31,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.rdfhdt.hdt.compact.integer.VByte;
@@ -61,7 +62,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 		try {
 			System.loadLibrary("jnidictionary");
 		} catch (Exception e) {
-			throw new RuntimeException("Unable to load shared library for K2Triples", e);
+			throw new RuntimeException("Unable to load shared library for JNIDictionary", e);
 		}
 	}
 
@@ -100,6 +101,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 		Long bucketsize = numentries/blocksize;
 		
 		ByteArrayOutputStream byteOut = new ByteArrayOutputStream(16*1024);
+		//ArrayList<Byte> dict = new ArrayList<Byte>();
 		
 		CharSequence previousStr=null;
 		
@@ -136,7 +138,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 			byteOut.flush();
 			text = byteOut.toByteArray();
 			
-			_createJNIDictionary(it, bucketsize.intValue());
+			_createJNIDictionary(text, bucketsize.intValue());
 			
 			// DEBUG
 			//dumpAll();
@@ -366,7 +368,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	}
 	
 	protected native String _writeJNIDictionary(String filename);
-	protected native void _createJNIDictionary(Iterator<CharSequence> it, int bucketsize);
+	protected native void _createJNIDictionary(byte [] it, int bucketsize);
 	protected native int locate(String str, int strLen);
 	protected native String extract(int id, int strLen);
 	protected native void _saveJNIDictionary(OutputStream out);
