@@ -46,7 +46,7 @@ jni_interface:
 	g++ $(CPPFLAGS) $(INCLUDES_JNI) -L lib/libcds.a -c src/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.c -o obj/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.o
 
 jni: jni_interface
-	g++ $(CPPFLAGS_JNI) $(INCLUDES_JNI) -o $(LIBNAME) $(OBJECTS) obj/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.o -lm
+	g++ $(CPPFLAGS_JNI) $(INCLUDES_JNI) -o $(LIBNAME) $(OBJECTS) dictionary.a obj/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.o -lm
 			
 clean:
 	rm -f $(OBJECTS) i$(OBJECTS_BUILD) $(BINS)

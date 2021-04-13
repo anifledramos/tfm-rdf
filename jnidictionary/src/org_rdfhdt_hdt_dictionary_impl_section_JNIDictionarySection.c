@@ -5,12 +5,22 @@
 
 #include <stdio.h>
 
+/*
+ * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
+ * Method:    _writeJNIDictionary
+ * Signature: (Ljava/lang/String;)Ljava/lang/String;
+ */
 JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1writeJNIDictionary
   (JNIEnv * env, jobject obj, jstring filename){
     printf("Generating JNI Dictionary !!!! \n");
     return filename;
   }
 
+/*
+ * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
+ * Method:    _createJNIDictionary
+ * Signature: ([BI)V
+ */
 JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1createJNIDictionary
   (JNIEnv * env, jobject obj, jbyteArray arr, jint bucketsize){
     
@@ -26,4 +36,34 @@ JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionary
 
     env->ReleaseByteArrayElements( arr, b, 0);
     
+  }
+
+/*
+ * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
+ * Method:    locate
+ * Signature: (Ljava/lang/String;I)I
+ */
+JNIEXPORT jint JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection_locate
+  (JNIEnv * env, jobject obj, jstring str, jint strLen){
+    return strLen;
+  }
+
+/*
+ * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
+ * Method:    extract
+ * Signature: (II)Ljava/lang/String;
+ */
+// JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection_extract
+//   (JNIEnv * env, jobject obj, jint id, jint strLen){
+//     jstring str = "";
+//   }
+
+/*
+ * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
+ * Method:    _saveJNIDictionary
+ * Signature: (Ljava/io/OutputStream;)V
+ */
+JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1saveJNIDictionary
+  (JNIEnv * env, jobject obj, jobject out){
+
   }
