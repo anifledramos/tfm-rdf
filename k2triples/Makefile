@@ -44,7 +44,7 @@ use_tree:
 	gcc $(CPPFLAGS) -o $(DEST)/use_tree src/usararbol.c $(OBJECTS) -lm
 
 jni_interface:
-	gcc $(CPPFLAGS) $(INCLUDES_JNI) -c src/org_rdfhdt_hdt_dictionary_impl_K2Triples.c -o obj/org_rdfhdt_hdt_dictionary_impl_K2Triples.o
+	gcc $(CPPFLAGS) $(INCLUDES_JNI) -c src/org_rdfhdt_hdt_triples_impl_K2Triples.c -o obj/org_rdfhdt_hdt_triples_impl_K2Triples.o
 
 jni: jni_interface
 	gcc $(CPPFLAGS_JNI) $(INCLUDES_JNI) -o $(LIBNAME) $(OBJECTS) obj/org_rdfhdt_hdt_triples_impl_K2Triples.o -lm

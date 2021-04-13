@@ -1,5 +1,5 @@
 CPP=g++
-FLAGS=-O9 -Wall -DNDEBUG -I libcds/includes/ 
+FLAGS=-O9 -fPIC -Wall -DNDEBUG -I libcds/includes/ 
 LIB=libcds/lib/libcds.a
 
 OBJECTS_CODER=utils/Coder/StatCoder.o utils/Coder/DecodingTableBuilder.o utils/Coder/DecodingTable.o utils/Coder/DecodingTree.o utils/Coder/BinaryNode.o
@@ -30,6 +30,8 @@ Build:
 Test:	
 	$(CPP) $(FLAGS) -o Test Test.o $(OBJECTS) ${LIB}
  
+package:
+	ar rc dictionary.a $(OBJECTS) Build.o
 
 clean:
 	@echo " [CLN] Removing object files"
