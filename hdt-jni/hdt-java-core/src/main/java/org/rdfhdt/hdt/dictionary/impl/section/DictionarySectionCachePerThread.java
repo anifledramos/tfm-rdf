@@ -160,7 +160,7 @@ public class DictionarySectionCachePerThread implements DictionarySectionPrivate
 	 * @see hdt.dictionary.DictionarySection#load(hdt.dictionary.DictionarySection, hdt.listener.ProgressListener)
 	 */
 	@Override
-	public void load(TempDictionarySection other, ProgressListener listener) {
+	public void load(TempDictionarySection other, ProgressListener listener) throws IOException {
 		child.load(other, listener);
 	}
 

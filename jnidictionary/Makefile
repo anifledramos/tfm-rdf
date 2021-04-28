@@ -6,7 +6,7 @@ OBJECTS_JNI=obj/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.o
 BASELIB=./libCSD/dictionary.a
 
 CPPFLAGS_JNI=-std=c++11 -shared -fPIC -O3
-INCLUDES_JNI=-I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux 
+INCLUDES_JNI=-I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux -I libCSD/libcds/includes
 
 LIBNAME=lib/libjnidictionary.so
  

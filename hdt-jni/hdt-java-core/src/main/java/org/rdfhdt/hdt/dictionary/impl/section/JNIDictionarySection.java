@@ -34,6 +34,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.apache.commons.lang3.CharUtils;
 import org.rdfhdt.hdt.compact.integer.VByte;
 import org.rdfhdt.hdt.compact.sequence.SequenceLog64;
 import org.rdfhdt.hdt.dictionary.DictionarySectionPrivate;
@@ -77,8 +78,19 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	protected int numstrings;
 	protected SequenceLog64 blocks;
 	
+	public static byte[] toByteArray(CharSequence charSequence) {
+		if (charSequence == null) {
+	    	return null;
+	    }
+	    byte[] barr = new byte[charSequence.length()];
+	    for (int i = 0; i < barr.length; i++) {
+	    	barr[i] = (byte) charSequence.charAt(i);
+	    }
+	    return barr;
+	}
+	
 	public JNIDictionarySection(HDTOptions spec) {
-		this.blocksize = (int) spec.getInt("pfc.blocksize");
+		this.blocksize = (int) spec.getInt("jni.blocksize");
 		if(blocksize==0) {
 			blocksize = DEFAULT_BLOCK_SIZE;
 		}
@@ -88,63 +100,35 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	 * @see hdt.dictionary.DictionarySection#load(hdt.dictionary.DictionarySection)
 	 */
 	@Override
-	public void load(TempDictionarySection other, ProgressListener listener) {
+	public void load(TempDictionarySection other, ProgressListener listener) throws IOException {
 		this.blocks = new SequenceLog64(BitUtil.log2(other.size()), other.getNumberOfElements()/blocksize);
 		Iterator<? extends CharSequence> it = other.getSortedEntries();
 		this.load((Iterator<CharSequence>)it, other.getNumberOfElements(), listener);
 	}
 
-	public void load(Iterator<CharSequence> it, long numentries, ProgressListener listener) {
+	public void load(Iterator<CharSequence> it, long numentries, ProgressListener listener) throws IOException {
 		this.blocks = new SequenceLog64(32, numentries/blocksize);
 		this.numstrings = 0;
 		
-		Long bucketsize = numentries/blocksize;
+		System.out.println("numentries:"+ numentries);
+		System.out.println("blocksize:"+ blocksize);
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream(0);
 		
-		ByteArrayOutputStream byteOut = new ByteArrayOutputStream(16*1024);
-		//ArrayList<Byte> dict = new ArrayList<Byte>();
-		
-		CharSequence previousStr=null;
-		
-		try {
-			while(it.hasNext()) {
-				CharSequence str = it.next();
-
-				if(numstrings%blocksize==0) {
-					// Add new block pointer
-					blocks.append(byteOut.size());
-
-					// Copy full string
-					ByteStringUtil.append(byteOut, str, 0);
-				} else {
-					// Find common part.
-					int delta = ByteStringUtil.longestCommonPrefix(previousStr, str);
-					// Write Delta in VByte
-					VByte.encode(byteOut, delta);
-					// Write remaining
-					ByteStringUtil.append(byteOut, str, delta);
-				}
-				byteOut.write(0); // End of string
-
-				numstrings++;
-				previousStr = str;
-			}
+		while(it.hasNext()) {
+			CharSequence str = it.next();
+			byte[] barr = toByteArray(str);
 			
-			// Ending block pointer.
-			blocks.append(byteOut.size());
-
-			// Trim text/blocks
-			blocks.aggresiveTrimToSize();
-
-			byteOut.flush();
-			text = byteOut.toByteArray();
+			System.out.println(barr.toString());
 			
-			_createJNIDictionary(text, bucketsize.intValue());
+			outputStream.write(text);
+			outputStream.write(barr);
+			outputStream.write(0);
 			
-			// DEBUG
-			//dumpAll();
-		} catch (IOException e) {
-			e.printStackTrace();
+			text = outputStream.toByteArray();
+			
 		}
+		
+		_createJNIDictionary(text, blocksize);
 	}
 		
 	protected int locateBlock(CharSequence str) {

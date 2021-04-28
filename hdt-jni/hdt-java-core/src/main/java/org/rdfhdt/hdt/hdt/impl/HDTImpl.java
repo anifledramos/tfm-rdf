@@ -364,7 +364,7 @@ public class HDTImpl implements HDTPrivate {
 		return dictionary.size()+triples.size();
 	}
 
-	public void loadFromModifiableHDT(TempHDT modHdt, ProgressListener listener) {
+	public void loadFromModifiableHDT(TempHDT modHdt, ProgressListener listener) throws IOException {
 
 		modHdt.reorganizeDictionary(listener);
 		modHdt.reorganizeTriples(listener);

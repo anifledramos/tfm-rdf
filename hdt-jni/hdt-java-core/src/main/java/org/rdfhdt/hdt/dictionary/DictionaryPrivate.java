@@ -23,8 +23,9 @@ public interface DictionaryPrivate extends Dictionary {
 	
 	/**
 	 * Loads all information from another dictionary into this dictionary.
+	 * @throws IOException 
 	 */
-	void load(TempDictionary other, ProgressListener listener);
+	void load(TempDictionary other, ProgressListener listener) throws IOException;
 	
 	/**
 	 * Saves the dictionary to a OutputStream

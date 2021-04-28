@@ -77,7 +77,7 @@ public class FourSectionDictionaryBig extends BaseDictionary {
 	 * @see hdt.dictionary.Dictionary#load(hdt.dictionary.Dictionary)
 	 */
 	@Override
-	public void load(TempDictionary other, ProgressListener listener) {
+	public void load(TempDictionary other, ProgressListener listener) throws IOException {
 		IntermediateListener iListener = new IntermediateListener(listener);
 		subjects.load(other.getSubjects(), iListener);
 		predicates.load(other.getPredicates(), iListener);
