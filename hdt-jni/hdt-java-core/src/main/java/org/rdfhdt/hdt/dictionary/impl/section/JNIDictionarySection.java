@@ -77,6 +77,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	protected int blocksize;
 	protected int numstrings;
 	protected SequenceLog64 blocks;
+	protected String fname;
 	
 	public static byte[] toByteArray(CharSequence charSequence) {
 		if (charSequence == null) {
@@ -87,6 +88,14 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	    	barr[i] = (byte) charSequence.charAt(i);
 	    }
 	    return barr;
+//		if (charSequence == null) {
+//	    	return null;
+//	    }
+//		byte[] barr = new byte[charSequence.length()+1];
+//		for (int i = 0; i < barr.length-1; i++) {
+//	    	barr[i] = (byte) charSequence.charAt(i);
+//	    }
+//	    return barr;
 	}
 	
 	public JNIDictionarySection(HDTOptions spec) {
@@ -112,23 +121,19 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 		
 		System.out.println("numentries:"+ numentries);
 		System.out.println("blocksize:"+ blocksize);
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream(0);
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		
 		while(it.hasNext()) {
 			CharSequence str = it.next();
 			byte[] barr = toByteArray(str);
-			
-			System.out.println(barr.toString());
-			
-			outputStream.write(text);
+						
 			outputStream.write(barr);
 			outputStream.write(0);
-			
-			text = outputStream.toByteArray();
-			
 		}
 		
-		_createJNIDictionary(text, blocksize);
+		byte[] concat_text = outputStream.toByteArray();
+		
+		_createJNIDictionary(concat_text, blocksize);
 	}
 		
 	protected int locateBlock(CharSequence str) {

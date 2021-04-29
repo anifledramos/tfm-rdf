@@ -28,27 +28,20 @@ JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionary
 
     cout << "Hello, " << name << endl;
 
-    //uint lenStr = sizeof(arr);
-    uchar *str = new uchar[3];
-    str[0]='a';
-    str[1]='b';
-    str[2]='\0';
-    int lenStr=2;
+    uint lenStr = sizeof(arr);
+
+    printf("size of array:%d\n",lenStr);
 
     jboolean *isCopy = JNI_FALSE;
     jbyte* b = env->GetByteArrayElements( arr, isCopy);
-    //uchar *str = (uchar*)b;
-
+    uchar *str = (uchar*)b;
       IteratorDictString *it = new IteratorDictStringPlain(str, lenStr);
       StringDictionary *dict = NULL;
-      string filename = string("aaa");
-      dict = new StringDictionaryPFC(it, 20);
-      ofstream out("xxx.dic");
+      dict = new StringDictionaryPFC(it, bucketsize);
+      ofstream out("jnidictionary.dic");
     dict->save(out);
     cout << "Hello, " << name << endl;
     printf("JNIDictionary created successfully!!!! \n");
-
-    //env->ReleaseByteArrayElements( arr, b, 0);
     
     return;
   }
