@@ -92,8 +92,8 @@ public class DictionaryFactory {
 	
 	public static DictionaryPrivate createDictionary(ControlInfo ci) {
 		String name = ci.getFormat();
-		if(HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION.equals(name)) {
-			return new FourSectionDictionary(new HDTSpecification());
+		if(HDTVocabulary.DICTIONARY_TYPE_JNI.equals(name)) {
+			return new JNIDictionary(new HDTSpecification());
 		}
 		throw new IllegalFormatException("Implementation of dictionary not found for "+name);
 	}

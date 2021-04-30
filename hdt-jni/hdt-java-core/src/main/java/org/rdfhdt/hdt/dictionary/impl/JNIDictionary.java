@@ -54,7 +54,7 @@ public class JNIDictionary extends BaseDictionary {
 	@Override
 	public void save(OutputStream output, ControlInfo ci, ProgressListener listener) throws IOException {
 		ci.setType(Type.DICTIONARY);
-		ci.setFormat(HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION);
+		ci.setFormat(HDTVocabulary.DICTIONARY_TYPE_JNI);
 		ci.setInt("elements", this.getNumberOfElements());
 		ci.save(output);
 

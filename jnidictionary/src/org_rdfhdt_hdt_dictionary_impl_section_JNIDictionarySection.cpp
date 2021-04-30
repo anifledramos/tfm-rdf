@@ -23,25 +23,29 @@ JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDiction
  */
 JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1createJNIDictionary
   (JNIEnv * env, jobject obj, jbyteArray arr, jint bucketsize){
-    
-    string name = "Delfina";
-
-    cout << "Hello, " << name << endl;
 
     uint lenStr = sizeof(arr);
+    uint *lenp = &lenStr;
 
-    printf("size of array:%d\n",lenStr);
+    // printf("size of array:%d\n",lenStr);
 
     jboolean *isCopy = JNI_FALSE;
     jbyte* b = env->GetByteArrayElements( arr, isCopy);
     uchar *str = (uchar*)b;
+
       IteratorDictString *it = new IteratorDictStringPlain(str, lenStr);
       StringDictionary *dict = NULL;
       dict = new StringDictionaryPFC(it, bucketsize);
       ofstream out("jnidictionary.dic");
+
+    uchar *query = (uchar*)"http://example.org/uri3";
+    cerr << "locate:" << dict->locate(query,lenStr) << ";;";
+
+    std::size_t ext = sizeof(1);
+    cerr << "extract:" << dict->extract(ext,lenp) << ";;"  ;
+
     dict->save(out);
-    cout << "Hello, " << name << endl;
-    printf("JNIDictionary created successfully!!!! \n");
+    printf("JNIDictionary generated successfully \n");
     
     return;
   }
