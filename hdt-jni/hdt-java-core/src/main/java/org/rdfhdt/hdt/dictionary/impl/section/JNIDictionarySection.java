@@ -27,6 +27,7 @@
 
 package org.rdfhdt.hdt.dictionary.impl.section;
 
+import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -122,15 +123,18 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 		System.out.println("numentries:"+ numentries);
 		System.out.println("blocksize:"+ blocksize);
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        String ending = "\0";
 		
 		while(it.hasNext()) {
 			CharSequence str = it.next();
+			System.out.println("element to copy :"+str);
 			byte[] barr = toByteArray(str);
 						
 			outputStream.write(barr);
+			outputStream.write(ending.getBytes());
 			outputStream.write(0);
 		}
-		
+		System.out.println(outputStream);
 		byte[] concat_text = outputStream.toByteArray();
 		
 		_createJNIDictionary(concat_text, blocksize);
