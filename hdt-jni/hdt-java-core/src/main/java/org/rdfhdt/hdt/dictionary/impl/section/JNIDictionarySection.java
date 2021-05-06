@@ -122,18 +122,14 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 		
 		System.out.println("numentries:"+ numentries);
 		System.out.println("blocksize:"+ blocksize);
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        String ending = "\\\0";
-        String zero = "0";        
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();       
 		
 		while(it.hasNext()) {
 			CharSequence str = it.next();
 			System.out.println("element to copy :"+str);
 			byte[] barr = toByteArray(str);
 						
-			outputStream.write(barr);
-			outputStream.write(toByteArray(ending));
-			outputStream.write(toByteArray(zero));	
+			outputStream.write(barr);	
 			outputStream.write(0);		
 		}
 		
