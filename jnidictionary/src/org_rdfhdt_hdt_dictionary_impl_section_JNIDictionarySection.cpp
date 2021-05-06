@@ -22,23 +22,26 @@ JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDiction
  * Signature: ([BI)V
  */
 JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1createJNIDictionary
-  (JNIEnv * env, jobject obj, jbyteArray arr, jint bucketsize){
-
-    uint lenStr = sizeof(arr);  
-    uint16_t i;  
-
-    printf("size of array:%d\n",lenStr);
+  (JNIEnv * env, jobject obj, jbyteArray arr, jint bucketsize){   
     
-    jboolean *isCopy = JNI_FALSE;
-    jbyte* b = env->GetByteArrayElements( arr, isCopy);
-    uchar *str = (uchar*)b;
+    // cout << "jarray : " << arr ;
+    // jboolean *isCopy = JNI_FALSE;
+    // jbyte* b = env->GetByteArrayElements( arr, isCopy);
+    // uchar *str = (uchar*)b;
+    
+    uint lenStr = env->GetArrayLength(arr); 
+    unsigned char* buf = new unsigned char[lenStr];
+    env->GetByteArrayRegion (arr, 0, lenStr, reinterpret_cast<jbyte*>(buf));
+    cout << "new uchar : " << buf << "\n";
+    printf("size of array:%d\n",lenStr);
 
-    for (i=0; i<lenStr; i++)
-    {
-      cout << "array pos " << i << " : " << str << "\n" ;
-    }
+    // uint16_t i;
+    // for (i=0; i<2; i++)
+    // {
+    //   cout << "array pos " << i << " : " << buf[i] << "\n" ;
+    // }
 
-      IteratorDictString *it = new IteratorDictStringPlain(str, lenStr);
+      IteratorDictString *it = new IteratorDictStringPlain(buf, lenStr);
       StringDictionary *dict = NULL;
       dict = new StringDictionaryPFC(it, bucketsize);
       ofstream out("jnidictionary.dic");

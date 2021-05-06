@@ -123,7 +123,8 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 		System.out.println("numentries:"+ numentries);
 		System.out.println("blocksize:"+ blocksize);
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        String ending = "\0";
+        String ending = "\\\0";
+        String zero = "0";        
 		
 		while(it.hasNext()) {
 			CharSequence str = it.next();
@@ -131,13 +132,15 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 			byte[] barr = toByteArray(str);
 						
 			outputStream.write(barr);
-			outputStream.write(ending.getBytes());
-			outputStream.write(0);
+			outputStream.write(toByteArray(ending));
+			outputStream.write(toByteArray(zero));	
+			outputStream.write(0);		
 		}
-		System.out.println(outputStream);
-		byte[] concat_text = outputStream.toByteArray();
 		
-		_createJNIDictionary(concat_text, blocksize);
+		System.out.println(outputStream);
+		byte[] concatText = outputStream.toByteArray();
+		
+		_createJNIDictionary(concatText, blocksize);
 	}
 		
 	protected int locateBlock(CharSequence str) {
