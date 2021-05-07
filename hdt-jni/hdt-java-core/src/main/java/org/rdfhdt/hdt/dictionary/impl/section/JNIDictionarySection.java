@@ -120,20 +120,16 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 		this.blocks = new SequenceLog64(32, numentries/blocksize);
 		this.numstrings = 0;
 		
-		System.out.println("numentries:"+ numentries);
-		System.out.println("blocksize:"+ blocksize);
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();       
 		
 		while(it.hasNext()) {
 			CharSequence str = it.next();
-			System.out.println("element to copy :"+str);
 			byte[] barr = toByteArray(str);
 						
 			outputStream.write(barr);	
 			outputStream.write(0);		
 		}
 		
-		System.out.println(outputStream);
 		byte[] concatText = outputStream.toByteArray();
 		
 		_createJNIDictionary(concatText, blocksize);

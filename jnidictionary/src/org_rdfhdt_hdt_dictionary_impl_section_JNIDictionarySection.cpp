@@ -23,41 +23,29 @@ JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDiction
  */
 JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1createJNIDictionary
   (JNIEnv * env, jobject obj, jbyteArray arr, jint bucketsize){   
-    
-    // cout << "jarray : " << arr ;
-    // jboolean *isCopy = JNI_FALSE;
-    // jbyte* b = env->GetByteArrayElements( arr, isCopy);
-    // uchar *str = (uchar*)b;
-    
+
     uint lenStr = env->GetArrayLength(arr); 
     unsigned char* buf = new unsigned char[lenStr];
     env->GetByteArrayRegion (arr, 0, lenStr, reinterpret_cast<jbyte*>(buf));
-    cout << "new uchar : " << buf << "\n";
-    printf("size of array:%d\n",lenStr);
-
-    // uint16_t i;
-    // for (i=0; i<2; i++)
-    // {
-    //   cout << "array pos " << i << " : " << buf[i] << "\n" ;
-    // }
 
       IteratorDictString *it = new IteratorDictStringPlain(buf, lenStr);
       StringDictionary *dict = NULL;
       dict = new StringDictionaryPFC(it, bucketsize);
-      ofstream out("jnidictionary.dic");
 
-    uchar *query = (uchar*)"http://example.org/predicate6";
-    uint len = sizeof(query);    
-    uint location = dict->locate(query,len);
-    cout << "locate : " << query  << " --> location : "<< location << ";;\n";
-
-    std::size_t id = sizeof(location);
-    uint *lenp = &len;
-    cout << "id : " << id << ";;;\n";
-    cout << "extract : " << dict->extract(id,lenp) << ";;\n"  ;
-
+    ofstream out("jnidictionary.dic");
     dict->save(out);
-    printf("JNIDictionary generated successfully \n");
+
+    cout << "JNIDictionary generated successfully" << endl ;
+
+    uint n = dict->numElements();
+    cout << "Number of elements in dictionary : " << n << endl ;
+    int i;
+    uint lenp;
+    for (i=1; i<=n;i++) {
+      uchar* str = dict->extract(i,&lenp);
+      int pos=dict->locate(str,lenp);
+      cout << "locate : " << i << "," << pos << "," << str << endl ;
+    }  
     
     return;
   }
