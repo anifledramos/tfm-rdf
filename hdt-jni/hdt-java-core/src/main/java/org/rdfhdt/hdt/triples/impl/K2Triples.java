@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
-import java.util.Arrays;
 
 import org.rdfhdt.hdt.dictionary.TempDictionary;
 import org.rdfhdt.hdt.enums.TripleComponentOrder;

@@ -371,4 +371,10 @@ public class PFCDictionarySectionMap implements DictionarySectionPrivate,Closeab
 			throws IOException {
 		throw new NotImplementedException();
 	}
+
+	@Override
+	public void load(TempDictionarySection other, ProgressListener listener, String string) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
 }

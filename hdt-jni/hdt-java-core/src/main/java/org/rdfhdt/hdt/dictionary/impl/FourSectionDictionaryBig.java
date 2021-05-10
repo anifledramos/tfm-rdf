@@ -79,10 +79,10 @@ public class FourSectionDictionaryBig extends BaseDictionary {
 	@Override
 	public void load(TempDictionary other, ProgressListener listener) throws IOException {
 		IntermediateListener iListener = new IntermediateListener(listener);
-		subjects.load(other.getSubjects(), iListener);
-		predicates.load(other.getPredicates(), iListener);
-		objects.load(other.getObjects(), iListener);
-		shared.load(other.getShared(), iListener);
+		subjects.load(other.getSubjects(), iListener, "sujects");
+		predicates.load(other.getPredicates(), iListener, "predicates");
+		objects.load(other.getObjects(), iListener, "objects");
+		shared.load(other.getShared(), iListener, "shared");
 	}
 
 	/* (non-Javadoc)

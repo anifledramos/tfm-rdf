@@ -22,7 +22,7 @@ JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDiction
  * Signature: ([BI)V
  */
 JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1createJNIDictionary
-  (JNIEnv * env, jobject obj, jbyteArray arr, jint bucketsize){   
+  (JNIEnv * env, jobject obj, jbyteArray arr, jint bucketsize, jstring type){   
 
     uint lenStr = env->GetArrayLength(arr); 
     unsigned char* buf = new unsigned char[lenStr];
@@ -32,13 +32,20 @@ JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionary
       StringDictionary *dict = NULL;
       dict = new StringDictionaryPFC(it, bucketsize);
 
-    ofstream out("jnidictionary.dic");
+    const char* dictionary = "jnidictionary-";
+    const char* dictType = env->GetStringUTFChars(type, 0);
+    const char* ext = ".dic";
+    char *filename = new char[strlen(dictionary)+strlen(dictType)+strlen(ext)+1];
+    strcpy(filename,dictionary);
+    strcat(filename,dictType);
+    strcat(filename,ext);
+    ofstream out(filename);
     dict->save(out);
 
-    cout << "JNIDictionary generated successfully" << endl ;
+    cout << dictType << " jnidictionary for generated successfully" << endl ;
 
     uint n = dict->numElements();
-    cout << "Number of elements in dictionary : " << n << endl ;
+    cout << "number of elements in dictionary : " << n << endl ;
     int i;
     uint lenp;
     for (i=1; i<=n;i++) {

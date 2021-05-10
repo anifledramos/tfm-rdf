@@ -25,7 +25,7 @@ JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDiction
  * Signature: ([BI)V
  */
 JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1createJNIDictionary
-  (JNIEnv *, jobject, jbyteArray, jint);
+  (JNIEnv *, jobject, jbyteArray, jint, jstring);
 
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection

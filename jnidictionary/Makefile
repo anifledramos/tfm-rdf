@@ -12,4 +12,5 @@ LIBNAME=lib/libjnidictionary.so
  
 jni: 
 	g++ $(CPPFLAGS_JNI) $(INCLUDES_JNI) src/org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection.cpp $(BASELIB) -o $(LIBNAME)
+	sudo cp ./lib/libjnidictionary.so /usr/lib/
 			

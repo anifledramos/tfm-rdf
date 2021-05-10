@@ -163,4 +163,10 @@ public class DictionarySectionCacheAll implements DictionarySectionPrivate {
 		cacheID=null;
 		child.close();
 	}
+
+	@Override
+	public void load(TempDictionarySection other, ProgressListener listener, String string) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
 }

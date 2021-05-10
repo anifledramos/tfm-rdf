@@ -11,9 +11,18 @@ public interface DictionarySectionPrivate extends DictionarySection {
 	 * Load entries from another dictionary section.
 	 * @param other
 	 * @param listener
+	 * @param string 
 	 * @throws IOException 
 	 */
 	void load(TempDictionarySection other, ProgressListener listener) throws IOException;
+	/**
+	 * Load entries from another dictionary section.
+	 * @param other
+	 * @param listener
+	 * @param string 
+	 * @throws IOException 
+	 */
+	void load(TempDictionarySection other, ProgressListener listener, String string) throws IOException;
 	
 	/**
 	 * Serialize dictionary section to a stream.

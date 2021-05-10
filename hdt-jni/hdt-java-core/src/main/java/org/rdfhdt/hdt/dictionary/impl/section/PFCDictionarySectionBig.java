@@ -505,4 +505,10 @@ public class PFCDictionarySectionBig implements DictionarySectionPrivate {
 		blocks.close();
 		blocks=null;
 	}
+
+	@Override
+	public void load(TempDictionarySection other, ProgressListener listener, String string) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
 }

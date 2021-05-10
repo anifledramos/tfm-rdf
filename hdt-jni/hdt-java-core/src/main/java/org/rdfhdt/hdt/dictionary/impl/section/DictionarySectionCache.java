@@ -154,4 +154,10 @@ public class DictionarySectionCache implements DictionarySectionPrivate {
 	public void close() throws IOException {
 		child.close();
 	}
+
+	@Override
+	public void load(TempDictionarySection other, ProgressListener listener, String string) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
 }

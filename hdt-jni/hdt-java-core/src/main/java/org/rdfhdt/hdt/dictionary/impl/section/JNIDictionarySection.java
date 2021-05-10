@@ -27,15 +27,12 @@
 
 package org.rdfhdt.hdt.dictionary.impl.section;
 
-import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.apache.commons.lang3.CharUtils;
 import org.rdfhdt.hdt.compact.integer.VByte;
 import org.rdfhdt.hdt.compact.sequence.SequenceLog64;
 import org.rdfhdt.hdt.dictionary.DictionarySectionPrivate;
@@ -89,14 +86,6 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	    	barr[i] = (byte) charSequence.charAt(i);
 	    }
 	    return barr;
-//		if (charSequence == null) {
-//	    	return null;
-//	    }
-//		byte[] barr = new byte[charSequence.length()+1];
-//		for (int i = 0; i < barr.length-1; i++) {
-//	    	barr[i] = (byte) charSequence.charAt(i);
-//	    }
-//	    return barr;
 	}
 	
 	public JNIDictionarySection(HDTOptions spec) {
@@ -110,13 +99,13 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	 * @see hdt.dictionary.DictionarySection#load(hdt.dictionary.DictionarySection)
 	 */
 	@Override
-	public void load(TempDictionarySection other, ProgressListener listener) throws IOException {
+	public void load(TempDictionarySection other, ProgressListener listener, String dict) throws IOException {
 		this.blocks = new SequenceLog64(BitUtil.log2(other.size()), other.getNumberOfElements()/blocksize);
 		Iterator<? extends CharSequence> it = other.getSortedEntries();
-		this.load((Iterator<CharSequence>)it, other.getNumberOfElements(), listener);
+		this.load((Iterator<CharSequence>)it, other.getNumberOfElements(), listener, dict);
 	}
 
-	public void load(Iterator<CharSequence> it, long numentries, ProgressListener listener) throws IOException {
+	public void load(Iterator<CharSequence> it, long numentries, ProgressListener listener, String dict) throws IOException {
 		this.blocks = new SequenceLog64(32, numentries/blocksize);
 		this.numstrings = 0;
 		
@@ -132,7 +121,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 		
 		byte[] concatText = outputStream.toByteArray();
 		
-		_createJNIDictionary(concatText, blocksize);
+		_createJNIDictionary(concatText, blocksize, dict);
 	}
 		
 	protected int locateBlock(CharSequence str) {
@@ -356,10 +345,16 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	}
 	
 	protected native String _writeJNIDictionary(String filename);
-	protected native void _createJNIDictionary(byte [] it, int bucketsize);
+	protected native void _createJNIDictionary(byte [] it, int bucketsize, String dict);
 	protected native int locate(String str, int strLen);
 	protected native String extract(int id, int strLen);
 	protected native void _saveJNIDictionary(OutputStream out);
+
+	@Override
+	public void load(TempDictionarySection other, ProgressListener listener) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }
