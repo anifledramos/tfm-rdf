@@ -5,8 +5,6 @@
 
 #include <stdio.h>
 
-StringDictionary *dict;
-
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
  * Method:    _writeJNIDictionary
@@ -21,9 +19,9 @@ JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDiction
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
  * Method:    _createJNIDictionary
- * Signature: ([BI)V
+ * Signature: ([BILjava/lang/String;)J
  */
-JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1createJNIDictionary
+JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1createJNIDictionary
   (JNIEnv * env, jobject obj, jbyteArray arr, jint bucketsize, jstring type){   
 
     uint lenStr = env->GetArrayLength(arr); 
@@ -31,8 +29,7 @@ JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionary
     env->GetByteArrayRegion (arr, 0, lenStr, reinterpret_cast<jbyte*>(buf));
 
       IteratorDictString *it = new IteratorDictStringPlain(buf, lenStr);
-      // StringDictionary *dict = NULL;
-      dict = new StringDictionaryPFC(it, bucketsize);
+      StringDictionary *dict = new StringDictionaryPFC(it, bucketsize);
 
     const char* dictionary = "jnidictionary-";
     const char* dictType = env->GetStringUTFChars(type, 0);
@@ -53,36 +50,42 @@ JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionary
     for (i=1; i<=n;i++) {
       uchar* str = dict->extract(i,&lenp);
       int pos=dict->locate(str,lenp);
-      cout << "locate : " << i << "," << pos << "," << str << endl ;
+      cout << "locate : " << i << "," << pos << "," << str << lenp << endl ;
     }  
     
-    return;
+    return (jlong) dict;
   }
 
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
  * Method:    locate
- * Signature: (Ljava/lang/String;I)I
+ * Signature: (Ljava/lang/String;IJ)I
  */
 JNIEXPORT jint JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection_locate
-  (JNIEnv * env, jobject obj, jstring str, jint strLen){
+  (JNIEnv * env, jobject obj, jstring str, jint strLen, jlong jnidictionary){
 
     const char* query = env->GetStringUTFChars(str, 0);
-    uchar* q = (uchar*)q;
-    int pos = dict->locate(q,strLen);
-
+    uchar* q = (uchar*)query;
+    StringDictionary * dict = (StringDictionary *) jnidictionary;
+    int pos = dict->locate(q,strLen);    
+    
     return pos;
   }
 
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
  * Method:    extract
- * Signature: (II)Ljava/lang/String;
+ * Signature: (IJ)Ljava/lang/String;
  */
-// JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection_extract
-//   (JNIEnv * env, jobject obj, jint id, jint strLen){
-//     jstring str = "";
-//   }
+JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection_extract
+  (JNIEnv * env, jobject obj, jint id, jlong jnidictionary){
+
+    uint len = (uint)id;
+    StringDictionary * dict = (StringDictionary *) jnidictionary;
+    uchar* res = dict->extract(id,&len); 
+
+    return (jstring) res;
+  }
 
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection

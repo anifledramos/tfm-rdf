@@ -77,6 +77,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	protected int numstrings;
 	protected SequenceLog64 blocks;
 	protected String fname;
+	protected long jnidictionary;
 	
 	public static byte[] toByteArray(CharSequence charSequence) {
 		if (charSequence == null) {
@@ -124,7 +125,9 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 		
 		 text = outputStream.toByteArray();
 		
-		_createJNIDictionary(text, blocksize, dict);
+		jnidictionary = _createJNIDictionary(text, blocksize, dict);
+		
+		System.out.println("Diccionario creado "+jnidictionary);
 	}
 		
 	protected int locateBlock(CharSequence str) {
@@ -169,83 +172,11 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 			return 0;
 		}
 		
-		int blocknum = locateBlock(str);
-		if(blocknum>=0) {
-			// Located exactly
-			return (blocknum*blocksize)+1;
-		} else {
-			// Not located exactly.
-			blocknum = -blocknum-2;
-			
-			if(blocknum>=0) {
-				int idblock = locateInBlock(blocknum, str);
-
-				if(idblock != 0) {
-					return (blocknum*blocksize)+idblock+1;
-				}
-			}
-		}
+		int location = locate(str.toString(), str.length(), jnidictionary);
 		
-		return 0;
+		return location;
 	}
-	
-	public int locateInBlock(int block, CharSequence str) {
-		if(block>=blocks.getNumberOfElements()) {
-			return 0;
-		}
 		
-		int pos = (int)blocks.get(block);
-		ReplazableString tempString = new ReplazableString();
-		
-		Mutable<Long> delta = new Mutable<Long>(0L);
-		int idInBlock = 0;
-		int cshared=0;
-		
-//		dumpBlock(block);
-		
-		// Read the first string in the block
-		int slen = ByteStringUtil.strlen(text, pos);
-		tempString.append(text, pos, slen);
-		pos+=slen+1;
-		idInBlock++;
-		
-		while( (idInBlock<blocksize) && (pos<text.length)) 
-		{
-			// Decode prefix
-			pos += VByte.decode(text, pos, delta);
-			
-			//Copy suffix
-			slen = ByteStringUtil.strlen(text, pos);
-			tempString.replace(delta.getValue().intValue(), text, pos, slen);
-			
-			if(delta.getValue()>=cshared)
-			{
-				// Current delta value means that this string
-				// has a larger long common prefix than the previous one
-				cshared += ByteStringUtil.longestCommonPrefix(tempString, str, cshared);
-				
-				if((cshared==str.length()) && (tempString.length()==str.length())) {
-					break;
-				}
-			} else {
-				// We have less common characters than before, 
-				// this string is bigger that what we are looking for.
-				// i.e. Not found.
-				idInBlock = 0;
-				break;
-			}
-			pos+=slen+1;
-			idInBlock++;
-			
-		}
-
-		if(pos>=text.length || idInBlock== blocksize) {
-			idInBlock=0;
-		}
-		
-		return idInBlock;
-	}
-	
 	/* (non-Javadoc)
 	 * @see hdt.dictionary.DictionarySection#extract(int)
 	 */
@@ -259,22 +190,11 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 			return null;
 		}
 		
-		int block = (id-1)/blocksize;
-		int stringid = (id-1)%blocksize;
-		int pos = (int) blocks.get(block);
- 		int len = ByteStringUtil.strlen(text, pos);
+		String ext = extract(id, jnidictionary);
 		
-		Mutable<Long> delta = new Mutable<Long>(0L);
-		ReplazableString tempString = new ReplazableString();
-		tempString.append(text, pos, len);
+		CharSequence res = ext.subSequence(0, ext.lastIndexOf(ext));
 		
-		for(int i=0;i<stringid;i++) {
-			pos+=len+1;
-			pos += VByte.decode(text, pos, delta);
-			len = ByteStringUtil.strlen(text, pos);
-			tempString.replace(delta.getValue().intValue(), text, pos, len);
-		}
-		return new CompactString(tempString).getDelayed();
+		return res;
 	}
 	
 	/* (non-Javadoc)
@@ -346,9 +266,9 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	}
 	
 	protected native String _writeJNIDictionary(String filename);
-	protected native void _createJNIDictionary(byte [] it, int bucketsize, String dict);
-	protected native int locate(String str, int strLen);
-	protected native String extract(int id, int strLen);
+	protected native long _createJNIDictionary(byte [] it, int bucketsize, String dict);
+	protected native int locate(String str, int strLen, long jnidictionary);
+	protected native String extract(int id, long jnidictionary);
 	protected native void _saveJNIDictionary(OutputStream out);
 
 	@Override

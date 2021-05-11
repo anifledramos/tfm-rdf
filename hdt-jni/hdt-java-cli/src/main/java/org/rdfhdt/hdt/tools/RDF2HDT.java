@@ -121,8 +121,8 @@ public class RDF2HDT implements ProgressListener {
 			
 			// implementar queries locate y extract de prueba
 			CharSequence subject = "http://example.org/uri1";
-			CharSequence predicate = "?";
-			CharSequence object = "?";
+			CharSequence predicate = "http://example.org/predicate1";
+			CharSequence object = "\"literal1\"";
 			IteratorTripleString it = null;
 			try {
 				it = hdt.search(subject,predicate,object);
@@ -130,11 +130,9 @@ public class RDF2HDT implements ProgressListener {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			int count = 0;
 			while(it.hasNext()) {
 				TripleString triple = it.next();
 				System.out.println(triple);
-				count++;
 			}
 			
 			// Dump to HDT file
