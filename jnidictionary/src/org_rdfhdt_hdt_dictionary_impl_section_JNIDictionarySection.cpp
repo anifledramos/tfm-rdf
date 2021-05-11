@@ -5,6 +5,8 @@
 
 #include <stdio.h>
 
+StringDictionary *dict;
+
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
  * Method:    _writeJNIDictionary
@@ -29,7 +31,7 @@ JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionary
     env->GetByteArrayRegion (arr, 0, lenStr, reinterpret_cast<jbyte*>(buf));
 
       IteratorDictString *it = new IteratorDictStringPlain(buf, lenStr);
-      StringDictionary *dict = NULL;
+      // StringDictionary *dict = NULL;
       dict = new StringDictionaryPFC(it, bucketsize);
 
     const char* dictionary = "jnidictionary-";
@@ -64,7 +66,12 @@ JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionary
  */
 JNIEXPORT jint JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection_locate
   (JNIEnv * env, jobject obj, jstring str, jint strLen){
-    return strLen;
+
+    const char* query = env->GetStringUTFChars(str, 0);
+    uchar* q = (uchar*)q;
+    int pos = dict->locate(q,strLen);
+
+    return pos;
   }
 
 /*

@@ -51,7 +51,7 @@ public class K2Triples implements TriplesPrivate {
 	
 	protected TripleComponentOrder order=TripleComponentOrder.Unknown;
 	
-	long numberOfElements = 0;
+	long numberOfElements;
 	
 	// JNI pointer
 	protected long k2triples;
@@ -72,6 +72,7 @@ public class K2Triples implements TriplesPrivate {
 		
 	public void load(IteratorTripleID it, ProgressListener listener, int npreds, int nso) {
 		try {
+			
 			assert(it.getOrder() == TripleComponentOrder.SPO);			
 			String filename = "tmploadtriples" + System.currentTimeMillis();
 			
@@ -82,7 +83,8 @@ public class K2Triples implements TriplesPrivate {
 				TripleID triple = it.next();
 				os.writeInt(triple.getPredicate());
 				os.writeInt(triple.getSubject());
-				os.writeInt(triple.getObject());					
+				os.writeInt(triple.getObject());
+				numberOfElements++;
 			}
 			IOUtil.closeQuietly(os);
 			

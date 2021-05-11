@@ -445,7 +445,6 @@ public class PFCDictionarySection implements DictionarySectionPrivate {
 
 	@Override
 	public void load(TempDictionarySection other, ProgressListener listener, String string) throws IOException {
-		// TODO Auto-generated method stub
-		
+				
 	}
 }

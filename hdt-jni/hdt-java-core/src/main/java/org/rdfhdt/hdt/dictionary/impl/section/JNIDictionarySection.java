@@ -72,6 +72,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	
 	// FIXME: Due to java array indexes being int, only 2GB can be addressed per dictionary section.
 	protected byte [] text; // Encoded sequence
+	
 	protected int blocksize;
 	protected int numstrings;
 	protected SequenceLog64 blocks;
@@ -116,12 +117,14 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 			byte[] barr = toByteArray(str);
 						
 			outputStream.write(barr);	
-			outputStream.write(0);		
+			outputStream.write(0);	
+			
+			numstrings++;
 		}
 		
-		byte[] concatText = outputStream.toByteArray();
+		 text = outputStream.toByteArray();
 		
-		_createJNIDictionary(concatText, blocksize, dict);
+		_createJNIDictionary(text, blocksize, dict);
 	}
 		
 	protected int locateBlock(CharSequence str) {
@@ -322,14 +325,12 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 
 	@Override
 	public long size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return text.length+blocksize;
 	}
 
 	@Override
 	public int getNumberOfElements() {
-		// TODO Auto-generated method stub
-		return 0;
+		return numstrings;
 	}
 
 	@Override
@@ -352,8 +353,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 
 	@Override
 	public void load(TempDictionarySection other, ProgressListener listener) throws IOException {
-		// TODO Auto-generated method stub
-		
+				
 	}
 	
 

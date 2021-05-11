@@ -89,7 +89,6 @@ public class HDTImpl implements HDTPrivate {
 		header = HeaderFactory.createHeader(spec);
         dictionary = DictionaryFactory.createDictionary(spec);
         triples = TriplesFactory.createTriples(spec);
-        System.out.println(triples.getClass().getName());
 	}
 
 	public void populateHeaderStructure(String baseUri) {
@@ -302,6 +301,7 @@ public class HDTImpl implements HDTPrivate {
 	@Override
 	public void saveToHDT(String fileName, ProgressListener listener) throws IOException {
 		OutputStream out = new BufferedOutputStream(new FileOutputStream(fileName));
+		// pasar string con nombre de archivos para guardar por separado
 		//OutputStream out = new GZIPOutputStream(new BufferedOutputStream(new FileOutputStream(fileName)));
 		saveToHDT(out, listener);
 		out.close();
@@ -372,6 +372,8 @@ public class HDTImpl implements HDTPrivate {
         // Get parts
         TempTriples modifiableTriples = (TempTriples) modHdt.getTriples();
         TempDictionary modifiableDictionary = (TempDictionary) modHdt.getDictionary();
+        System.out.println(triples.getType());
+        System.out.println(dictionary.getType());
 
         // Convert triples to final format
         if(triples.getClass().equals(modifiableTriples.getClass())) {

@@ -27,14 +27,18 @@
 package org.rdfhdt.hdt.tools;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 import org.rdfhdt.hdt.enums.RDFNotation;
+import org.rdfhdt.hdt.exceptions.NotFoundException;
 import org.rdfhdt.hdt.exceptions.ParserException;
 import org.rdfhdt.hdt.hdt.HDT;
 import org.rdfhdt.hdt.hdt.HDTManager;
 import org.rdfhdt.hdt.listener.ProgressListener;
 import org.rdfhdt.hdt.options.HDTSpecification;
+import org.rdfhdt.hdt.triples.IteratorTripleString;
+import org.rdfhdt.hdt.triples.TripleString;
 import org.rdfhdt.hdt.util.StopWatch;
 
 import com.beust.jcommander.JCommander;
@@ -114,7 +118,25 @@ public class RDF2HDT implements ProgressListener {
 				System.out.println("Different objects: "+hdt.getDictionary().getNobjects());
 				System.out.println("Common Subject/Object:"+hdt.getDictionary().getNshared());
 			}
-
+			
+			// implementar queries locate y extract de prueba
+			CharSequence subject = "http://example.org/uri1";
+			CharSequence predicate = "?";
+			CharSequence object = "?";
+			IteratorTripleString it = null;
+			try {
+				it = hdt.search(subject,predicate,object);
+			} catch (NotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			int count = 0;
+			while(it.hasNext()) {
+				TripleString triple = it.next();
+				System.out.println(triple);
+				count++;
+			}
+			
 			// Dump to HDT file
 			StopWatch sw = new StopWatch();
 			hdt.saveToHDT(hdtOutput, this);

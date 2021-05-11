@@ -47,8 +47,10 @@ void correctEndianness(FILE * f) {
 JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_triples_impl_K2Triples__1createK2Triples
   (JNIEnv * env, jobject obj, jstring filename, jint npreds, jint nso) {
 
-	const char *inFile = (*env)->GetStringUTFChars(env, filename, 0);
+	printf("reaching c to create k2triples!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
 
+	const char *inFile = (*env)->GetStringUTFChars(env, filename, 0);
+	
 	FILE * f = fopen(inFile, "rb+");
 
 	correctEndianness(f);
