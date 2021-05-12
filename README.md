@@ -10,6 +10,7 @@ https://www.overleaf.com/8534796694hpfcpbtbwkpq
 
 ### First make sure you compiled hdt-jni
 $ cd ../hdt-jni
+
 hdt-jni $ mvn install
 
 ### Compile Java to create headers file for native methods
