@@ -48,6 +48,7 @@ jni_interface:
 
 jni: jni_interface
 	gcc $(CPPFLAGS_JNI) $(INCLUDES_JNI) -o $(LIBNAME) $(OBJECTS) obj/org_rdfhdt_hdt_triples_impl_K2Triples.o -lm
+	sudo cp ./lib/libk2triples.so /usr/lib/
 
 #join_tree:
 #	gcc $(CPPFLAGS) -o $(DEST)/join_tree src/usararbolJoinsFF.c $(OBJECTS) -lm
