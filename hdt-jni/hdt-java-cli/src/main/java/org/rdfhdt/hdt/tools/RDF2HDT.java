@@ -121,8 +121,15 @@ public class RDF2HDT implements ProgressListener {
 			
 			// implementar queries locate y extract de prueba
 			CharSequence subject = "http://example.org/uri1";
-			CharSequence predicate = "http://example.org/predicate1";
-			CharSequence object = "\"literal1\"";
+//			CharSequence predicate = "http://example.org/predicate1";
+//			CharSequence object = "\"literal1\"";
+			CharSequence predicate = "?";
+			CharSequence object = "?";
+			
+			subject = subject.length()==1 && subject.charAt(0)=='?' ? "" : subject;
+			predicate = predicate.length()==1 && predicate.charAt(0)=='?' ? "" : predicate;
+			object = object.length()==1 && object.charAt(0)=='?' ? "" : object;
+			
 			IteratorTripleString it = null;
 			try {
 				it = hdt.search(subject,predicate,object);
