@@ -322,7 +322,6 @@ public class HDTImpl implements HDTPrivate {
 		if(triple.getSubject()==-1 || triple.getPredicate()==-1 || triple.getObject()==-1) {
 			throw new NotFoundException("String not found in dictionary");
 		}
-
 		return new DictionaryTranslateIterator(triples.search(triple), dictionary, subject, predicate, object);
 	}
 
@@ -372,8 +371,6 @@ public class HDTImpl implements HDTPrivate {
         // Get parts
         TempTriples modifiableTriples = (TempTriples) modHdt.getTriples();
         TempDictionary modifiableDictionary = (TempDictionary) modHdt.getDictionary();
-        System.out.println(triples.getType());
-        System.out.println(dictionary.getType());
 
         // Convert triples to final format
         if(triples.getClass().equals(modifiableTriples.getClass())) {

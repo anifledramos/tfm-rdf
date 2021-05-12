@@ -126,8 +126,6 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 		 text = outputStream.toByteArray();
 		
 		jnidictionary = _createJNIDictionary(text, blocksize, dict);
-		
-		System.out.println("Diccionario creado "+jnidictionary);
 	}
 		
 	protected int locateBlock(CharSequence str) {
@@ -189,10 +187,8 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 		if(id<1 || id>numstrings) {
 			return null;
 		}
-		
-		String ext = extract(id, jnidictionary);
-		
-		CharSequence res = ext.subSequence(0, ext.lastIndexOf(ext));
+
+		String res = extract(id, jnidictionary);
 		
 		return res;
 	}

@@ -38,10 +38,10 @@ JNIEXPORT jint JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionary
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
  * Method:    extract
- * Signature: (II)Ljava/lang/String;
+ * Signature: (IJ)Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection_extract
-  (JNIEnv *, jobject, jint, jint);
+  (JNIEnv *, jobject, jint, jlong);
 
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection

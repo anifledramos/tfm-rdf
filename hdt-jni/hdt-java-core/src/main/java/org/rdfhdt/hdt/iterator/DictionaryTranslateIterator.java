@@ -121,7 +121,6 @@ public class DictionaryTranslateIterator implements IteratorTripleString {
 			lastOstr = dictionary.idToString(triple.getObject(), TripleComponentRole.OBJECT);
 			lastOid = triple.getObject();
 		}
-		
 		return new TripleString(lastSstr, lastPstr, lastOstr);
 //		return DictionaryUtil.tripleIDtoTripleString(dictionary, triple);
 	}

@@ -5,6 +5,15 @@
 
 #include <stdio.h>
 
+jstring util_char_to_jstring(JNIEnv *env, const char *pat) {
+  jclass strClass = (env)->FindClass("java/lang/String");
+  jmethodID ctorID = (env)->GetMethodID(strClass, "<init>", "([BLjava/lang/String;)V");
+  jbyteArray bytes = (env)->NewByteArray(strlen(pat));
+  (env)->SetByteArrayRegion(bytes, 0, strlen(pat), (jbyte *) pat);
+  jstring encoding = (env)->NewStringUTF("utf-8");
+  return (jstring) (env)->NewObject(strClass, ctorID, bytes, encoding);
+}
+
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
  * Method:    _writeJNIDictionary
@@ -84,7 +93,10 @@ JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDiction
     StringDictionary * dict = (StringDictionary *) jnidictionary;
     uchar* res = dict->extract(id,&len); 
 
-    return (jstring) res;
+    const char* qid = (const char*)res;
+    jstring str = util_char_to_jstring(env,qid);
+
+    return str;
   }
 
 /*
@@ -96,3 +108,4 @@ JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionary
   (JNIEnv * env, jobject obj, jobject out){
 
   }
+
