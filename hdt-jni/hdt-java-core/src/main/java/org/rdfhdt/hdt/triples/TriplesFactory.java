@@ -33,7 +33,7 @@ import org.rdfhdt.hdt.options.ControlInfo;
 import org.rdfhdt.hdt.options.HDTOptions;
 import org.rdfhdt.hdt.options.HDTSpecification;
 import org.rdfhdt.hdt.triples.impl.BitmapTriples;
-import org.rdfhdt.hdt.triples.impl.K2Triples;
+import org.rdfhdt.hdt.triples.impl.JNITriples;
 import org.rdfhdt.hdt.triples.impl.TriplesList;
 
 /**
@@ -73,15 +73,15 @@ public class TriplesFactory {
 	static public TriplesPrivate createTriples(HDTOptions spec) {
 		String type = spec.get("triples.format");		
 		if(type==null) {
-			return new K2Triples(spec);
+			return new JNITriples(spec);
 		} else if(HDTVocabulary.TRIPLES_TYPE_TRIPLESLIST.equals(type)) {
 			return new TriplesList(spec);
 		} else if(HDTVocabulary.TRIPLES_TYPE_BITMAP.equals(type)) {
 			return new BitmapTriples(spec);
-		} else if(HDTVocabulary.TRIPLES_TYPE_K2.equals(type)) {
-			return new K2Triples(spec);
+		} else if(HDTVocabulary.TRIPLES_TYPE_JNI.equals(type)) {
+			return new JNITriples(spec);
 		} else {
-			return new K2Triples(spec);
+			return new JNITriples(spec);
 		}
 	}
 	
@@ -99,8 +99,8 @@ public class TriplesFactory {
 			return new TriplesList(new HDTSpecification());
 		} else if(HDTVocabulary.TRIPLES_TYPE_BITMAP.equals(format)) {
 			return new BitmapTriples();
-		} else if(HDTVocabulary.TRIPLES_TYPE_K2.equals(format)) {
-			return new K2Triples();
+		} else if(HDTVocabulary.TRIPLES_TYPE_JNI.equals(format)) {
+			return new JNITriples();
 		} else {
 			throw new IllegalArgumentException("No implementation for Triples type: "+format);
 		}

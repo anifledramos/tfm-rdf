@@ -118,12 +118,12 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 			byte[] barr = toByteArray(str);
 						
 			outputStream.write(barr);	
-			outputStream.write(0);	
+			outputStream.write(0);
 			
 			numstrings++;
 		}
 		
-		 text = outputStream.toByteArray();
+		text = outputStream.toByteArray();
 		
 		jnidictionary = _createJNIDictionary(text, blocksize, dict);
 	}

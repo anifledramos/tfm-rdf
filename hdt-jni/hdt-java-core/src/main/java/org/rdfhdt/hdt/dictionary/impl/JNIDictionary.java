@@ -70,10 +70,9 @@ public class JNIDictionary extends BaseDictionary {
 		if(ci.getType()!=ControlInfo.Type.DICTIONARY) {
 			throw new IllegalFormatException("Trying to read a dictionary section, but was not dictionary.");
 		}
-		
-		IntermediateListener iListener = new IntermediateListener(listener);
 
-		shared = DictionarySectionFactory.loadFrom(input, iListener);
+		IntermediateListener iListener = new IntermediateListener(listener);
+		shared = DictionarySectionFactory.loadFrom(input, iListener);		
 		subjects = DictionarySectionFactory.loadFrom(input, iListener);
 		predicates = DictionarySectionFactory.loadFrom(input, iListener);
 		objects = DictionarySectionFactory.loadFrom(input, iListener);

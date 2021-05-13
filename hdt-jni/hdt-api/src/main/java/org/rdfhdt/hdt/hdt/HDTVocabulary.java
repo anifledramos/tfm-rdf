@@ -102,7 +102,7 @@ public class HDTVocabulary {
 	public static final String TRIPLES_TYPE_PLAIN = HDT_TRIPLES_BASE+"Plain>";
 	public static final String TRIPLES_TYPE_COMPACT = HDT_TRIPLES_BASE+"Compact>";
 	public static final String TRIPLES_TYPE_BITMAP = HDT_TRIPLES_BASE+"Bitmap>";
-	public static final String TRIPLES_TYPE_K2 = HDT_TRIPLES_BASE+"K2>";
+	public static final String TRIPLES_TYPE_JNI = HDT_TRIPLES_BASE+"JNI>";
 	public static final String TRIPLES_TYPE_RDFCSA = HDT_TRIPLES_BASE+"RDFCSA>";
 	
 	// Index type

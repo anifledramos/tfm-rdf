@@ -52,15 +52,15 @@ JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionar
 
     cout << dictType << " jnidictionary for generated successfully" << endl ;
 
-    uint n = dict->numElements();
-    cout << "number of elements in dictionary : " << n << endl ;
-    int i;
-    uint lenp;
-    for (i=1; i<=n;i++) {
-      uchar* str = dict->extract(i,&lenp);
-      int pos=dict->locate(str,lenp);
-      cout << "locate : " << i << "," << pos << "," << str << lenp << endl ;
-    }  
+    // uint n = dict->numElements();
+    // cout << "number of elements in dictionary : " << n << endl ;
+    // int i;
+    // uint lenp;
+    // for (i=1; i<=n;i++) {
+    //   uchar* str = dict->extract(i,&lenp);
+    //   int pos=dict->locate(str,lenp);
+    //   cout << "locate : " << i << "," << pos << "," << str << lenp << endl ;
+    // }  
     
     return (jlong) dict;
   }

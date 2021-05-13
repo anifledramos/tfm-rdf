@@ -120,9 +120,10 @@ public class RDF2HDT implements ProgressListener {
 			}
 			
 			// implementar queries locate y extract de prueba
-			CharSequence subject = "http://example.org/uri1";
+//			CharSequence subject = "http://example.org/uri1";
 //			CharSequence predicate = "http://example.org/predicate1";
 //			CharSequence object = "\"literal1\"";
+			CharSequence subject = "http://0b53e692-a-62cb3a1a-s-sites.googlegroups.com/site/cbergaminiit/ClaudioBergaminiFOAF.xml?attachauth=ANoY7co-GshGLnEoGpZ6fBO59Ol0Rt1ON_VsrfrTV2K31UUN31kG-JVMZqDvJXu0N4nhZNg-fBrc5Nrh4d1Pw2LT5U_daaP1qyed70JEFgOI-I4-WRDrNaG0_3ft4d37jCeSH_W3E0JILwEt4MODz5swjTAtTJRoUasuttBE2k8o8o086s-sItiQ8_im8Y5jsyxdv_ksLoMBrVggu-9CR6vO0xd50tgKuA__S0lXHj_DabWTvfoWTr8=&attredirects=1";
 			CharSequence predicate = "?";
 			CharSequence object = "?";
 			

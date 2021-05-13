@@ -53,8 +53,6 @@ public class HDTManagerImpl extends HDTManager {
 		hdt.loadOrCreateIndex(listener);
 		return hdt;
 	}
-	
-
 
 	@Override
 	protected HDT doMapIndexedHDT(String hdtFileName, ProgressListener listener) throws IOException {
