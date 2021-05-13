@@ -30,6 +30,14 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QueryFactory;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.ResultSetFormatter;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.rdfhdt.hdt.enums.RDFNotation;
 import org.rdfhdt.hdt.exceptions.NotFoundException;
 import org.rdfhdt.hdt.exceptions.ParserException;
@@ -40,6 +48,7 @@ import org.rdfhdt.hdt.options.HDTSpecification;
 import org.rdfhdt.hdt.triples.IteratorTripleString;
 import org.rdfhdt.hdt.triples.TripleString;
 import org.rdfhdt.hdt.util.StopWatch;
+import org.rdfhdt.hdtjena.HDTGraph;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
@@ -123,7 +132,8 @@ public class RDF2HDT implements ProgressListener {
 //			CharSequence subject = "http://example.org/uri1";
 //			CharSequence predicate = "http://example.org/predicate1";
 //			CharSequence object = "\"literal1\"";
-			CharSequence subject = "http://0b53e692-a-62cb3a1a-s-sites.googlegroups.com/site/cbergaminiit/ClaudioBergaminiFOAF.xml?attachauth=ANoY7co-GshGLnEoGpZ6fBO59Ol0Rt1ON_VsrfrTV2K31UUN31kG-JVMZqDvJXu0N4nhZNg-fBrc5Nrh4d1Pw2LT5U_daaP1qyed70JEFgOI-I4-WRDrNaG0_3ft4d37jCeSH_W3E0JILwEt4MODz5swjTAtTJRoUasuttBE2k8o8o086s-sItiQ8_im8Y5jsyxdv_ksLoMBrVggu-9CR6vO0xd50tgKuA__S0lXHj_DabWTvfoWTr8=&attredirects=1";
+//			CharSequence subject = "http://0b53e692-a-62cb3a1a-s-sites.googlegroups.com/site/cbergaminiit/ClaudioBergaminiFOAF.xml?attachauth=ANoY7co-GshGLnEoGpZ6fBO59Ol0Rt1ON_VsrfrTV2K31UUN31kG-JVMZqDvJXu0N4nhZNg-fBrc5Nrh4d1Pw2LT5U_daaP1qyed70JEFgOI-I4-WRDrNaG0_3ft4d37jCeSH_W3E0JILwEt4MODz5swjTAtTJRoUasuttBE2k8o8o086s-sItiQ8_im8Y5jsyxdv_ksLoMBrVggu-9CR6vO0xd50tgKuA__S0lXHj_DabWTvfoWTr8=&attredirects=1";
+			CharSequence subject = "?";
 			CharSequence predicate = "?";
 			CharSequence object = "?";
 			
@@ -142,6 +152,29 @@ public class RDF2HDT implements ProgressListener {
 				TripleString triple = it.next();
 				System.out.println(triple);
 			}
+			
+			// Create Jena wrapper on top of HDT.
+			HDTGraph graph = new HDTGraph(hdt);
+			Model model = ModelFactory.createModelForGraph(graph);
+
+			// Use Jena ARQ to execute the query.
+			Query query = QueryFactory.create("SELECT * WHERE { <http://example.org/uri1> ?p ?o . } LIMIT 2");
+			QueryExecution qe = QueryExecutionFactory.create(query, model);
+
+			try {
+				// FIXME: Do ASK/DESCRIBE/CONSTRUCT 
+				ResultSet results = qe.execSelect();
+
+				/*while(results.hasNext()) {
+				QuerySolution sol = results.nextSolution();
+				System.out.println(sol.toString());
+				}*/
+				// Output query results	
+				ResultSetFormatter.outputAsCSV(System.out, results);
+			} finally {
+				qe.close();				
+			}
+
 			
 			// Dump to HDT file
 			StopWatch sw = new StopWatch();
