@@ -116,7 +116,7 @@ public class RDF2HDT implements ProgressListener {
 			}
 		}
 		
-		HDT hdt = HDTManager.generateHDT(rdfInput, baseURI,notation , spec, this);
+		HDT hdt = HDTManager.generateHDT(rdfInput, baseURI,notation , spec, this);	
 		
 		try {
 			// Show Basic stats
@@ -133,9 +133,9 @@ public class RDF2HDT implements ProgressListener {
 //			CharSequence predicate = "http://example.org/predicate1";
 //			CharSequence object = "\"literal1\"";
 //			CharSequence subject = "http://0b53e692-a-62cb3a1a-s-sites.googlegroups.com/site/cbergaminiit/ClaudioBergaminiFOAF.xml?attachauth=ANoY7co-GshGLnEoGpZ6fBO59Ol0Rt1ON_VsrfrTV2K31UUN31kG-JVMZqDvJXu0N4nhZNg-fBrc5Nrh4d1Pw2LT5U_daaP1qyed70JEFgOI-I4-WRDrNaG0_3ft4d37jCeSH_W3E0JILwEt4MODz5swjTAtTJRoUasuttBE2k8o8o086s-sItiQ8_im8Y5jsyxdv_ksLoMBrVggu-9CR6vO0xd50tgKuA__S0lXHj_DabWTvfoWTr8=&attredirects=1";
-			CharSequence subject = "?";
-			CharSequence predicate = "?";
-			CharSequence object = "?";
+			CharSequence subject = "http://dbpedia.org/resource/Andy_Warhol";
+			CharSequence predicate = "http://xmlns.com/foaf/0.1/name";
+			CharSequence object = "http://dbpedia.org/resource/England";
 			
 			subject = subject.length()==1 && subject.charAt(0)=='?' ? "" : subject;
 			predicate = predicate.length()==1 && predicate.charAt(0)=='?' ? "" : predicate;
@@ -158,7 +158,12 @@ public class RDF2HDT implements ProgressListener {
 			Model model = ModelFactory.createModelForGraph(graph);
 
 			// Use Jena ARQ to execute the query.
-			Query query = QueryFactory.create("SELECT * WHERE { <http://example.org/uri1> ?p ?o . } LIMIT 2");
+			System.out.println("****************************************************************");
+			System.out.println("SPARQL Query:");
+			String q = "SELECT ?s ?p ?o WHERE { ?s ?p \"Albert\"@en . }";
+			System.out.println(q);
+			System.out.println("****************************************************************");
+			Query query = QueryFactory.create(q);
 			QueryExecution qe = QueryExecutionFactory.create(query, model);
 
 			try {

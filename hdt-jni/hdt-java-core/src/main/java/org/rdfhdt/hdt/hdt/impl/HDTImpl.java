@@ -318,7 +318,7 @@ public class HDTImpl implements HDTPrivate {
 				dictionary.stringToId(predicate, TripleComponentRole.PREDICATE),
 				dictionary.stringToId(object, TripleComponentRole.OBJECT)
 			);
-
+		
 		if(triple.getSubject()==-1 || triple.getPredicate()==-1 || triple.getObject()==-1) {
 			throw new NotFoundException("String not found in dictionary");
 		}

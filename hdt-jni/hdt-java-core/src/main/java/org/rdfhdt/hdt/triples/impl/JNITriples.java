@@ -185,7 +185,6 @@ public class JNITriples implements TriplesPrivate {
 			}
 		}
 		
-		
 		return new JNITriplesIterator(pattern, nres, s, p, o);
 	}
 

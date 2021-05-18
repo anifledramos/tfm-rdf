@@ -166,7 +166,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	 */
 	@Override
 	public int locate(CharSequence str) {
-		if(text==null || blocks==null) {
+		if (numstrings==0) {
 			return 0;
 		}
 		
@@ -180,11 +180,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	 */
 	@Override
 	public CharSequence extract(int id) {
-		if(text==null || blocks==null) {
-			return null;
-		}
-		
-		if(id<1 || id>numstrings) {
+		if (numstrings==0 || id<1 || id>numstrings) {
 			return null;
 		}
 
