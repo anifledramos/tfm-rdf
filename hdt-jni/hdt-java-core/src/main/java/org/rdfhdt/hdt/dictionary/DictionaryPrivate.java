@@ -18,6 +18,17 @@ public interface DictionaryPrivate extends Dictionary {
 	 * @throws IOException
 	 */
 	void load(InputStream input, ControlInfo ci, ProgressListener listener) throws IOException;
+	
+	/**
+	 * Loads a dictionary from a InputStream
+	 * 
+	 * @param input
+	 *            InputStream to load the dictionary from
+	 * @param filename
+	 *            file storing the dictionary
+	 * @throws IOException
+	 */
+	void load(InputStream input, String filename, ControlInfo ci, ProgressListener listener) throws IOException;
 
 	void mapFromFile(CountInputStream in, File f, ProgressListener listener) throws IOException;
 	
@@ -31,5 +42,10 @@ public interface DictionaryPrivate extends Dictionary {
 	 * Saves the dictionary to a OutputStream
 	 */
 	void save(OutputStream output, ControlInfo ci, ProgressListener listener) throws IOException;
+	
+	/**
+	 * Saves the dictionary to a OutputStream to specific file
+	 */
+	void save(OutputStream output, String filename, ControlInfo ci, ProgressListener listener) throws IOException;
 
 }

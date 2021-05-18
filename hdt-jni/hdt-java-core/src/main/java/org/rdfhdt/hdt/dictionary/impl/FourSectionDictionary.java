@@ -171,4 +171,17 @@ public class FourSectionDictionary extends BaseDictionary {
 	}
 	
 	protected native long _writeDictionary(String filename);
+
+	@Override
+	public void load(InputStream input, String filename, ControlInfo ci, ProgressListener listener) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void save(OutputStream output, String filename, ControlInfo ci, ProgressListener listener)
+			throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
 }

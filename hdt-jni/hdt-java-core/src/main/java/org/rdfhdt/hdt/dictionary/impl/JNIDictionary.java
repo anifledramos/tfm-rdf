@@ -47,6 +47,19 @@ public class JNIDictionary extends BaseDictionary {
 	}
 	
 	@Override
+	public void load(InputStream input, String filename, ControlInfo ci, ProgressListener listener) throws IOException {
+		if(ci.getType()!=ControlInfo.Type.DICTIONARY) {
+			throw new IllegalFormatException("Trying to read a dictionary section, but was not dictionary.");
+		}
+		
+		IntermediateListener iListener = new IntermediateListener(listener);
+		subjects.load(input, iListener);
+		predicates.load(input, iListener);
+		objects.load(input, iListener);
+		shared.load(input, iListener);		
+	}
+	
+	@Override
 	public void mapFromFile(CountInputStream in, File f, ProgressListener listener) throws IOException {
 	}
 	
@@ -63,6 +76,13 @@ public class JNIDictionary extends BaseDictionary {
 		predicates.save(output, iListener);
 		objects.save(output, iListener);
 
+	}
+	
+	@Override
+	public void save(OutputStream output, String filename, ControlInfo ci, ProgressListener listener)
+			throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	@Override
