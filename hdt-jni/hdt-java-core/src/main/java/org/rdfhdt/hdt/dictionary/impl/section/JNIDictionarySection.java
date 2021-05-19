@@ -194,6 +194,8 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	 */
 	@Override
 	public void load(InputStream input, ProgressListener listener) throws IOException {
+		
+		//todo esto no hace falta porque lo hago en c, llama a método nativo
 		CRCInputStream in = new CRCInputStream(input, new CRC8());
 		
 		// Read type
@@ -254,6 +256,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	@Override
 	public void save(OutputStream output, ProgressListener listener) throws IOException {
 		// TODO Auto-generated method stub
+		// este no va a hacer nada pero el que reciba el string llamara al metodo nativo
 		
 	}
 	

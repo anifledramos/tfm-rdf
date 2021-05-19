@@ -166,7 +166,9 @@ public class HDTImpl implements HDTPrivate {
 		ci.clear();
 		ci.load(input);
 		iListener.setRange(5, 60);
+		//recibe tipo de diccionario
 		dictionary = DictionaryFactory.createDictionary(ci);
+		// nuestro diccionario debería tener hdtFileName de input y no un inputStream
 		dictionary.load(input, ci, iListener);
 
 		// Load Triples
