@@ -47,6 +47,18 @@ public class JNIDictionary extends BaseDictionary {
 	}
 	
 	@Override
+	public void load(String filename, ControlInfo ci, ProgressListener listener) throws IOException {
+		if(ci.getType()!=ControlInfo.Type.DICTIONARY) {
+			throw new IllegalFormatException("Trying to read a dictionary section, but was not dictionary.");
+		}
+		IntermediateListener iListener = new IntermediateListener(listener);
+		subjects.load(filename+".dic.s", iListener);
+		predicates.load(filename+".dic.p", iListener);
+		objects.load(filename+".dic.o", iListener);
+		shared.load(filename+".dic.shr", iListener);
+	}
+	
+	@Override
 	public void load(InputStream input, String filename, ControlInfo ci, ProgressListener listener) throws IOException {
 		if(ci.getType()!=ControlInfo.Type.DICTIONARY) {
 			throw new IllegalFormatException("Trying to read a dictionary section, but was not dictionary.");
@@ -116,5 +128,15 @@ public class JNIDictionary extends BaseDictionary {
 		predicates.close();
 		objects.close();
 	}
+
+	@Override
+	public boolean singleFileStorage(String type) {
+		if (type==HDTVocabulary.DICTIONARY_TYPE_JNI)
+			return false;
+		else 
+			return true;
+	}
+
+	
 		
 }

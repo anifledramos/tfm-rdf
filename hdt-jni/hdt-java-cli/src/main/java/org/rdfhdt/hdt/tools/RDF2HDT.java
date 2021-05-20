@@ -154,32 +154,33 @@ public class RDF2HDT implements ProgressListener {
 //			}
 			
 			// Create Jena wrapper on top of HDT.
-			HDTGraph graph = new HDTGraph(hdt);
-			Model model = ModelFactory.createModelForGraph(graph);
-
-			// Use Jena ARQ to execute the query.
-			System.out.println("****************************************************************");
-			System.out.println("SPARQL Query:");
-			String q = "SELECT * WHERE { ?s ?p ?o .\n" + 
-					"  FILTER regex(?o, \"Elizabeth\") } LIMIT 100";
-			System.out.println(q);
-			System.out.println("****************************************************************");
-			Query query = QueryFactory.create(q);
-			QueryExecution qe = QueryExecutionFactory.create(query, model);
-
-			try {
-				// FIXME: Do ASK/DESCRIBE/CONSTRUCT 
-				ResultSet results = qe.execSelect();
-
-				/*while(results.hasNext()) {
-				QuerySolution sol = results.nextSolution();
-				System.out.println(sol.toString());
-				}*/
-				// Output query results	
-				ResultSetFormatter.outputAsCSV(System.out, results);
-			} finally {
-				qe.close();				
-			}
+//			HDTGraph graph = new HDTGraph(hdt);
+//			Model model = ModelFactory.createModelForGraph(graph);
+//
+//			// Use Jena ARQ to execute the query.
+//			System.out.println("****************************************************************");
+//			System.out.println("SPARQL Query:");
+////			String q = "SELECT * WHERE { ?s ?p ?o .\n" + 
+////					"  FILTER regex(?o, \"Elizabeth\") } LIMIT 100";
+//			String q = "SELECT ?s ?p ?o WHERE { ?s ?p ?o .} LIMIT 100";
+//			System.out.println(q);
+//			System.out.println("****************************************************************");
+//			Query query = QueryFactory.create(q);
+//			QueryExecution qe = QueryExecutionFactory.create(query, model);
+//
+//			try {
+//				// FIXME: Do ASK/DESCRIBE/CONSTRUCT 
+//				ResultSet results = qe.execSelect();
+//
+//				/*while(results.hasNext()) {
+//				QuerySolution sol = results.nextSolution();
+//				System.out.println(sol.toString());
+//				}*/
+//				// Output query results	
+//				ResultSetFormatter.outputAsCSV(System.out, results);
+//			} finally {
+//				qe.close();				
+//			}
 
 			
 			// Dump to HDT file

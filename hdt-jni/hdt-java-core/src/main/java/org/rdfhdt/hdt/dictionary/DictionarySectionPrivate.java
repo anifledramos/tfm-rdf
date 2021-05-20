@@ -39,4 +39,5 @@ public interface DictionarySectionPrivate extends DictionarySection {
 	 * @throws IOException
 	 */
 	void load(InputStream input, ProgressListener listener) throws IOException;
+	void load(String filename, ProgressListener listener) throws IOException;
 }

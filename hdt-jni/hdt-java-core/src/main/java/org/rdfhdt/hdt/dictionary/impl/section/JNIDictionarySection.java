@@ -127,6 +127,12 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 		
 		jnidictionary = _createJNIDictionary(text, blocksize, dict);
 	}
+	
+	@Override
+	public void load(String filename, ProgressListener listener) throws IOException {
+		
+		jnidictionary = _loadJNIDictionary(filename);
+	}
 		
 	protected int locateBlock(CharSequence str) {
 		if(blocks.getNumberOfElements()==0) {
@@ -264,6 +270,8 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	protected native long _createJNIDictionary(byte [] it, int bucketsize, String dict);
 	protected native int locate(String str, int strLen, long jnidictionary);
 	protected native String extract(int id, long jnidictionary);
+	protected native long _loadJNIDictionary(InputStream in);
+	protected native long _loadJNIDictionary(String filename);
 	protected native void _saveJNIDictionary(OutputStream out);
 
 	@Override

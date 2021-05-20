@@ -40,17 +40,17 @@ JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionar
       IteratorDictString *it = new IteratorDictStringPlain(buf, lenStr);
       StringDictionary *dict = new StringDictionaryPFC(it, bucketsize);
 
-    const char* dictionary = "jnidictionary-";
-    const char* dictType = env->GetStringUTFChars(type, 0);
-    const char* ext = ".dic";
-    char *filename = new char[strlen(dictionary)+strlen(dictType)+strlen(ext)+1];
-    strcpy(filename,dictionary);
-    strcat(filename,dictType);
-    strcat(filename,ext);
-    ofstream out(filename);
-    dict->save(out);
+    // const char* dictionary = "jnidictionary-";
+    // const char* dictType = env->GetStringUTFChars(type, 0);
+    // const char* ext = ".dic";
+    // char *filename = new char[strlen(dictionary)+strlen(dictType)+strlen(ext)+1];
+    // strcpy(filename,dictionary);
+    // strcat(filename,dictType);
+    // strcat(filename,ext);
+    // ofstream out(filename);
+    // dict->save(out);
 
-    cout << dictType << " jnidictionary for generated successfully" << endl ;
+    // cout << dictType << " jnidictionary for generated successfully" << endl ;
 
     // uint n = dict->numElements();
     // cout << "number of elements in dictionary : " << n << endl ;
@@ -97,6 +97,40 @@ JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDiction
     jstring str = util_char_to_jstring(env,qid);
 
     return str;
+  }
+
+/*
+ * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
+ * Method:    _loadJNIDictionary
+ * Signature: (Ljava/io/InputStream;)J
+ */
+JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1loadJNIDictionary__Ljava_io_InputStream_2
+  (JNIEnv * env, jobject obj, jobject in){
+
+  const char *inFile = (*env)->GetStringUTFChars(env, filename, 0);
+
+	FILE * f = fopen(inFile, "rb+");
+
+	printf("Loading from %s\n", inFile);
+
+	StringDictionary * dict = load(f);
+
+	inicializarEstructuras(k2triples->npreds, k2triples->nso);
+
+	fclose(f);
+
+	return (jlong) k2triples;
+
+  }
+
+/*
+ * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
+ * Method:    _loadJNIDictionary
+ * Signature: (Ljava/lang/String;)J
+ */
+JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1loadJNIDictionary__Ljava_lang_String_2
+  (JNIEnv * env, jobject obj, jstring filename){
+
   }
 
 /*

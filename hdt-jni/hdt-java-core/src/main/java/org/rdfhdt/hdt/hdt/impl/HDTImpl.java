@@ -169,7 +169,11 @@ public class HDTImpl implements HDTPrivate {
 		//recibe tipo de diccionario
 		dictionary = DictionaryFactory.createDictionary(ci);
 		// nuestro diccionario debería tener hdtFileName de input y no un inputStream
-		dictionary.load(input, ci, iListener);
+		System.out.println("nombre de archivo "+hdtFileName);
+		if (dictionary.singleFileStorage(dictionary.getType())==false)
+			dictionary.load(hdtFileName, ci, iListener);
+		else
+			dictionary.load(input, ci, iListener);
 
 		// Load Triples
 		ci.clear();
@@ -187,10 +191,10 @@ public class HDTImpl implements HDTPrivate {
 		} else {
 			in = new CountInputStream(new BufferedInputStream(new FileInputStream(hdtFileName)));
 		}
+		this.hdtFileName = hdtFileName;
 		loadFromHDT(in, listener);
 		in.close();
 
-		this.hdtFileName = hdtFileName;
 	}
 
 	@Override
@@ -251,6 +255,7 @@ public class HDTImpl implements HDTPrivate {
 		ci.load(stream);
 		stream.reset();
 		iListener.setRange(5, 60);
+		System.out.println("ESTA MAPEANDO");
 		dictionary = DictionaryFactory.createDictionary(ci);
 		dictionary.load(stream, ci, iListener);
 

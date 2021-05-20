@@ -184,4 +184,15 @@ public class FourSectionDictionary extends BaseDictionary {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void load(String filename, ControlInfo ci, ProgressListener listener) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean singleFileStorage(String type) {
+		return false;
+	}
 }

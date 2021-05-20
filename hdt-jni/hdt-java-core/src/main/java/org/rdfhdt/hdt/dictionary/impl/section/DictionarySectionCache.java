@@ -160,4 +160,10 @@ public class DictionarySectionCache implements DictionarySectionPrivate {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void load(String filename, ProgressListener listener) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
 }

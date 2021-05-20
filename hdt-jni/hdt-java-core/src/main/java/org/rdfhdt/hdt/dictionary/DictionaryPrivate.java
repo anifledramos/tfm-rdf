@@ -19,6 +19,8 @@ public interface DictionaryPrivate extends Dictionary {
 	 */
 	void load(InputStream input, ControlInfo ci, ProgressListener listener) throws IOException;
 	
+	void load(String filename, ControlInfo ci, ProgressListener listener) throws IOException;
+	
 	/**
 	 * Loads a dictionary from a InputStream
 	 * 
@@ -47,5 +49,7 @@ public interface DictionaryPrivate extends Dictionary {
 	 * Saves the dictionary to a OutputStream to specific file
 	 */
 	void save(OutputStream output, String filename, ControlInfo ci, ProgressListener listener) throws IOException;
+	
+	boolean singleFileStorage(String type);
 
 }

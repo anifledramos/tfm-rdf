@@ -98,11 +98,15 @@ public class HDTManagerImpl extends HDTManager {
 		StopWatch st = new StopWatch();
 		
 		// Create TempHDT
+		System.out.println("crea hdt temporal");
 		TempHDT modHdt = loader.loadFromRDF(spec, rdfFileName, baseURI, rdfNotation, listener);
 		
 		// Convert to HDT
+		System.out.println("crea hdt");
 		HDTImpl hdt = new HDTImpl(spec); 
+		System.out.println("crea hdt modificable");
 		hdt.loadFromModifiableHDT(modHdt, listener);
+		System.out.println("crea hdt header");
 		hdt.populateHeaderStructure(modHdt.getBaseURI());
 		
 		// Add file size to Header

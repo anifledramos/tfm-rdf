@@ -447,4 +447,10 @@ public class PFCDictionarySection implements DictionarySectionPrivate {
 	public void load(TempDictionarySection other, ProgressListener listener, String string) throws IOException {
 				
 	}
+
+	@Override
+	public void load(String filename, ProgressListener listener) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
 }
