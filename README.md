@@ -15,7 +15,7 @@ hdt-jni $ mvn install
 
 ### Compile Java to create headers file for native methods
 #### JNITriples
-javac -cp ../../../target/hdt-java-core-2.0.jar:../../../../hdt-api/target/hdt-api-2.0.jar -h . org/rdfhdt/hdt/triples/impl/K2Triples.java 
+javac -cp ../../../target/hdt-java-core-2.0.jar:../../../../hdt-api/target/hdt-api-2.0.jar -h . org/rdfhdt/hdt/triples/impl/JNITriples.java 
 
 #### JNIDictionary
 javac -cp ../../../target/hdt-java-core-2.0.jar:../../../../hdt-api/target/hdt-api-2.0.jar -h . org/rdfhdt/hdt/dictionary/impl/section/JNIDictionarySection.java 
@@ -28,7 +28,7 @@ hdt-jni $ cd ../hdt-jena
 hdt-jni $ mvn install
 
 ### Compile JNITriples
-k2triples $ make jni
+jnitriples $ make jni
 
 ### Compile JNIDictionary
 jnidictionary $ make jni
