@@ -223,33 +223,15 @@ public class JNITriples implements TriplesPrivate {
 		ci.setType(ControlInfo.Type.TRIPLES);
 		ci.save(output);
 		
-		String file = fileName+".triples";
+		String filename = fileName + ".triples";
+
 		
-		_storeJNITriples(jnitriples, file);
+		_storeJNITriples(jnitriples, filename);
 		
-		System.out.println(file+" saved successfully");
-		
-		File f = new File(file);
-		Long size = f.length();
-					
-	    output.write(longToBytes(size));	
-	    
+		File f = new File(filename);
+		Long size = f.length();					    
 	    System.out.println("Size saved .... " + size);
-		
-	    InputStream is = new FileInputStream(file);
-	    
-		IOUtil.copyStream(is, output);
-		
-		IOUtil.closeQuietly(is);
-		
-		f.deleteOnExit();
-		if (f.exists()) {
-			try {
-				f.delete();
-			} catch (Exception e) {
-				
-			}
-		}
+
 		
 	}
 
