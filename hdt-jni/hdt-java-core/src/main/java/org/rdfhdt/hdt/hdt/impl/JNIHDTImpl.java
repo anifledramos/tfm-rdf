@@ -268,7 +268,7 @@ public class JNIHDTImpl implements HDTPrivate {
 	 * @see hdt.HDT#saveToHDT(java.io.OutputStream)
 	 */
 	@Override
-	public void saveToHDT(OutputStream output, ProgressListener listener) throws IOException {
+	public void saveToHDT(OutputStream output, String filename, ProgressListener listener) throws IOException {
 		ControlInfo ci = new ControlInformation();
 		IntermediateListener iListener = new IntermediateListener(listener);
 
@@ -299,7 +299,7 @@ public class JNIHDTImpl implements HDTPrivate {
 	public void saveToHDT(String fileName, ProgressListener listener) throws IOException {
 		OutputStream out = new BufferedOutputStream(new FileOutputStream(fileName));
 		//OutputStream out = new GZIPOutputStream(new BufferedOutputStream(new FileOutputStream(fileName)));
-		saveToHDT(out, listener);
+		saveToHDT(out, fileName, listener);
 		out.close();
 
 		this.hdtFileName = fileName;

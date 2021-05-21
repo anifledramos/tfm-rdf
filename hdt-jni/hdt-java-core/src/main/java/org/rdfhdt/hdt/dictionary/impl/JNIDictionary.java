@@ -93,7 +93,16 @@ public class JNIDictionary extends BaseDictionary {
 	@Override
 	public void save(OutputStream output, String filename, ControlInfo ci, ProgressListener listener)
 			throws IOException {
-		// TODO Auto-generated method stub
+		ci.setType(Type.DICTIONARY);
+		ci.setFormat(HDTVocabulary.DICTIONARY_TYPE_JNI);
+		ci.setInt("elements", this.getNumberOfElements());
+		ci.save(output);
+
+		IntermediateListener iListener = new IntermediateListener(listener);
+		shared.save(output, filename+".dic.shr", iListener);
+		subjects.save(output, filename+".dic.s", iListener);
+		predicates.save(output, filename+".dic.p", iListener);
+		objects.save(output, filename+".dic.ob", iListener);
 		
 	}
 	

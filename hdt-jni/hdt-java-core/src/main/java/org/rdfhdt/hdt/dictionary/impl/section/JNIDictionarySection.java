@@ -260,9 +260,10 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	}
 
 	@Override
-	public void save(OutputStream output, ProgressListener listener) throws IOException {
-		// TODO Auto-generated method stub
-		// este no va a hacer nada pero el que reciba el string llamara al metodo nativo
+	public void save(OutputStream output, String filename, ProgressListener listener) throws IOException {
+		
+		_saveJNIDictionary(jnidictionary, filename);
+		System.out.println(filename+" saved successfully");
 		
 	}
 	
@@ -272,11 +273,16 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	protected native String extract(int id, long jnidictionary);
 	protected native long _loadJNIDictionary(InputStream in);
 	protected native long _loadJNIDictionary(String filename);
-	protected native void _saveJNIDictionary(OutputStream out);
+	protected native void _saveJNIDictionary(long jnidictionary, String filename);
 
 	@Override
 	public void load(TempDictionarySection other, ProgressListener listener) throws IOException {
 				
+	}
+
+	@Override
+	public void save(OutputStream output, ProgressListener listener) throws IOException {
+		
 	}
 	
 

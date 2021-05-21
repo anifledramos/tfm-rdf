@@ -787,5 +787,17 @@ public class BitmapTriples implements TriplesPrivate {
 	public TripleComponentOrder getOrder() {
 		return this.order;
 	}
+
+	@Override
+	public void save(OutputStream output, String fileName, ControlInfo ci, ProgressListener listener)
+			throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean singlefileStorage(String type) {
+		return true;
+	}
 }
 

@@ -18,6 +18,7 @@ public interface TriplesPrivate extends Triples {
 	 *            The OutputStream to save the triples to
 	 */
 	void save(OutputStream output, ControlInfo ci, ProgressListener listener) throws IOException;
+	void save(OutputStream output, String fileName, ControlInfo ci, ProgressListener listener) throws IOException;
 
 	/**
 	 * Loads the structure from an InputStream
@@ -80,4 +81,6 @@ public interface TriplesPrivate extends Triples {
 	 * 			  The TempDictionary object to retrieve relevant information
 	 */
 	void load(TempTriples input, ProgressListener listener, TempDictionary dictionary);
+	
+	boolean singlefileStorage(String type);
 }

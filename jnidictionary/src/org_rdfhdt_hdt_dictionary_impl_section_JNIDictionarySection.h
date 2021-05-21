@@ -62,10 +62,10 @@ JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionar
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
  * Method:    _saveJNIDictionary
- * Signature: (Ljava/io/OutputStream;)V
+ * Signature: (Ljava/io/OutputStream/String;)V
  */
 JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1saveJNIDictionary
-  (JNIEnv *, jobject, jobject);
+  (JNIEnv *, jobject, jlong, jstring);
 
 #ifdef __cplusplus
 }

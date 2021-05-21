@@ -107,19 +107,19 @@ JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDiction
 JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1loadJNIDictionary__Ljava_io_InputStream_2
   (JNIEnv * env, jobject obj, jobject in){
 
-  const char *inFile = (*env)->GetStringUTFChars(env, filename, 0);
+  // const char *inFile = (*env)->GetStringUTFChars(env, filename, 0);
 
-	FILE * f = fopen(inFile, "rb+");
+	// FILE * f = fopen(inFile, "rb+");
 
-	printf("Loading from %s\n", inFile);
+	// printf("Loading from %s\n", inFile);
 
-	StringDictionary * dict = load(f);
+	// StringDictionary * dict = load(f);
 
-	inicializarEstructuras(k2triples->npreds, k2triples->nso);
+	// inicializarEstructuras(k2triples->npreds, k2triples->nso);
 
-	fclose(f);
+	// fclose(f);
 
-	return (jlong) k2triples;
+	// return (jlong) k2triples;
 
   }
 
@@ -136,10 +136,19 @@ JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionar
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
  * Method:    _saveJNIDictionary
- * Signature: (Ljava/io/OutputStream;)V
+ * Signature: (Ljava/io/OutputStream/String;)V
  */
 JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1saveJNIDictionary
-  (JNIEnv * env, jobject obj, jobject out){
+  (JNIEnv * env, jobject obj, jlong jnidictionary, jstring filename){
+
+    const char* file = env->GetStringUTFChars(filename, 0);
+
+    StringDictionary * dict = (StringDictionary *) jnidictionary;
+
+    ofstream out(file);
+    dict->save(out);
+    
+    return;
 
   }
 

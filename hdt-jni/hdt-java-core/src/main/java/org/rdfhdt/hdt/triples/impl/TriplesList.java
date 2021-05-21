@@ -522,4 +522,16 @@ public class TriplesList implements TempTriples {
 	public void mapIndex(CountInputStream input, File f, ControlInfo ci, ProgressListener listener) throws IOException {		
 	}
 
+	@Override
+	public void save(OutputStream output, String fileName, ControlInfo ci, ProgressListener listener)
+			throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean singlefileStorage(String type) {
+		return true;
+	}
+
 }

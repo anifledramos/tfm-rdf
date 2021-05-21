@@ -31,6 +31,7 @@ public interface DictionarySectionPrivate extends DictionarySection {
 	 * @throws IOException
 	 */
 	void save(OutputStream output, ProgressListener listener) throws IOException;
+	void save(OutputStream output, String filename, ProgressListener listener) throws IOException;
 	
 	/**
 	 * Load dictionary section from a stream.

@@ -278,7 +278,7 @@ public class HDTImpl implements HDTPrivate {
 	 * @see hdt.HDT#saveToHDT(java.io.OutputStream)
 	 */
 	@Override
-	public void saveToHDT(OutputStream output, ProgressListener listener) throws IOException {
+	public void saveToHDT(OutputStream output, String fileName, ProgressListener listener) throws IOException {
 		ControlInfo ci = new ControlInformation();
 		IntermediateListener iListener = new IntermediateListener(listener);
 
@@ -293,11 +293,11 @@ public class HDTImpl implements HDTPrivate {
 
 		ci.clear();
 		ci.setType(ControlInfo.Type.DICTIONARY);
-		dictionary.save(output, ci, iListener);
+		dictionary.save(output, fileName, ci, iListener);
 
 		ci.clear();
 		ci.setType(ControlInfo.Type.TRIPLES);
-		triples.save(output, ci, iListener);
+		triples.save(output, fileName, ci, iListener);
 	}
 
 	/*
@@ -310,7 +310,7 @@ public class HDTImpl implements HDTPrivate {
 		OutputStream out = new BufferedOutputStream(new FileOutputStream(fileName));
 		// pasar string con nombre de archivos para guardar por separado
 		//OutputStream out = new GZIPOutputStream(new BufferedOutputStream(new FileOutputStream(fileName)));
-		saveToHDT(out, listener);
+		saveToHDT(out, fileName, listener);
 		out.close();
 
 		this.hdtFileName = fileName;

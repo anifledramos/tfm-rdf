@@ -216,25 +216,27 @@ public class JNITriples implements TriplesPrivate {
 	 * @see hdt.triples.Triples#save(java.io.OutputStream, hdt.ControlInfo, hdt.ProgressListener)
 	 */
 	@Override
-	public void save(OutputStream output, ControlInfo ci, ProgressListener listener) throws IOException {
+	public void save(OutputStream output, String fileName, ControlInfo ci, ProgressListener listener) throws IOException {
 				
 		ci.clear();
 		ci.setFormat(getType());		
 		ci.setType(ControlInfo.Type.TRIPLES);
 		ci.save(output);
 		
-		String filename = "tmpsave" + System.currentTimeMillis();		
+		String file = fileName+".triples";
 		
-		_storeJNITriples(jnitriples, filename);
+		_storeJNITriples(jnitriples, file);
 		
-		File f = new File(filename);
+		System.out.println(file+" saved successfully");
+		
+		File f = new File(file);
 		Long size = f.length();
 					
 	    output.write(longToBytes(size));	
 	    
 	    System.out.println("Size saved .... " + size);
 		
-	    InputStream is = new FileInputStream(filename);
+	    InputStream is = new FileInputStream(file);
 	    
 		IOUtil.copyStream(is, output);
 		
@@ -394,5 +396,19 @@ public class JNITriples implements TriplesPrivate {
 	    buffer.flip();//need flip 
 	    return buffer.getLong();
 	}
+
+	@Override
+	public void save(OutputStream output, ControlInfo ci, ProgressListener listener) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean singlefileStorage(String type) {
+		return false;
+	}
+	
+	
+
 }
 
