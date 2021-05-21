@@ -52,9 +52,10 @@ public class JNIDictionary extends BaseDictionary {
 			throw new IllegalFormatException("Trying to read a dictionary section, but was not dictionary.");
 		}
 		IntermediateListener iListener = new IntermediateListener(listener);
+		System.out.println("accediendo a los diccionarios");
 		subjects.load(filename+".dic.s", iListener);
 		predicates.load(filename+".dic.p", iListener);
-		objects.load(filename+".dic.o", iListener);
+		objects.load(filename+".dic.ob", iListener);
 		shared.load(filename+".dic.shr", iListener);
 	}
 	

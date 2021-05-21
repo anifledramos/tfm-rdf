@@ -28,6 +28,7 @@ public interface TriplesPrivate extends Triples {
 	 * @throws IOException
 	 */
 	void load(InputStream input, ControlInfo ci, ProgressListener listener) throws IOException;
+	void load(String filename, ControlInfo ci, ProgressListener listener) throws IOException;
 
 	void mapFromFile(CountInputStream in, File f, ProgressListener listener) throws IOException;
 	
@@ -82,5 +83,5 @@ public interface TriplesPrivate extends Triples {
 	 */
 	void load(TempTriples input, ProgressListener listener, TempDictionary dictionary);
 	
-	boolean singlefileStorage(String type);
+	boolean singleFileStorage(String type);
 }

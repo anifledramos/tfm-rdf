@@ -796,8 +796,14 @@ public class BitmapTriples implements TriplesPrivate {
 	}
 
 	@Override
-	public boolean singlefileStorage(String type) {
+	public boolean singleFileStorage(String type) {
 		return true;
+	}
+
+	@Override
+	public void load(String filename, ControlInfo ci, ProgressListener listener) throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

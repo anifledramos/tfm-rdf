@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+#set -x
 source `dirname $0`/javaenv.sh
 
 #$JAVA $JAVA_OPTIONS -cp $CP:$CLASSPATH org.rdfhdt.hdt.tools.HdtSearch $*

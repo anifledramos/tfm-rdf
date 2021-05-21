@@ -386,8 +386,15 @@ public class JNITriples implements TriplesPrivate {
 	}
 
 	@Override
-	public boolean singlefileStorage(String type) {
+	public boolean singleFileStorage(String type) {
 		return false;
+	}
+
+	@Override
+	public void load(String filename, ControlInfo ci, ProgressListener listener) throws IOException {
+		String file = filename + ".triples"; 
+		jnitriples = _loadJNITriples(file);
+		System.out.println("tripletas recuperadas "+jnitriples);
 	}
 	
 	

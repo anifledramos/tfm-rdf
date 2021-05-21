@@ -102,34 +102,27 @@ JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDiction
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
  * Method:    _loadJNIDictionary
- * Signature: (Ljava/io/InputStream;)J
- */
-JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1loadJNIDictionary__Ljava_io_InputStream_2
-  (JNIEnv * env, jobject obj, jobject in){
-
-  // const char *inFile = (*env)->GetStringUTFChars(env, filename, 0);
-
-	// FILE * f = fopen(inFile, "rb+");
-
-	// printf("Loading from %s\n", inFile);
-
-	// StringDictionary * dict = load(f);
-
-	// inicializarEstructuras(k2triples->npreds, k2triples->nso);
-
-	// fclose(f);
-
-	// return (jlong) k2triples;
-
-  }
-
-/*
- * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
- * Method:    _loadJNIDictionary
  * Signature: (Ljava/lang/String;)J
  */
 JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1loadJNIDictionary__Ljava_lang_String_2
   (JNIEnv * env, jobject obj, jstring filename){
+
+
+    const char* file = env->GetStringUTFChars(filename, 0);
+    ifstream in(file);
+    StringDictionary * dict = StringDictionaryPFC::load(in);
+
+    uint n = dict->numElements();
+    cout << "number of elements in dictionary : " << n << endl ;
+    int i;
+    uint lenp;
+    for (i=1; i<=n;i++) {
+      uchar* str = dict->extract(i,&lenp);
+      int pos=dict->locate(str,lenp);
+      cout << "locate : " << i << "," << pos << "," << str << endl ;
+    }  
+
+    return (jlong) dict;
 
   }
 
