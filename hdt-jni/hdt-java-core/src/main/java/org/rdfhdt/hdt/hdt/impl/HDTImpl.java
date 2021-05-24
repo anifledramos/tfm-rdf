@@ -169,21 +169,22 @@ public class HDTImpl implements HDTPrivate {
 		//recibe tipo de diccionario
 		dictionary = DictionaryFactory.createDictionary(ci);
 		// nuestro diccionario debería tener hdtFileName de input y no un inputStream
-		System.out.println("nombre de archivo "+hdtFileName);
-		if (dictionary.singleFileStorage(dictionary.getType())==false)
+		if (dictionary.singleFileStorage(dictionary.getType())==false) {
 			dictionary.load(hdtFileName, ci, iListener);
-		else
+		} else {
 			dictionary.load(input, ci, iListener);
+		}
 
 		// Load Triples
 		ci.clear();
 		ci.load(input);
 		iListener.setRange(60, 100);
 		triples = TriplesFactory.createTriples(ci);	
-		if (triples.singleFileStorage(triples.getType())==false)
+		if (triples.singleFileStorage(triples.getType())==false) {
 			triples.load(hdtFileName, ci, iListener);
-		else
+		} else {
 			triples.load(input, ci, iListener);
+		}
 	}
 
 	@Override

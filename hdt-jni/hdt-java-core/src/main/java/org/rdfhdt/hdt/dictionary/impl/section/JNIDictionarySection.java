@@ -131,11 +131,8 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	@Override
 	public void load(String filename, ProgressListener listener) throws IOException {
 		
-		System.out.println("mando a c el diccionario "+filename);
-		
 		jnidictionary = _loadJNIDictionary(filename);
 		
-		System.out.println("diccionario recuperado "+jnidictionary);
 	}
 		
 	protected int locateBlock(CharSequence str) {

@@ -393,6 +393,7 @@ public class JNITriples implements TriplesPrivate {
 	@Override
 	public void load(String filename, ControlInfo ci, ProgressListener listener) throws IOException {
 		String file = filename + ".triples"; 
+		System.out.println("antes de recuperadar tripletas "+jnitriples);
 		jnitriples = _loadJNITriples(file);
 		System.out.println("tripletas recuperadas "+jnitriples);
 	}
