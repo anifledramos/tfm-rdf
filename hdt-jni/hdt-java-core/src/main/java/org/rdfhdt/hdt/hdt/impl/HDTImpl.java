@@ -259,9 +259,13 @@ public class HDTImpl implements HDTPrivate {
 		ci.load(stream);
 		stream.reset();
 		iListener.setRange(5, 60);
-		System.out.println("ESTA MAPEANDO");
+		System.out.println("tipo del diccionario "+ci.getType());
 		dictionary = DictionaryFactory.createDictionary(ci);
-		dictionary.load(stream, ci, iListener);
+		if (dictionary.singleFileStorage(dictionary.getType())==false) {
+			dictionary.load(hdtFileName, ci, iListener);
+		} else {
+			dictionary.load(stream, ci, iListener);
+		}
 
 		// Load Triples
 		ci.clear();
@@ -269,8 +273,13 @@ public class HDTImpl implements HDTPrivate {
 		ci.load(stream);
 		stream.reset();
 		iListener.setRange(60, 100);
+		System.out.println("tipo de las tripletas "+ci.getType());
 		triples = TriplesFactory.createTriples(ci);
-		triples.load(stream, ci, iListener);
+		if (triples.singleFileStorage(triples.getType())==false) {
+			triples.load(hdtFileName, ci, iListener);
+		} else {
+			triples.load(stream, ci, iListener);
+		}
 
 		input.close();
 		stream.close();

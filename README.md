@@ -38,3 +38,10 @@ $ ./bin/hdtsparql.sh ../hdt-java-core/data/test.hdt "SELECT ?s ?p ?o WHERE { ?s 
 
 ### Execute Triples Query against the file
 $ ./bin/hdtSearch.sh ../hdt-java-core/data/test.hdt
+
+## Generate Bechmanrk data with Berlin Benchmark
+
+./generate -fc -pc 70000 -fn databerlin70
+
+## Test sparql
+./bin/rdf2hdt.sh ~/TFM/data/bsbmtools-v0.2/bsbmtools-0.2/databerlin80.nt databerlin.hdt

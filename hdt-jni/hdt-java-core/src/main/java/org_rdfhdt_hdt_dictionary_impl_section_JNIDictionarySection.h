@@ -46,6 +46,14 @@ JNIEXPORT jstring JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDiction
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
  * Method:    _loadJNIDictionary
+ * Signature: (Ljava/io/InputStream;)J
+ */
+JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1loadJNIDictionary__Ljava_io_InputStream_2
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
+ * Method:    _loadJNIDictionary
  * Signature: (Ljava/lang/String;)J
  */
 JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1loadJNIDictionary__Ljava_lang_String_2
@@ -54,7 +62,7 @@ JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionar
 /*
  * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
  * Method:    _saveJNIDictionary
- * Signature: (Ljava/io/OutputStream/String;)V
+ * Signature: (JLjava/lang/String;)V
  */
 JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection__1saveJNIDictionary
   (JNIEnv *, jobject, jlong, jstring);

@@ -130,8 +130,9 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	
 	@Override
 	public void load(String filename, ProgressListener listener) throws IOException {
-		
+			
 		jnidictionary = _loadJNIDictionary(filename);
+		numstrings=getNElements(jnidictionary);
 		
 	}
 		
@@ -251,7 +252,8 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 
 	@Override
 	public int getNumberOfElements() {
-		return numstrings;
+		int numero = getNElements(jnidictionary);
+		return numero;
 	}
 
 	@Override
@@ -275,6 +277,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	protected native long _loadJNIDictionary(InputStream in);
 	protected native long _loadJNIDictionary(String filename);
 	protected native void _saveJNIDictionary(long jnidictionary, String filename);
+	protected native int getNElements(long jnidictionary);
 
 	@Override
 	public void load(TempDictionarySection other, ProgressListener listener) throws IOException {

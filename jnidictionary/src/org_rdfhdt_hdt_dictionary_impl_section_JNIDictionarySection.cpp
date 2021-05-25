@@ -110,17 +110,7 @@ JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionar
 
     const char* file = env->GetStringUTFChars(filename, 0);
     ifstream in(file);
-    StringDictionary * dict = StringDictionaryPFC::load(in);
-
-    uint n = dict->numElements();
-    cout << "number of elements in dictionary : " << n << endl ;
-    int i;
-    uint lenp;
-    for (i=1; i<=n;i++) {
-      uchar* str = dict->extract(i,&lenp);
-      int pos=dict->locate(str,lenp);
-      cout << "locate : " << i << "," << pos << "," << str << endl ;
-    }  
+    StringDictionary * dict = StringDictionaryPFC::load(in); 
 
     return (jlong) dict;
 
@@ -142,6 +132,22 @@ JNIEXPORT void JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionary
     dict->save(out);
     
     return;
+
+  }
+
+
+/*
+ * Class:     org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection
+ * Method:    getNElements
+ * Signature: (J)I
+ */
+JNIEXPORT jint JNICALL Java_org_rdfhdt_hdt_dictionary_impl_section_JNIDictionarySection_getNElements
+  (JNIEnv * env, jobject obj, jlong jnidictionary){
+
+    StringDictionary * dict = (StringDictionary *) jnidictionary;
+    uint nElements = dict->numElements();
+
+    return (jint) nElements;
 
   }
 

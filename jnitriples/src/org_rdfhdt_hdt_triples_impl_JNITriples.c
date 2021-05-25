@@ -47,8 +47,6 @@ void correctEndianness(FILE * f) {
 JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_triples_impl_JNITriples__1createJNITriples
   (JNIEnv * env, jobject obj, jstring filename, jint npreds, jint nso) {
 
-	printf("reaching c to create k2triples!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
-
 	const char *inFile = (*env)->GetStringUTFChars(env, filename, 0);
 	
 	FILE * f = fopen(inFile, "rb+");
@@ -82,11 +80,7 @@ JNIEXPORT jlong JNICALL Java_org_rdfhdt_hdt_triples_impl_JNITriples__1loadJNITri
 
 //	correctEndianness(f);
 
-	printf("recupera tripletas");
-
 	K2TRIPLES * k2triples = loadK2TRIPLES(f);
-
-	printf("tripletas formadas");
 
 	inicializarEstructuras(k2triples->npreds, k2triples->nso);
 
