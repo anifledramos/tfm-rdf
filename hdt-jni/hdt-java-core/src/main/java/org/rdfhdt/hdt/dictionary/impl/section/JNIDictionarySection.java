@@ -241,7 +241,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 	@Override
 	public void close() throws IOException {
 		text=null;
-		blocks.close();
+		if (blocks!=null) blocks.close();
 		blocks=null;
 	}
 

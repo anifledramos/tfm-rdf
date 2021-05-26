@@ -133,10 +133,10 @@ public class JNIDictionary extends BaseDictionary {
 	}
 	@Override
 	public void close() throws IOException {
-		shared.close();
-		subjects.close();
-		predicates.close();
-		objects.close();
+		if (shared!=null) shared.close();
+		if (subjects!=null) subjects.close();
+		if (predicates!=null) predicates.close();
+		if (objects!=null) objects.close();
 	}
 
 	@Override

@@ -460,8 +460,8 @@ public class HDTImpl implements HDTPrivate {
 
 	@Override
 	public void close() throws IOException {
-		dictionary.close();
-		triples.close();
+		if (dictionary!=null) dictionary.close();
+		if (triples!=null) triples.close();
 	}
 
 }
