@@ -78,8 +78,8 @@ public class DictionaryFactory {
 	
 	public static DictionaryPrivate createDictionary(HDTOptions spec) {
 		String name = spec.get("dictionary.type");
-		if(name==null || HDTVocabulary.DICTIONARY_TYPE_JNI.equals(name)) {
-			return new JNIDictionary(spec);
+		if(name==null || HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION.equals(name)) {
+			return new FourSectionDictionary(spec);
 		}
 		else if (HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION.equals(name)){
 			return new FourSectionDictionary(spec);
@@ -92,7 +92,10 @@ public class DictionaryFactory {
 	
 	public static DictionaryPrivate createDictionary(ControlInfo ci) {
 		String name = ci.getFormat();
-		if(HDTVocabulary.DICTIONARY_TYPE_JNI.equals(name)) {
+		
+		if(HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION.equals(name)) {
+			return new FourSectionDictionary(new HDTSpecification());
+		} else if(HDTVocabulary.DICTIONARY_TYPE_JNI.equals(name)) {
 			return new JNIDictionary(new HDTSpecification());
 		}
 		throw new IllegalFormatException("Implementation of dictionary not found for "+name);

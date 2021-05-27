@@ -259,8 +259,8 @@ public class HDTImpl implements HDTPrivate {
 		ci.load(stream);
 		stream.reset();
 		iListener.setRange(5, 60);
-		System.out.println("tipo del diccionario "+ci.getType());
 		dictionary = DictionaryFactory.createDictionary(ci);
+		System.out.println("tipo del diccionario "+dictionary.getType());
 		if (dictionary.singleFileStorage(dictionary.getType())==false) {
 			dictionary.load(hdtFileName, ci, iListener);
 		} else {
@@ -306,11 +306,19 @@ public class HDTImpl implements HDTPrivate {
 
 		ci.clear();
 		ci.setType(ControlInfo.Type.DICTIONARY);
-		dictionary.save(output, fileName, ci, iListener);
+		if (dictionary.singleFileStorage(dictionary.getType())==false) {
+			dictionary.save(output, fileName, ci, iListener);
+		} else {
+			dictionary.save(output, ci, iListener);
+		}
 
 		ci.clear();
 		ci.setType(ControlInfo.Type.TRIPLES);
-		triples.save(output, fileName, ci, iListener);
+		if (triples.singleFileStorage(triples.getType())==false) {
+			triples.save(output, fileName, ci, iListener);
+		} else {
+			triples.save(output, ci, iListener);
+		}
 	}
 
 	/*

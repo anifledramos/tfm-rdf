@@ -141,10 +141,11 @@ public class JNIDictionary extends BaseDictionary {
 
 	@Override
 	public boolean singleFileStorage(String type) {
-		if (type==HDTVocabulary.DICTIONARY_TYPE_JNI)
+		if (type==HDTVocabulary.DICTIONARY_TYPE_JNI) {
 			return false;
-		else 
+		} else {
 			return true;
+		}
 	}
 
 	

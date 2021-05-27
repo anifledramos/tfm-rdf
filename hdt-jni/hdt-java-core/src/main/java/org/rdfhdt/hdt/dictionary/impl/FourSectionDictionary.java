@@ -193,6 +193,10 @@ public class FourSectionDictionary extends BaseDictionary {
 
 	@Override
 	public boolean singleFileStorage(String type) {
-		return false;
+		if (type==HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

@@ -54,7 +54,7 @@ public class DictionarySectionFactory {
 		input.mark(64);		// To allow children to reset() and try another instance.
 		
 		DictionarySectionPrivate section=null;
-		
+		System.out.println("tipo diccitionary "+dictType);
 		switch(dictType) {
 		case PFCDictionarySection.TYPE_INDEX:
 			try{
