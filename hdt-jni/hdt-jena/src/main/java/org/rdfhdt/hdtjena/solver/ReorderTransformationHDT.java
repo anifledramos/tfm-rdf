@@ -71,7 +71,10 @@ public class ReorderTransformationHDT extends ReorderTransformationSubstitution 
 	public ReorderTransformationHDT(HDTGraph graph)
 	{
 		this.stats = graph.getStatisticsHandler();
+		System.out.println("grafo "+graph.toString());
+		System.out.println("tamaño de grafo "+graph.size());
 		numTriples = graph.size();
+		System.out.println("numero tripletas en grafo "+numTriples);
 	
 		initializeMatcher();
 				
