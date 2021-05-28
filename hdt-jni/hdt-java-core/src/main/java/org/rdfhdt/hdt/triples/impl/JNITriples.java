@@ -221,6 +221,7 @@ public class JNITriples implements TriplesPrivate {
 		ci.clear();
 		ci.setFormat(getType());		
 		ci.setType(ControlInfo.Type.TRIPLES);
+		ci.setInt("elements", this.getNumberOfElements());
 		ci.save(output);
 		
 		String filename = fileName + ".triples";
@@ -246,7 +247,7 @@ public class JNITriples implements TriplesPrivate {
 		}
 		
 		if(!ci.getFormat().equals(getType())) {
-			throw new IllegalFormatException("Trying to read BitmapTriples, but the data does not seem to be BitmapTriples");
+			throw new IllegalFormatException("Trying to read JNITriples, but the data does not seem to be JNITriples");
 		}
 		
 		long size = 0;		
@@ -392,6 +393,14 @@ public class JNITriples implements TriplesPrivate {
 
 	@Override
 	public void load(String filename, ControlInfo ci, ProgressListener listener) throws IOException {
+		if(ci.getType()!=ControlInfo.Type.TRIPLES) {
+			throw new IllegalFormatException("Trying to read a triples section, but was not triples.");
+		}
+		
+		if(!ci.getFormat().equals(getType())) {
+			throw new IllegalFormatException("Trying to read JNITriples, but the data does not seem to be JNITriples");
+		}
+		numberOfElements=ci.getInt("elements");
 		String file = filename + ".triples"; 
 		jnitriples = _loadJNITriples(file);
 	}
