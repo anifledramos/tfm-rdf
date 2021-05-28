@@ -35,7 +35,7 @@ public class HDTSparql {
 		String sparqlQuery = args[1];
 
 		// Create HDT
-		HDT hdt = HDTManager.mapIndexedHDT(fileHDT, null);
+		HDT hdt = HDTManager.loadIndexedHDT(fileHDT, null);
 
 		try {
 			// Create Jena wrapper on top of HDT.

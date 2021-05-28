@@ -153,7 +153,7 @@ public class RDF2HDT implements ProgressListener {
 //				System.out.println(triple);
 //			}
 			
-			// Create Jena wrapper on top of HDT.
+////			 Create Jena wrapper on top of HDT.
 //			HDTGraph graph = new HDTGraph(hdt);
 //			Model model = ModelFactory.createModelForGraph(graph);
 //
