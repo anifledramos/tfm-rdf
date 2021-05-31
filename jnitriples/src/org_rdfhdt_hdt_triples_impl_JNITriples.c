@@ -212,7 +212,7 @@ JNIEXPORT jint JNICALL Java_org_rdfhdt_hdt_triples_impl_JNITriples_searchSPO
  * Method:    searchSP
  * Signature: (JII)[I
  */
-JNIEXPORT jintArray JNICALL Java_org_rdfhdt_hdt_triples_impl_K2Triples_searchSP
+JNIEXPORT jintArray JNICALL Java_org_rdfhdt_hdt_triples_impl_JNITriples_searchSP
 	(JNIEnv * env, jobject obj, jlong _k2triples, jint subject, jint predicate) {
 
 		K2TRIPLES * k2triples = (K2TRIPLES *) _k2triples;
