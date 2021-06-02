@@ -45,3 +45,9 @@ $ ./bin/hdtSearch.sh ../hdt-java-core/data/test.hdt
 
 ## Test sparql
 ./bin/rdf2hdt.sh ~/TFM/data/bsbmtools-v0.2/bsbmtools-0.2/databerlin80.nt databerlin.hdt
+
+# Run docker
+sudo docker build -t rdfjni --rm=true .
+
+sudo docker run --name jnidocker -it rdfjni
+ctr+q to quit

@@ -90,7 +90,7 @@ public class HDTImpl implements HDTPrivate {
         dictionary = DictionaryFactory.createDictionary(spec);
         triples = TriplesFactory.createTriples(spec);
 
-		System.out.println("memoria libres despues de create components "+Runtime.getRuntime().freeMemory());
+		System.out.println("memoria libre despues de create components "+Runtime.getRuntime().freeMemory());
 	}
 
 	public void populateHeaderStructure(String baseUri) {

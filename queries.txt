@@ -1,6 +1,22 @@
 Query 1: Find products for a given set of generic features.
 
-PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT DISTINCT ?product ?label WHERE { ?product rdfs:label ?label . ?product a bsbm-inst:ProductType1 . ?product bsbm:productFeature bsbm-inst:ProductFeature60 . ?product bsbm:productFeature bsbm-inst:ProductFeature74 . ?product bsbm:productPropertyNumeric1 ?value1 . FILTER (?value1 > 1) } ORDER BY ?label LIMIT 10
+./bin/hdtsparql.sh ../berlin.hdt "PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT DISTINCT ?product ?label WHERE { ?product rdfs:label ?label . ?product a bsbm-inst:ProductType1 . ?product bsbm:productFeature bsbm-inst:ProductFeature60 . ?product bsbm:productFeature bsbm-inst:ProductFeature74 . ?product bsbm:productPropertyNumeric1 ?value1 . FILTER (?value1 > 1) } ORDER BY ?label LIMIT 10"
+
+PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> 
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+SELECT DISTINCT ?product ?label 
+WHERE { 
+    ?product rdfs:label ?label . 
+    ?product a bsbm-inst:ProductType1 . 
+    ?product bsbm:productFeature bsbm-inst:ProductFeature60 . 
+    ?product bsbm:productFeature bsbm-inst:ProductFeature74 . 
+    ?product bsbm:productPropertyNumeric1 ?value1 . 
+    FILTER (?value1 > 1) 
+    } 
+    ORDER BY ?label 
+    LIMIT 10
 
 product,label
 http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/Product23,abnormality motey felinity
@@ -22,7 +38,31 @@ http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer19/Prod
 
 Query 2: Retrieve basic information about a specific product for display purposes
 
-PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX bsbm-prod:<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/> SELECT ?label ?comment ?producer ?productFeature ?propertyTextual1 ?propertyTextual2 ?propertyTextual3 ?propertyNumeric1 ?propertyNumeric2 ?propertyTextual4 ?propertyTextual5 ?propertyNumeric4 WHERE { bsbm-prod:Product1 rdfs:label ?label .	bsbm-prod:Product1 rdfs:comment ?comment . bsbm-prod:Product1 bsbm:producer ?p . ?p rdfs:label ?producer . bsbm-prod:Product1 dc:publisher ?p . bsbm-prod:Product1 bsbm:productFeature ?f . ?f rdfs:label ?productFeature . bsbm-prod:Product1 bsbm:productPropertyTextual1 ?propertyTextual1 . bsbm-prod:Product1 bsbm:productPropertyTextual2 ?propertyTextual2 . bsbm-prod:Product1 bsbm:productPropertyTextual3 ?propertyTextual3 . bsbm-prod:Product1 bsbm:productPropertyNumeric1 ?propertyNumeric1 .	bsbm-prod:Product1 bsbm:productPropertyNumeric2 ?propertyNumeric2 . OPTIONAL { bsbm-prod:Product1 bsbm:productPropertyTextual4 ?propertyTextual4 } OPTIONAL { bsbm-prod:Product1 bsbm:productPropertyTextual5 ?propertyTextual5 } OPTIONAL { bsbm-prod:Product1 bsbm:productPropertyNumeric4 ?propertyNumeric4 } }
+./bin/hdtsparql.sh ../berlin.hdt "PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX bsbm-prod:<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/> SELECT ?label ?comment ?producer ?productFeature ?propertyTextual1 ?propertyTextual2 ?propertyTextual3 ?propertyNumeric1 ?propertyNumeric2 ?propertyTextual4 ?propertyTextual5 ?propertyNumeric4 WHERE { bsbm-prod:Product1 rdfs:label ?label .	bsbm-prod:Product1 rdfs:comment ?comment . bsbm-prod:Product1 bsbm:producer ?p . ?p rdfs:label ?producer . bsbm-prod:Product1 dc:publisher ?p . bsbm-prod:Product1 bsbm:productFeature ?f . ?f rdfs:label ?productFeature . bsbm-prod:Product1 bsbm:productPropertyTextual1 ?propertyTextual1 . bsbm-prod:Product1 bsbm:productPropertyTextual2 ?propertyTextual2 . bsbm-prod:Product1 bsbm:productPropertyTextual3 ?propertyTextual3 . bsbm-prod:Product1 bsbm:productPropertyNumeric1 ?propertyNumeric1 .	bsbm-prod:Product1 bsbm:productPropertyNumeric2 ?propertyNumeric2 . OPTIONAL { bsbm-prod:Product1 bsbm:productPropertyTextual4 ?propertyTextual4 } OPTIONAL { bsbm-prod:Product1 bsbm:productPropertyTextual5 ?propertyTextual5 } OPTIONAL { bsbm-prod:Product1 bsbm:productPropertyNumeric4 ?propertyNumeric4 } }"
+
+PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> 
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX bsbm-prod:<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/> 
+SELECT ?label ?comment ?producer ?productFeature ?propertyTextual1 ?propertyTextual2 ?propertyTextual3 ?propertyNumeric1 ?propertyNumeric2 ?propertyTextual4 ?propertyTextual5 ?propertyNumeric4 
+WHERE { 
+    bsbm-prod:Product1 rdfs:label ?label .	
+    bsbm-prod:Product1 rdfs:comment ?comment . 
+    bsbm-prod:Product1 bsbm:producer ?p . 
+    ?p rdfs:label ?producer . 
+    bsbm-prod:Product1 dc:publisher ?p . 
+    bsbm-prod:Product1 bsbm:productFeature ?f . 
+    ?f rdfs:label ?productFeature . 
+    bsbm-prod:Product1 bsbm:productPropertyTextual1 ?propertyTextual1 . 
+    bsbm-prod:Product1 bsbm:productPropertyTextual2 ?propertyTextual2 . 
+    bsbm-prod:Product1 bsbm:productPropertyTextual3 ?propertyTextual3 . 
+    bsbm-prod:Product1 bsbm:productPropertyNumeric1 ?propertyNumeric1 .	
+    bsbm-prod:Product1 bsbm:productPropertyNumeric2 ?propertyNumeric2 . 
+    OPTIONAL { bsbm-prod:Product1 bsbm:productPropertyTextual4 ?propertyTextual4 } 
+    OPTIONAL { bsbm-prod:Product1 bsbm:productPropertyTextual5 ?propertyTextual5 } 
+    OPTIONAL { bsbm-prod:Product1 bsbm:productPropertyNumeric4 ?propertyNumeric4 }
+}
 
 aying splotchier arabesks rebelliously unbefitting vatting azores woolskin exiguous spates rancheros swayback civets mangles pakistanis inhibitors biting fluoroscopist accommodativeness nonplussing reunification equalises graupel pugilist narcotism overriding gallivants,velcro shying enticements,mooncalves detainees bugger,praises plaiters semiagricultural mesomorph scourger checkering sourball obsidians staggeringly cades restaff sireless dissatisfactions,dildo impregnably cratons reg glycogens bookends galop flyweights education,uprear choosey trining vivisectional realness testatrix polluters violates meditates subagents hup maharanee raison,831,312,footsteps endocrinologic auxiliaries leashed,,
 totally annat,tsaritzas calkers noncorroborative thro agonizes dollars gumlike multifunction diastoles tyrannous liverish soothsaying ungathered noisiness realists rearmament feater nonenforcement facetiousness reassessments winded brainwashing federalizations impersonators unreeler incumbering jewry airmanship gweducks discourteous brazened stalkily lunars throughway parkas soothsaying splotchier arabesks rebelliously unbefitting vatting azores woolskin exiguous spates rancheros swayback civets mangles pakistanis inhibitors biting fluoroscopist accommodativeness nonplussing reunification equalises graupel pugilist narcotism overriding gallivants,velcro shying enticements,comparability carminative fella,praises plaiters semiagricultural mesomorph scourger checkering sourball obsidians staggeringly cades restaff sireless dissatisfactions,dildo impregnably cratons reg glycogens bookends galop flyweights education,uprear choosey trining vivisectional realness testatrix polluters violates meditates subagents hup maharanee raison,831,312,footsteps endocrinologic auxiliaries leashed,,
@@ -49,11 +89,47 @@ totally annat,tsaritzas calkers noncorroborative thro agonizes dollars gumlike m
 
 Query 3: Find products having some specific features and not having one feature.
 
-PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT ?product ?label WHERE { ?product rdfs:label ?label . ?product a bsbm-inst:ProductType1 . ?product bsbm:productFeature bsbm-inst:ProductFeature60 . ?product bsbm:productPropertyNumeric1 ?p1 . FILTER ( ?p1 > 5 ) ?product bsbm:productPropertyNumeric3 ?p3 .	FILTER (?p3 < 40 ) OPTIONAL { ?product bsbm:productFeature bsbm-inst:ProductFeature69 . ?product rdfs:label ?testVar } FILTER (!bound(?testVar)) } ORDER BY ?label LIMIT 10
+./bin/hdtsparql.sh ../berlin.hdt "PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT ?product ?label WHERE { ?product rdfs:label ?label . ?product a bsbm-inst:ProductType1 . ?product bsbm:productFeature bsbm-inst:ProductFeature60 . ?product bsbm:productPropertyNumeric1 ?p1 . FILTER ( ?p1 > 5 ) ?product bsbm:productPropertyNumeric3 ?p3 .	FILTER (?p3 < 40 ) OPTIONAL { ?product bsbm:productFeature bsbm-inst:ProductFeature69 . ?product rdfs:label ?testVar } FILTER (!bound(?testVar)) } ORDER BY ?label LIMIT 10"
+
+PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> 
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+SELECT ?product ?label 
+WHERE { 
+    ?product rdfs:label ?label . 
+    ?product a bsbm-inst:ProductType1 . 
+    ?product bsbm:productFeature bsbm-inst:ProductFeature60 . 
+    ?product bsbm:productPropertyNumeric1 ?p1 . 
+    FILTER ( ?p1 > 5 ) ?product bsbm:productPropertyNumeric3 ?p3 .	
+    FILTER (?p3 < 40 ) 
+    OPTIONAL { ?product bsbm:productFeature bsbm-inst:ProductFeature69 . ?product rdfs:label ?testVar } 
+    FILTER (!bound(?testVar)) 
+} 
+ORDER BY ?label 
+LIMIT 10
 
 bash: !bound: event not found
 
-PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT ?product ?label WHERE { ?product rdfs:label ?label . ?product a bsbm-inst:ProductType1 . ?product bsbm:productFeature bsbm-inst:ProductFeature60 . ?product bsbm:productPropertyNumeric1 ?p1 . FILTER ( ?p1 > 5 ) ?product bsbm:productPropertyNumeric3 ?p3 .	FILTER (?p3 < 40 ) MINUS { ?product bsbm:productFeature bsbm-inst:ProductFeature69 . ?product rdfs:label ?testVar  } } ORDER BY ?label LIMIT 10
+./bin/hdtsparql.sh ../berlin.hdt "PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT ?product ?label WHERE { ?product rdfs:label ?label . ?product a bsbm-inst:ProductType1 . ?product bsbm:productFeature bsbm-inst:ProductFeature60 . ?product bsbm:productPropertyNumeric1 ?p1 . FILTER ( ?p1 > 5 ) ?product bsbm:productPropertyNumeric3 ?p3 .	FILTER (?p3 < 40 ) MINUS { ?product bsbm:productFeature bsbm-inst:ProductFeature69 . ?product rdfs:label ?testVar  } } ORDER BY ?label LIMIT 10"
+
+PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> 
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+SELECT ?product ?label 
+WHERE { 
+    ?product rdfs:label ?label . 
+    ?product a bsbm-inst:ProductType1 . 
+    ?product bsbm:productFeature bsbm-inst:ProductFeature60 . 
+    ?product bsbm:productPropertyNumeric1 ?p1 . 
+    FILTER ( ?p1 > 5 ) ?product bsbm:productPropertyNumeric3 ?p3 .	
+    FILTER (?p3 < 40 ) MINUS { ?product bsbm:productFeature bsbm-inst:ProductFeature69 . 
+    ?product rdfs:label ?testVar  
+    } 
+} 
+ORDER BY ?label 
+LIMIT 10
 
 product,label
 http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer19/Product893,bumpers fertilizer schilling
@@ -67,7 +143,24 @@ http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer39/Prod
 [INFO] Finished at: 2021-05-31T20:35:49+02:00
 [INFO] ------------------------------------------------------------------------
 
-PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT ?product ?label WHERE { ?product rdfs:label ?label . ?product a bsbm-inst:ProductType1 . ?product bsbm:productFeature bsbm-inst:ProductFeature60 . ?product bsbm:productPropertyNumeric1 ?p1 . FILTER ( ?p1 > 5 ) ?product bsbm:productPropertyNumeric3 ?p3 .	FILTER (?p3 < 40 ) FILTER NOT EXISTS { ?product bsbm:productFeature bsbm-inst:ProductFeature69 . ?product rdfs:label ?testVar  } } ORDER BY ?label LIMIT 10
+./bin/hdtsparql.sh ../berlin.hdt "PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT ?product ?label WHERE { ?product rdfs:label ?label . ?product a bsbm-inst:ProductType1 . ?product bsbm:productFeature bsbm-inst:ProductFeature60 . ?product bsbm:productPropertyNumeric1 ?p1 . FILTER ( ?p1 > 5 ) ?product bsbm:productPropertyNumeric3 ?p3 .	FILTER (?p3 < 40 ) FILTER NOT EXISTS { ?product bsbm:productFeature bsbm-inst:ProductFeature69 . ?product rdfs:label ?testVar  } } ORDER BY ?label LIMIT 10"
+
+PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> 
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+SELECT ?product ?label 
+WHERE { 
+    ?product rdfs:label ?label . 
+    ?product a bsbm-inst:ProductType1 . 
+    ?product bsbm:productFeature bsbm-inst:ProductFeature60 . 
+    ?product bsbm:productPropertyNumeric1 ?p1 . 
+    FILTER ( ?p1 > 5 ) ?product bsbm:productPropertyNumeric3 ?p3 .	
+    FILTER (?p3 < 40 ) 
+    FILTER NOT EXISTS { ?product bsbm:productFeature bsbm-inst:ProductFeature69 . ?product rdfs:label ?testVar  } 
+}
+ORDER BY ?label 
+LIMIT 10
 
 product,label
 http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer19/Product893,bumpers fertilizer schilling
@@ -84,7 +177,35 @@ http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer39/Prod
 
 Query 4: Find products matching two different sets of features.
 
-PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT DISTINCT ?product ?label ?propertyTextual WHERE { {  ?product rdfs:label ?label . ?product rdf:type bsbm-inst:ProductType1 . ?product bsbm:productFeature bsbm-inst:ProductFeature60 . ?product bsbm:productFeature bsbm-inst:ProductFeature61 . ?product bsbm:productPropertyTextual1 ?propertyTextual .	?product bsbm:productPropertyNumeric1 ?p1 .	FILTER ( ?p1 > 1 ) } UNION { ?product rdfs:label ?label . ?product rdf:type bsbm-inst:ProductType2 . ?product bsbm:productFeature bsbm-inst:ProductFeature2 . ?product bsbm:productFeature bsbm-inst:ProductFeature4 . ?product bsbm:productPropertyTextual1 ?propertyTextual .	?product bsbm:productPropertyNumeric2 ?p2 .	FILTER ( ?p2> 2 ) } } ORDER BY ?label OFFSET 5 LIMIT 10
+./bin/hdtsparql.sh ../berlin.hdt "PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT DISTINCT ?product ?label ?propertyTextual WHERE { {  ?product rdfs:label ?label . ?product rdf:type bsbm-inst:ProductType1 . ?product bsbm:productFeature bsbm-inst:ProductFeature60 . ?product bsbm:productFeature bsbm-inst:ProductFeature61 . ?product bsbm:productPropertyTextual1 ?propertyTextual .	?product bsbm:productPropertyNumeric1 ?p1 .	FILTER ( ?p1 > 1 ) } UNION { ?product rdfs:label ?label . ?product rdf:type bsbm-inst:ProductType2 . ?product bsbm:productFeature bsbm-inst:ProductFeature2 . ?product bsbm:productFeature bsbm-inst:ProductFeature4 . ?product bsbm:productPropertyTextual1 ?propertyTextual .	?product bsbm:productPropertyNumeric2 ?p2 .	FILTER ( ?p2> 2 ) } } ORDER BY ?label OFFSET 5 LIMIT 10"
+
+PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/> 
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+SELECT DISTINCT ?product ?label ?propertyTextual 
+WHERE { 
+    {  
+        ?product rdfs:label ?label . 
+        ?product rdf:type bsbm-inst:ProductType1 . 
+        ?product bsbm:productFeature bsbm-inst:ProductFeature60 . 
+        ?product bsbm:productFeature bsbm-inst:ProductFeature61 . 
+        ?product bsbm:productPropertyTextual1 ?propertyTextual .	
+        ?product bsbm:productPropertyNumeric1 ?p1 .	
+        FILTER ( ?p1 > 1 ) 
+    } UNION { 
+        ?product rdfs:label ?label . 
+        ?product rdf:type bsbm-inst:ProductType2 . 
+        ?product bsbm:productFeature bsbm-inst:ProductFeature2 . 
+        ?product bsbm:productFeature bsbm-inst:ProductFeature4 . 
+        ?product bsbm:productPropertyTextual1 ?propertyTextual .	
+        ?product bsbm:productPropertyNumeric2 ?p2 .	
+        FILTER ( ?p2> 2 ) 
+    } 
+} 
+ORDER BY ?label 
+OFFSET 5 
+LIMIT 10
 
 product,label,propertyTextual
 http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer39/Product1786,bedwarfs unholier arrests,pseudopod masterpieces curvet abandoning
@@ -106,7 +227,25 @@ http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer29/Prod
 
 Query 5: Find product that are similar to a given product.
 
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX bsbm-prod:<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/> SELECT DISTINCT ?product ?productLabel WHERE { ?product rdfs:label ?productLabel . FILTER (bsbm-prod:Product16 != ?product)	bsbm-prod:Product16 bsbm:productFeature ?prodFeature . ?product bsbm:productFeature ?prodFeature . bsbm-prod:Product16 bsbm:productPropertyNumeric1 ?origProperty1 . ?product bsbm:productPropertyNumeric1 ?simProperty1 . FILTER (?simProperty1 < (?origProperty1 + 120) && ?simProperty1 > (?origProperty1 - 120)) bsbm-prod:Product16 bsbm:productPropertyNumeric2 ?origProperty2 . ?product bsbm:productPropertyNumeric2 ?simProperty2 . FILTER (?simProperty2 < (?origProperty2 + 170) && ?simProperty2 > (?origProperty2 - 170)) } ORDER BY ?productLabel LIMIT 5
+./bin/hdtsparql.sh ../berlin.hdt "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX bsbm-prod:<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/> SELECT DISTINCT ?product ?productLabel WHERE { ?product rdfs:label ?productLabel . FILTER (bsbm-prod:Product16 != ?product)	bsbm-prod:Product16 bsbm:productFeature ?prodFeature . ?product bsbm:productFeature ?prodFeature . bsbm-prod:Product16 bsbm:productPropertyNumeric1 ?origProperty1 . ?product bsbm:productPropertyNumeric1 ?simProperty1 . FILTER (?simProperty1 < (?origProperty1 + 120) && ?simProperty1 > (?origProperty1 - 120)) bsbm-prod:Product16 bsbm:productPropertyNumeric2 ?origProperty2 . ?product bsbm:productPropertyNumeric2 ?simProperty2 . FILTER (?simProperty2 < (?origProperty2 + 170) && ?simProperty2 > (?origProperty2 - 170)) } ORDER BY ?productLabel LIMIT 5"
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> 
+PREFIX bsbm-prod:<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/> 
+SELECT DISTINCT ?product ?productLabel 
+WHERE { 
+    ?product rdfs:label ?productLabel . 
+    FILTER (bsbm-prod:Product16 != ?product) bsbm-prod:Product16 bsbm:productFeature ?prodFeature . 
+    ?product bsbm:productFeature ?prodFeature . 
+    bsbm-prod:Product16 bsbm:productPropertyNumeric1 ?origProperty1 . 
+    ?product bsbm:productPropertyNumeric1 ?simProperty1 . 
+    FILTER (?simProperty1 < (?origProperty1 + 120) && ?simProperty1 > (?origProperty1 - 120)) bsbm-prod:Product16 bsbm:productPropertyNumeric2 ?origProperty2 . 
+    ?product bsbm:productPropertyNumeric2 ?simProperty2 . 
+    FILTER (?simProperty2 < (?origProperty2 + 170) && ?simProperty2 > (?origProperty2 - 170)) 
+} 
+ORDER BY ?productLabel 
+LIMIT 5
 
 product,productLabel
 http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer3/Product126,audads
@@ -123,7 +262,7 @@ http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer3/Produ
 
 Query 6: Find products having a label that contains a specific string. (Not used in the query mix anymore)
 
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> SELECT ?product ?label WHERE {	?product rdfs:label ?label . ?product rdf:type bsbm:Product . FILTER regex(?label,\"reducing\") }
+./bin/hdtsparql.sh ../berlin.hdt "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> SELECT ?product ?label WHERE {	?product rdfs:label ?label . ?product rdf:type bsbm:Product . FILTER regex(?label,\"reducing\") }"
 
 product,label
 http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer7/Product280,auditoriums reducing pappies
@@ -137,7 +276,40 @@ http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer7/Produ
 
 Query 7: Retrieve in-depth information about a specific product including offers and reviews.
 
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rev: <http://purl.org/stuff/rev#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX bsbm-prod: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer33/> SELECT ?productLabel ?offer ?price ?vendor ?vendorTitle ?review ?revTitle ?reviewer ?revName ?rating1 ?rating2 WHERE { bsbm-prod:Product1518 rdfs:label ?productLabel . OPTIONAL { ?offer bsbm:product bsbm-prod:Product1518 . ?offer bsbm:price ?price .	?offer bsbm:vendor ?vendor . ?vendor rdfs:label ?vendorTitle . ?vendor bsbm:country <http://downlode.org/rdf/iso-3166/countries#DE> . ?offer dc:publisher ?vendor . ?offer bsbm:validTo ?date . FILTER (?date > 2008 ) } OPTIONAL { ?review bsbm:reviewFor bsbm-prod:Product1518 . ?review rev:reviewer ?reviewer . ?reviewer foaf:name ?revName . ?review dc:title ?revTitle . OPTIONAL { ?review bsbm:rating1 ?rating1 . } OPTIONAL { ?review bsbm:rating2 ?rating2 . } } }
+./bin/hdtsparql.sh ../berlin.hdt "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rev: <http://purl.org/stuff/rev#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX bsbm-prod: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer33/> SELECT ?productLabel ?offer ?price ?vendor ?vendorTitle ?review ?revTitle ?reviewer ?revName ?rating1 ?rating2 WHERE { bsbm-prod:Product1518 rdfs:label ?productLabel . OPTIONAL { ?offer bsbm:product bsbm-prod:Product1518 . ?offer bsbm:price ?price .	?offer bsbm:vendor ?vendor . ?vendor rdfs:label ?vendorTitle . ?vendor bsbm:country <http://downlode.org/rdf/iso-3166/countries#DE> . ?offer dc:publisher ?vendor . ?offer bsbm:validTo ?date . FILTER (?date > 2008 ) } OPTIONAL { ?review bsbm:reviewFor bsbm-prod:Product1518 . ?review rev:reviewer ?reviewer . ?reviewer foaf:name ?revName . ?review dc:title ?revTitle . OPTIONAL { ?review bsbm:rating1 ?rating1 . } OPTIONAL { ?review bsbm:rating2 ?rating2 . } } }"
+
+PREFIX  rev:  <http://purl.org/stuff/rev#>
+PREFIX  bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX  bsbm-prod: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer33/>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+
+SELECT  ?productLabel ?offer ?price ?vendor ?vendorTitle ?review ?revTitle ?reviewer ?revName ?rating1 ?rating2
+WHERE
+  { bsbm-prod:Product1518
+              rdfs:label  ?productLabel
+    OPTIONAL
+      { ?offer   bsbm:product  bsbm-prod:Product1518 ;
+                 bsbm:price    ?price ;
+                 bsbm:vendor   ?vendor .
+        ?vendor  rdfs:label    ?vendorTitle ;
+                 bsbm:country  <http://downlode.org/rdf/iso-3166/countries#DE> .
+        ?offer   dc:publisher  ?vendor ;
+                 bsbm:validTo  ?date
+        FILTER ( ?date > 2008 )
+      }
+    OPTIONAL
+      { ?review   bsbm:reviewFor  bsbm-prod:Product1518 ;
+                  rev:reviewer    ?reviewer .
+        ?reviewer  foaf:name      ?revName .
+        ?review   dc:title        ?revTitle
+        OPTIONAL
+          { ?review  bsbm:rating1  ?rating1 }
+        OPTIONAL
+          { ?review  bsbm:rating2  ?rating2 }
+      }
+  }
 
 productLabel,offer,price,vendor,vendorTitle,review,revTitle,reviewer,revName,rating1,rating2
 oryx charted,,,,,http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite1/Review10333,quaysides succumbs potholed barbarized,http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite1/Reviewer520,Becki-Archibaldo,,
@@ -160,7 +332,34 @@ oryx charted,,,,,http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFr
 
 Query 8: Give me recent reviews in English for a specific product.
 
-PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX rev: <http://purl.org/stuff/rev#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX bsbm-prod: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer33/> SELECT ?title ?text ?reviewDate ?reviewer ?reviewerName ?rating1 ?rating2 ?rating3 ?rating4 WHERE { ?review bsbm:reviewFor bsbm-prod:Product1518 . ?review dc:title ?title . ?review rev:text ?text . FILTER langMatches( lang(?text), \"EN\" ) ?review bsbm:reviewDate ?reviewDate . ?review rev:reviewer ?reviewer . ?reviewer foaf:name ?reviewerName . OPTIONAL { ?review bsbm:rating1 ?rating1 . } OPTIONAL { ?review bsbm:rating2 ?rating2 . } OPTIONAL { ?review bsbm:rating3 ?rating3 . } OPTIONAL { ?review bsbm:rating4 ?rating4 . } } ORDER BY DESC(?reviewDate) LIMIT 20
+./bin/hdtsparql.sh ../berlin.hdt "PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX rev: <http://purl.org/stuff/rev#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX bsbm-prod: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer33/> SELECT ?title ?text ?reviewDate ?reviewer ?reviewerName ?rating1 ?rating2 ?rating3 ?rating4 WHERE { ?review bsbm:reviewFor bsbm-prod:Product1518 . ?review dc:title ?title . ?review rev:text ?text . FILTER langMatches( lang(?text), \"EN\" ) ?review bsbm:reviewDate ?reviewDate . ?review rev:reviewer ?reviewer . ?reviewer foaf:name ?reviewerName . OPTIONAL { ?review bsbm:rating1 ?rating1 . } OPTIONAL { ?review bsbm:rating2 ?rating2 . } OPTIONAL { ?review bsbm:rating3 ?rating3 . } OPTIONAL { ?review bsbm:rating4 ?rating4 . } } ORDER BY DESC(?reviewDate) LIMIT 20"
+
+PREFIX  bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX  rev:  <http://purl.org/stuff/rev#>
+PREFIX  bsbm-prod: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer33/>
+PREFIX  foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+
+SELECT  ?title ?text ?reviewDate ?reviewer ?reviewerName ?rating1 ?rating2 ?rating3 ?rating4
+WHERE
+  { ?review  bsbm:reviewFor  bsbm-prod:Product1518 ;
+             dc:title        ?title ;
+             rev:text        ?text
+    FILTER langMatches(lang(?text), "EN")
+    ?review   bsbm:reviewDate  ?reviewDate ;
+              rev:reviewer     ?reviewer .
+    ?reviewer  foaf:name       ?reviewerName
+    OPTIONAL
+      { ?review  bsbm:rating1  ?rating1 }
+    OPTIONAL
+      { ?review  bsbm:rating2  ?rating2 }
+    OPTIONAL
+      { ?review  bsbm:rating3  ?rating3 }
+    OPTIONAL
+      { ?review  bsbm:rating4  ?rating4 }
+  }
+ORDER BY DESC(?reviewDate)
+LIMIT   20
 
 title,text,reviewDate,reviewer,reviewerName,rating1,rating2,rating3,rating4
 tantara negatives artiness interpolator usufruct discourages hastier exertion cowered cocainized unplaced yawp bluecap rarefies,lubrication muddier vibrators tactlessly aureole amuck anklebone consequentially reechoed viragos definers rumor polynesians gossipping climactically boiled haole puttee muscularity apophthegm denim epiloguing recrystallizes unaccounted permutationist sociocentricity literariness chanties winker preponderantly unselective descries cringers education wanes escorted overacts chassed afreets pellmell ourangs obovate preadapt witchings negatived concordats betrothing fudging packagers replications obsolescently obligations chuted blitzkriegs barnstormed madrases bannocks reloaning realms scandia inauspiciously nosebleeds accumulations plagiaries overtakes masterminds asslike mirthfulness unabating revivalists tanker subdebutante fulvous occasions shimmied catarrh disillusions thornily pillion unaccessible corinthians pussier intermediating meseemed undated graffito masculinized nervines annotating brouhahas unshaded prostration trisecting juicily disuniters infringements upholsterer sorbitols mistrusting horah befuddler dints polities intercalation charade transliterated upchuck robustly uniting federalism syphilis monocot feasibly implementors shedders catnips coarseness sexualization giantisms settee degassed wordstar amusable organist sedating camphors degenerated endways owed physiognomic moaned hosannas donates nonmystically firetraps expecting staphylococcal damner latitudinarians tiles boyishness philadelphians reupholstering rewarder vindicating hasta elmier frisking viruses hopeless shylocks disclosing hulloed subscript tormentedly bunkums newcomers natron blockaders bigheads phosgenes perils elks,2008-05-09T00:00:00,http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite1/Reviewer369,Florinio-Javiero,6,2,4,
@@ -177,7 +376,16 @@ microform hogans subjugation flummoxed exurbias reinsertion havocking,stargazers
 
 Query 9: Get information about a reviewer.
 
-PREFIX rev: <http://purl.org/stuff/rev#> PREFIX reviewer: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite1/> DESCRIBE ?x WHERE { reviewer:Reviewer1 rev:reviewer ?x }
+./bin/hdtsparql.sh ../berlin.hdt "PREFIX rev: <http://purl.org/stuff/rev#> PREFIX reviewer: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite1/> DESCRIBE ?x WHERE { reviewer:Reviewer1 rev:reviewer ?x }"
+
+PREFIX  rev:  <http://purl.org/stuff/rev#>
+PREFIX  reviewer: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite1/>
+
+DESCRIBE ?x
+WHERE
+  { reviewer:Reviewer1
+              rev:reviewer  ?x
+  }
 
 [WARNING] 
 org.apache.jena.query.QueryExecException: Attempt to have ResultSet from a DESCRIBE query
@@ -196,7 +404,27 @@ Ahora mismo no soporta Queries de DESCRIBE por el main de hdtSparql, podría imp
 
 Query 10: Get offers for a given product which fulfill specific requirements.
 
-PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX bsbm-prod: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer33/> SELECT DISTINCT ?offer ?price WHERE { ?offer bsbm:product bsbm-prod:Product1518. ?offer bsbm:vendor ?vendor . ?offer dc:publisher ?vendor . ?vendor bsbm:country <http://downlode.org/rdf/iso-3166/countries#US> .	?offer bsbm:deliveryDays ?deliveryDays . FILTER (?deliveryDays <= 3) ?offer bsbm:price ?price . ?offer bsbm:validTo ?date . FILTER (?date > 2008 ) } ORDER BY xsd:double(str(?price)) LIMIT 10
+./bin/hdtsparql.sh ../berlin.hdt "PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX bsbm-prod: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer33/> SELECT DISTINCT ?offer ?price WHERE { ?offer bsbm:product bsbm-prod:Product1518. ?offer bsbm:vendor ?vendor . ?offer dc:publisher ?vendor . ?vendor bsbm:country <http://downlode.org/rdf/iso-3166/countries#US> .	?offer bsbm:deliveryDays ?deliveryDays . FILTER (?deliveryDays <= 3) ?offer bsbm:price ?price . ?offer bsbm:validTo ?date . FILTER (?date > 2008 ) } ORDER BY xsd:double(str(?price)) LIMIT 10"
+
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX  bsbm-prod: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer33/>
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+
+SELECT DISTINCT  ?offer ?price
+WHERE
+  { ?offer   bsbm:product       bsbm-prod:Product1518 ;
+             bsbm:vendor        ?vendor ;
+             dc:publisher       ?vendor .
+    ?vendor  bsbm:country       <http://downlode.org/rdf/iso-3166/countries#US> .
+    ?offer   bsbm:deliveryDays  ?deliveryDays
+    FILTER ( ?deliveryDays <= 3 )
+    ?offer  bsbm:price    ?price ;
+            bsbm:validTo  ?date
+    FILTER ( ?date > 2008 )
+  }
+ORDER BY xsd:double(str(?price))
+LIMIT   10
 
 offer,price
 [INFO] ------------------------------------------------------------------------
@@ -208,7 +436,16 @@ offer,price
 
 Query 11: Get all information about an offer.
 
-PREFIX offer:<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor1/> SELECT ?property ?hasValue ?isValueOf WHERE { { offer:Offer1 ?property ?hasValue } UNION { ?isValueOf ?property offer:Offer1 } }
+./bin/hdtsparql.sh ../berlin.hdt "PREFIX offer:<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor1/> SELECT ?property ?hasValue ?isValueOf WHERE { { offer:Offer1 ?property ?hasValue } UNION { ?isValueOf ?property offer:Offer1 } }"
+
+PREFIX  offer: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor1/>
+
+SELECT  ?property ?hasValue ?isValueOf
+WHERE
+  {   { offer:Offer1  ?property  ?hasValue }
+    UNION
+      { ?isValueOf  ?property  offer:Offer1 }
+  }
 
 property,hasValue,isValueOf
 http://purl.org/dc/elements/1.1/date,2008-06-17,
@@ -231,7 +468,38 @@ http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/vendor,http://www4.wiw
 
 Query 12: Export information about an offer into another schemata.
 
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rev: <http://purl.org/stuff/rev#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX bsbm-export: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/export/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX offer:<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor1/> CONSTRUCT { offer:Offer1 bsbm-export:product ?productURI . offer:Offer1 bsbm-export:productlabel ?productlabel . offer:Offer1 bsbm-export:vendor ?vendorname . offer:Offer1 bsbm-export:vendorhomepage ?vendorhomepage . offer:Offer1 bsbm-export:offerURL ?offerURL . offer:Offer1 bsbm-export:price ?price . offer:Offer1 bsbm-export:deliveryDays ?deliveryDays . offer:Offer1 bsbm-export:validuntil ?validTo } WHERE { offer:Offer1 bsbm:product ?productURI . ?productURI rdfs:label ?productlabel . offer:Offer1 bsbm:vendor ?vendorURI . ?vendorURI rdfs:label ?vendorname . ?vendorURI foaf:homepage ?vendorhomepage . offer:Offer1 bsbm:offerWebpage ?offerURL . offer:Offer1 bsbm:price ?price . offer:Offer1 bsbm:deliveryDays ?deliveryDays . offer:Offer1 bsbm:validTo ?validTo }
+./bin/hdtsparql.sh ../berlin.hdt "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rev: <http://purl.org/stuff/rev#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX bsbm-export: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/export/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX offer:<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor1/> CONSTRUCT { offer:Offer1 bsbm-export:product ?productURI . offer:Offer1 bsbm-export:productlabel ?productlabel . offer:Offer1 bsbm-export:vendor ?vendorname . offer:Offer1 bsbm-export:vendorhomepage ?vendorhomepage . offer:Offer1 bsbm-export:offerURL ?offerURL . offer:Offer1 bsbm-export:price ?price . offer:Offer1 bsbm-export:deliveryDays ?deliveryDays . offer:Offer1 bsbm-export:validuntil ?validTo } WHERE { offer:Offer1 bsbm:product ?productURI . ?productURI rdfs:label ?productlabel . offer:Offer1 bsbm:vendor ?vendorURI . ?vendorURI rdfs:label ?vendorname . ?vendorURI foaf:homepage ?vendorhomepage . offer:Offer1 bsbm:offerWebpage ?offerURL . offer:Offer1 bsbm:price ?price . offer:Offer1 bsbm:deliveryDays ?deliveryDays . offer:Offer1 bsbm:validTo ?validTo }"
+
+PREFIX  offer: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor1/>
+PREFIX  rev:  <http://purl.org/stuff/rev#>
+PREFIX  bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  bsbm-export: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/export/>
+PREFIX  foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+
+CONSTRUCT 
+  { 
+    offer:Offer1 bsbm-export:product ?productURI .
+    offer:Offer1 bsbm-export:productlabel ?productlabel .
+    offer:Offer1 bsbm-export:vendor ?vendorname .
+    offer:Offer1 bsbm-export:vendorhomepage ?vendorhomepage .
+    offer:Offer1 bsbm-export:offerURL ?offerURL .
+    offer:Offer1 bsbm-export:price ?price .
+    offer:Offer1 bsbm-export:deliveryDays ?deliveryDays .
+    offer:Offer1 bsbm-export:validuntil ?validTo .
+  }
+WHERE
+  { offer:Offer1  bsbm:product   ?productURI .
+    ?productURI  rdfs:label      ?productlabel .
+    offer:Offer1  bsbm:vendor    ?vendorURI .
+    ?vendorURI  rdfs:label       ?vendorname ;
+              foaf:homepage      ?vendorhomepage .
+    offer:Offer1  bsbm:offerWebpage  ?offerURL ;
+              bsbm:price         ?price ;
+              bsbm:deliveryDays  ?deliveryDays ;
+              bsbm:validTo       ?validTo
+  }
 
 [WARNING] 
 org.apache.jena.query.QueryExecException: Attempt to have ResultSet from a CONSTRUCT query

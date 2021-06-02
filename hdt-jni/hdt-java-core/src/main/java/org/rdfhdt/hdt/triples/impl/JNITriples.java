@@ -73,7 +73,7 @@ public class JNITriples implements TriplesPrivate {
 	public void load(IteratorTripleID it, ProgressListener listener, int npreds, int nso) {
 		try {
 
-			System.out.println("memoria libres antes de crear triples "+Runtime.getRuntime().freeMemory());
+			System.out.println("memoria libre antes de crear triples "+Runtime.getRuntime().freeMemory());
 			
 			assert(it.getOrder() == TripleComponentOrder.SPO);			
 			String filename = "tmploadtriples" + System.currentTimeMillis();
@@ -89,7 +89,7 @@ public class JNITriples implements TriplesPrivate {
 				numberOfElements++;
 			}
 			IOUtil.closeQuietly(os);
-			System.out.println("memoria libres antes de llamar triples en c "+Runtime.getRuntime().freeMemory());
+			System.out.println("memoria libre antes de llamar triples en c "+Runtime.getRuntime().freeMemory());
 			jnitriples = _createJNITriples(filename, npreds, nso);
 			
 			f.deleteOnExit();
