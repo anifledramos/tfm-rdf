@@ -50,4 +50,13 @@ $ ./bin/hdtSearch.sh ../hdt-java-core/data/test.hdt
 sudo docker build -t rdfjni --rm=true .
 
 sudo docker run --name jnidocker -it rdfjni
+
+sudo docker ps
+
+sudo docker start 0b31db161807 #containerid
+
+sudo docker exec -it jnidocker /bin/bash
+
+sudo docker exec -it gccdocker /bin/bash
+
 ctr+q to quit

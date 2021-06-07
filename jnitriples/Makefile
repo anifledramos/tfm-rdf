@@ -47,8 +47,9 @@ jni_interface:
 	gcc $(CPPFLAGS) $(INCLUDES_JNI) -c src/org_rdfhdt_hdt_triples_impl_JNITriples.c -o obj/org_rdfhdt_hdt_triples_impl_JNITriples.o
 
 jni: jni_interface
+	mkdir obj
 	gcc $(CPPFLAGS_JNI) $(INCLUDES_JNI) -o $(LIBNAME) $(OBJECTS) obj/org_rdfhdt_hdt_triples_impl_JNITriples.o -lm
-	sudo cp ./lib/libjnitriples.so /usr/lib/
+	cp ./lib/libjnitriples.so /usr/lib/
 
 #join_tree:
 #	gcc $(CPPFLAGS) -o $(DEST)/join_tree src/usararbolJoinsFF.c $(OBJECTS) -lm
