@@ -98,8 +98,6 @@ public class RDF2HDT implements ProgressListener {
 			baseURI = "file://"+rdfInput;
 		}
 		
-		System.out.println("memoria usada "+Runtime.getRuntime().maxMemory());
-		
 		RDFNotation notation=null;
 		if(rdfType!=null) {
 			try {
