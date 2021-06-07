@@ -89,8 +89,6 @@ public class HDTImpl implements HDTPrivate {
 		header = HeaderFactory.createHeader(spec);
         dictionary = DictionaryFactory.createDictionary(spec);
         triples = TriplesFactory.createTriples(spec);
-
-		System.out.println("memoria libre despues de create components "+Runtime.getRuntime().freeMemory());
 	}
 
 	public void populateHeaderStructure(String baseUri) {

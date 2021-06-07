@@ -112,9 +112,7 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 		this.numstrings = 0;
 		
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();  
-		System.out.println("memoria maxima antes de escribir "+Runtime.getRuntime().maxMemory());
-		System.out.println("memoria libre antes de escribir "+Runtime.getRuntime().freeMemory());
-		
+
 		while(it.hasNext()) {
 			CharSequence str = it.next();
 			byte[] barr = toByteArray(str);
@@ -124,13 +122,11 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 			
 			numstrings++;
 		}
-		System.out.println("memoria maxima despues de escribir "+Runtime.getRuntime().maxMemory());
-		System.out.println("memoria libre despues de escribir "+Runtime.getRuntime().freeMemory());
+
 		text = outputStream.toByteArray();
 		
 		jnidictionary = _createJNIDictionary(text, blocksize, dict);
 
-		System.out.println("memoria libre despues de load "+Runtime.getRuntime().freeMemory());
 	}
 	
 	@Override
