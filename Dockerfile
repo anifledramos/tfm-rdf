@@ -20,6 +20,8 @@ RUN apt-get update
 
 RUN cd /opt/tfm-rdf
 
+RUN cd /opt/tfm-rdf/jnitriples && mkdir obj 
+
 RUN cd /opt/tfm-rdf/jnitriples && make clean all
 
 RUN cd /opt/tfm-rdf/jnidictionary && make jni
