@@ -47,16 +47,28 @@ $ ./bin/hdtSearch.sh ../hdt-java-core/data/test.hdt
 ./bin/rdf2hdt.sh ~/TFM/data/bsbmtools-v0.2/bsbmtools-0.2/databerlin80.nt databerlin.hdt
 
 # Run docker
+
+## Build docker from dockerfile
 sudo docker build -t rdfjni --rm=true .
 
-sudo docker run --name jnidocker -it rdfjni
+## Create and run container
+sudo docker run --name gccdocker -it rdfjni
 
-sudo docker ps
+## List containers
+sudo docker container ls -a
 
-sudo docker start 0b31db161807 #containerid
+## Start existing container
+sudo docker start  #containerid
 
-sudo docker exec -it jnidocker /bin/bash
-
+## Execute existing container (must be started)
 sudo docker exec -it gccdocker /bin/bash
 
-ctr+q to quit
+## Stop existing container
+sudo docker stop  #containerid
+
+## Remove existing container (must be stopped)
+sudo docker container rm #containerid
+
+## Exit docker
+exit to quit in gcc
+ctr+q to quit in openjdk
