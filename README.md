@@ -49,6 +49,7 @@ $ ./bin/hdtSearch.sh ../hdt-java-core/data/test.hdt
 # Run docker
 
 ## Build docker from dockerfile
+Move N-Triples file to working directory with name "berlin.nt"
 sudo docker build -t rdfjni --rm=true .
 
 ## Create and run container
