@@ -1,6 +1,6 @@
 FROM gcc:8.5.0
 
-COPY berlin.nt /opt/berlin.nt
+RUN mkdir data
 
 #Install dependencies
 RUN apt-get update \
@@ -28,7 +28,7 @@ RUN cd /opt/tfm-rdf/jnidictionary && make jni
 
 RUN cd /opt/tfm-rdf/hdt-jni && mvn -DskipTests install
 
-RUN cd /opt/tfm-rdf/hdt-jni/hdt-java-cli/ && ./bin/rdf2hdt.sh /opt/berlin.nt /opt/berlin.hdt
+RUN cd /opt/tfm-rdf/hdt-jni/hdt-java-cli/ && ./bin/rdf2hdt.sh ../../../../data/berlin.nt ../../../../data/berlin.hdt
 
 
 

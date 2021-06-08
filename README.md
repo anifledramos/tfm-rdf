@@ -50,26 +50,32 @@ $ ./bin/hdtSearch.sh ../hdt-java-core/data/test.hdt
 
 ## Build docker from dockerfile
 Move N-Triples file to working directory with name "berlin.nt"
-sudo docker build -t rdfjni --rm=true .
+docker build -t rdfjni --rm=true .
 
 ## Create and run container
-sudo docker run --name gccdocker -it rdfjni
+docker run --name gccdocker --mount type=bind,source="$(pwd)/data",target=/data -it rdfjni
 
 ## List containers
-sudo docker container ls -a
+docker container ls -a
 
 ## Start existing container
-sudo docker start  #containerid
+docker start  #containerid
 
 ## Execute existing container (must be started)
-sudo docker exec -it gccdocker /bin/bash
+docker exec -it gccdocker /bin/bash
 
 ## Stop existing container
-sudo docker stop  #containerid
+docker stop  #containerid
 
 ## Remove existing container (must be stopped)
-sudo docker container rm #containerid
+docker container rm #containerid
 
 ## Exit docker
 exit to quit in gcc
 ctr+q to quit in openjdk
+
+# Testing against Xermade server
+ssh -p 2218 delfina@xermade.dc.fi.udc.es
+
+## Copy files to xermade
+scp -P 2218 files delfina@xermade.dc.fi.udc.es:~
