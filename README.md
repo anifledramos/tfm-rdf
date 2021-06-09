@@ -11,7 +11,7 @@ https://www.overleaf.com/8534796694hpfcpbtbwkpq
 ### First make sure you compiled hdt-jni
 $ cd ../hdt-jni
 
-hdt-jni $ mvn install
+hdt-jni $ mvn -DskipTests install
 
 ### Compile Java to create headers file for native methods
 #### JNITriples
@@ -25,7 +25,7 @@ hdt-jni/hdt-java-cli$ ./bin/rdf2hdt.sh ../../nt/test.nt ../../nt/test.hdt
 
 ### Now get to the hdt-jena dir and compile it
 hdt-jni $ cd ../hdt-jena
-hdt-jni $ mvn install
+hdt-jni $ mvn -DskipTests install
 
 ### Compile JNITriples
 jnitriples $ make clean all
