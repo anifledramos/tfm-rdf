@@ -25,7 +25,8 @@ hdt-jni/hdt-java-cli$ ./bin/rdf2hdt.sh ../../nt/test.nt ../../nt/test.hdt
 
 ### Now get to the hdt-jena dir and compile it
 hdt-jni $ cd ../hdt-jena
-hdt-jni $ mvn -DskipTests install
+
+hdt-jena $ mvn -DskipTests install
 
 ### Compile JNITriples
 jnitriples $ make clean all
