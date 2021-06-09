@@ -1,15 +1,16 @@
 FROM gcc:8.5.0
 
 RUN mkdir data
+COPY /nt/test.nt /opt/test.nt
 
 #Install dependencies
 RUN apt-get update \
     && apt-get install -y \
-    nano \
-    make \
     git \
-    openjdk-11-jdk \
-    maven
+    make\
+    maven \
+    nano \
+    openjdk-11-jdk 
 
 ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
 ENV PATH $JAVA_HOME/bin:$PATH
@@ -28,7 +29,7 @@ RUN cd /opt/tfm-rdf/jnidictionary && make jni
 
 RUN cd /opt/tfm-rdf/hdt-jni && mvn -DskipTests install
 
-RUN cd /opt/tfm-rdf/hdt-jni/hdt-java-cli/ && ./bin/rdf2hdt.sh ../../../../data/berlin.nt ../../../../data/berlin.hdt
+RUN cd /opt/tfm-rdf/hdt-jni/hdt-java-cli/ && ./bin/rdf2hdt.sh ../../../test.nt ../../../test.hdt
 
 
 
