@@ -70,9 +70,3 @@ docker stop  #container
 
 ## Remove existing container (must be stopped)
 docker rm #container
-
-# Testing against Xermade server
-ssh -p 2218 delfina@xermade.dc.fi.udc.es
-
-## Copy files to xermade
-scp -P 2218 files delfina@xermade.dc.fi.udc.es:~
