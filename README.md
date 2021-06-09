@@ -15,10 +15,10 @@ hdt-jni $ mvn -DskipTests install
 
 ### Compile Java to create headers file for native methods
 #### JNITriples
-javac -cp ../../../target/hdt-java-core-2.0.jar:../../../../hdt-api/target/hdt-api-2.0.jar -h . org/rdfhdt/hdt/triples/impl/JNITriples.java 
+hdt-jni/hdt-java-core/src/main/java$ javac -cp ../../../target/hdt-java-core-2.0.jar:../../../../hdt-api/target/hdt-api-2.0.jar -h . org/rdfhdt/hdt/triples/impl/JNITriples.java 
 
 #### JNIDictionary
-javac -cp ../../../target/hdt-java-core-2.0.jar:../../../../hdt-api/target/hdt-api-2.0.jar -h . org/rdfhdt/hdt/dictionary/impl/section/JNIDictionarySection.java 
+hdt-jni/hdt-java-core/src/main/java$ javac -cp ../../../target/hdt-java-core-2.0.jar:../../../../hdt-api/target/hdt-api-2.0.jar -h . org/rdfhdt/hdt/dictionary/impl/section/JNIDictionarySection.java 
 
 ### Generate an HDT file using the hdt-java library 
 hdt-jni/hdt-java-cli$ ./bin/rdf2hdt.sh ../../nt/test.nt ../../nt/test.hdt
@@ -26,7 +26,7 @@ hdt-jni/hdt-java-cli$ ./bin/rdf2hdt.sh ../../nt/test.nt ../../nt/test.hdt
 ### Now get to the hdt-jena dir and compile it
 hdt-jni $ cd ../hdt-jena
 
-hdt-jena $ mvn -DskipTests install
+hdt-jni/hdt-jena $ mvn -DskipTests install
 
 ### Compile JNITriples
 jnitriples $ make clean all
@@ -35,17 +35,18 @@ jnitriples $ make clean all
 jnidictionary $ make jni
 
 ### Execute SPARQL Query against the file.
-$ ./bin/hdtsparql.sh ../../nt/test.hdt "SELECT ?s ?p ?o WHERE { ?s ?p ?o . }"
+hdt-jni/hdt-jena$ ./bin/hdtsparql.sh ../../nt/test.hdt "SELECT ?s ?p ?o WHERE { ?s ?p ?o . }"
 
 ### Execute Triples Query against the file
-$ ./bin/hdtSearch.sh ../../nt/test.hdt
+hdt-jni/hdt-java-cli$$ ./bin/hdtSearch.sh ../../nt/test.hdt
 
 ## Generate Bechmanrk data with Berlin Benchmark
 
-./generate -fc -pc 70000 -fn databerlin70
+Download data generator from http://wifo5-03.informatik.uni-mannheim.de/bizer/berlinsparqlbenchmark/
 
-## Test sparql
-./bin/rdf2hdt.sh ~/TFM/data/bsbmtools-v0.2/bsbmtools-0.2/databerlin80.nt databerlin.hdt
+Unzip and run generator
+
+./generate -fc -pc 70000 -fn databerlin70
 
 # Run docker
 
