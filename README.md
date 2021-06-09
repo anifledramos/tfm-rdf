@@ -21,23 +21,23 @@ javac -cp ../../../target/hdt-java-core-2.0.jar:../../../../hdt-api/target/hdt-a
 javac -cp ../../../target/hdt-java-core-2.0.jar:../../../../hdt-api/target/hdt-api-2.0.jar -h . org/rdfhdt/hdt/dictionary/impl/section/JNIDictionarySection.java 
 
 ### Generate an HDT file using the hdt-java library 
-hdt-jni/hdt-java-cli$ ./bin/rdf2hdt.sh ../hdt-java-core/data/test.nt ../hdt-java-core/data/test.hdt
+hdt-jni/hdt-java-cli$ ./bin/rdf2hdt.sh ../../nt/test.nt ../../nt/test.hdt
 
 ### Now get to the hdt-jena dir and compile it
 hdt-jni $ cd ../hdt-jena
 hdt-jni $ mvn install
 
 ### Compile JNITriples
-jnitriples $ make jni
+jnitriples $ make clean all
 
 ### Compile JNIDictionary
 jnidictionary $ make jni
 
 ### Execute SPARQL Query against the file.
-$ ./bin/hdtsparql.sh ../hdt-java-core/data/test.hdt "SELECT ?s ?p ?o WHERE { ?s ?p ?o . }"
+$ ./bin/hdtsparql.sh ../../nt/test.hdt "SELECT ?s ?p ?o WHERE { ?s ?p ?o . }"
 
 ### Execute Triples Query against the file
-$ ./bin/hdtSearch.sh ../hdt-java-core/data/test.hdt
+$ ./bin/hdtSearch.sh ../../nt/test.hdt
 
 ## Generate Bechmanrk data with Berlin Benchmark
 
