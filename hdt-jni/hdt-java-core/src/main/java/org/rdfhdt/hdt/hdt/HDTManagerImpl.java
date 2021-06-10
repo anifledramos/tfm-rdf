@@ -98,9 +98,13 @@ public class HDTManagerImpl extends HDTManager {
 		StopWatch st = new StopWatch();
 		
 		// Create TempHDT
+		System.out.println("Free memory (bytes): " + 
+				  Runtime.getRuntime().freeMemory());
 		TempHDT modHdt = loader.loadFromRDF(spec, rdfFileName, baseURI, rdfNotation, listener);
 		
 		// Convert to HDT
+		System.out.println("Free memory (bytes): " + 
+				  Runtime.getRuntime().freeMemory());
 		HDTImpl hdt = new HDTImpl(spec); 
 		hdt.loadFromModifiableHDT(modHdt, listener);
 		hdt.populateHeaderStructure(modHdt.getBaseURI());

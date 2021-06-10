@@ -31,10 +31,20 @@ public class JNIDictionary extends BaseDictionary {
 	
 	public JNIDictionary(HDTOptions spec) {
 		super(spec);
+		System.out.println("Free memory dictionary init (bytes): " + 
+				  Runtime.getRuntime().freeMemory());
 		subjects = new JNIDictionarySection(spec);
+		System.out.println("Free memory dict s(bytes): " + 
+				  Runtime.getRuntime().freeMemory());
 		predicates = new JNIDictionarySection(spec);
+		System.out.println("Free memory dict p(bytes): " + 
+				  Runtime.getRuntime().freeMemory());
 		objects = new JNIDictionarySection(spec);
+		System.out.println("Free memory dict o(bytes): " + 
+				  Runtime.getRuntime().freeMemory());
 		shared = new JNIDictionarySection(spec);
+		System.out.println("Free memory dict shr (bytes): " + 
+				  Runtime.getRuntime().freeMemory());
 	}
 	
 	@Override

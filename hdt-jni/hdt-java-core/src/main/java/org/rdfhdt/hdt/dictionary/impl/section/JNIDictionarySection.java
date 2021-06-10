@@ -124,6 +124,8 @@ public class JNIDictionarySection implements DictionarySectionPrivate {
 		}
 
 		text = outputStream.toByteArray();
+		System.out.println("Free memory dictionary(bytes): " + 
+				  Runtime.getRuntime().freeMemory());
 		
 		jnidictionary = _createJNIDictionary(text, blocksize, dict);
 
