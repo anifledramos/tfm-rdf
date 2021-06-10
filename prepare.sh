@@ -8,9 +8,13 @@ mkdir obj
 
 make clean all
 
+sudo cp ./lib/libjnitriples.so /usr/lib/
+
 cd ../jnidictionary 
 
 make jni
+
+sudo cp ./lib/libjnidictionary.so /usr/lib/
 
 cd ../hdt-jni 
 

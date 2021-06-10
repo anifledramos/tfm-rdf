@@ -37,12 +37,16 @@ hdt-jni/hdt-java-core/src/main/java$ javac -cp ../../../target/hdt-java-core-2.0
 ### Compile JNITriples and save library libjnitriples
 jnitriples $ make clean all
 
-Makefile will try to copy the generated library into /usr/lib directory and will ask for sudo permission. You can also modify Makefile, remove sudo and manually move the libjnitriples.so file generated to /usr/lib
+Makefile will try to copy the generated library into /usr/lib directory and succeed in Docker but fail in local. Prepare.sh copies the libjnitriples.so file generated to /usr/lib or you can manually move the library to /usr/lib if you are going step by step.
+
+sudo cp ./lib/libjnitriples.so /usr/lib/
 
 ### Compile JNIDictionary and save library libjnidictionary
 jnidictionary $ make jni
 
-Makefile will try to copy the generated library into /usr/lib directory and will ask for sudo permission. You can also modify Makefile, remove sudo and manually move the libjnidictionary.so file generated to /usr/lib
+Makefile will try to copy the generated library into /usr/lib directory and succeed in Docker but fail in local. Prepare.sh copies the libjnidictionary.so file generated to /usr/lib or you can manually move the library to /usr/lib if you are going step by step.
+
+sudo cp ./lib/libjnidictionary.so /usr/lib/
 
 ### Generate an HDT file using the hdt-java library 
 hdt-jni/hdt-java-cli$ ./bin/rdf2hdt.sh ../../nt/test.nt ../../nt/test.hdt
