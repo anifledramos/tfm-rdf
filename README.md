@@ -8,35 +8,44 @@ https://www.overleaf.com/8534796694hpfcpbtbwkpq
 
 ## Compilation instructions
 
+## Automatic preparation
+
+chmod +x prepare.sh
+
+./prepare.sh
+
+## Manual preparation
+
 ### First make sure you compiled hdt-jni
 $ cd ../hdt-jni
 
 hdt-jni $ mvn -DskipTests install
-
-### Compile Java to create headers file for native methods
-#### JNITriples
-hdt-jni/hdt-java-core/src/main/java$ javac -cp ../../../target/hdt-java-core-2.0.jar:../../../../hdt-api/target/hdt-api-2.0.jar -h . org/rdfhdt/hdt/triples/impl/JNITriples.java 
-
-#### JNIDictionary
-hdt-jni/hdt-java-core/src/main/java$ javac -cp ../../../target/hdt-java-core-2.0.jar:../../../../hdt-api/target/hdt-api-2.0.jar -h . org/rdfhdt/hdt/dictionary/impl/section/JNIDictionarySection.java 
-
-### Generate an HDT file using the hdt-java library 
-hdt-jni/hdt-java-cli$ ./bin/rdf2hdt.sh ../../nt/test.nt ../../nt/test.hdt
 
 ### Now get to the hdt-jena dir and compile it
 hdt-jni $ cd ../hdt-jena
 
 hdt-jni/hdt-jena $ mvn -DskipTests install
 
-### Compile JNITriples
+### Compile Java to create headers file for native methods (only if you are implementing new JNIAdapters, not necessary to compile and run the program)
+
+#### JNITriples
+hdt-jni/hdt-java-core/src/main/java$ javac -cp ../../../target/hdt-java-core-2.0.jar:../../../../hdt-api/target/hdt-api-2.0.jar -h . org/rdfhdt/hdt/triples/impl/JNITriples.java 
+
+#### JNIDictionary
+hdt-jni/hdt-java-core/src/main/java$ javac -cp ../../../target/hdt-java-core-2.0.jar:../../../../hdt-api/target/hdt-api-2.0.jar -h . org/rdfhdt/hdt/dictionary/impl/section/JNIDictionarySection.java 
+
+### Compile JNITriples and save library libjnitriples
 jnitriples $ make clean all
 
 Makefile will try to copy the generated library into /usr/lib directory and will ask for sudo permission. You can also modify Makefile, remove sudo and manually move the libjnitriples.so file generated to /usr/lib
 
-### Compile JNIDictionary
+### Compile JNIDictionary and save library libjnidictionary
 jnidictionary $ make jni
 
 Makefile will try to copy the generated library into /usr/lib directory and will ask for sudo permission. You can also modify Makefile, remove sudo and manually move the libjnidictionary.so file generated to /usr/lib
+
+### Generate an HDT file using the hdt-java library 
+hdt-jni/hdt-java-cli$ ./bin/rdf2hdt.sh ../../nt/test.nt ../../nt/test.hdt
 
 ### Execute SPARQL Query against the file.
 hdt-jni/hdt-jena$ ./bin/hdtsparql.sh ../../nt/test.hdt "SELECT ?s ?p ?o WHERE { ?s ?p ?o . }"
