@@ -31,8 +31,12 @@ hdt-jni/hdt-jena $ mvn -DskipTests install
 ### Compile JNITriples
 jnitriples $ make clean all
 
+Makefile will try to copy the generated library into /usr/lib directory and will ask for sudo permission. You can also modify Makefile, remove sudo and manually move the libjnitriples.so file generated to /usr/lib
+
 ### Compile JNIDictionary
 jnidictionary $ make jni
+
+Makefile will try to copy the generated library into /usr/lib directory and will ask for sudo permission. You can also modify Makefile, remove sudo and manually move the libjnidictionary.so file generated to /usr/lib
 
 ### Execute SPARQL Query against the file.
 hdt-jni/hdt-jena$ ./bin/hdtsparql.sh ../../nt/test.hdt "SELECT ?s ?p ?o WHERE { ?s ?p ?o . }"
