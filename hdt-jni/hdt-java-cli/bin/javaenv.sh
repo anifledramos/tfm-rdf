@@ -23,5 +23,5 @@ fi
 
 # Set Java options
 if [ "$JAVA_OPTIONS" = "" ] ; then
-    JAVA_OPTIONS="-Xmx1g"
+    JAVA_OPTIONS="-Xmx12g"
 fi

@@ -115,8 +115,8 @@ public class RDF2HDT implements ProgressListener {
 				notation = RDFNotation.NTRIPLES;
 			}
 		}
-		System.out.println("Total memory (bytes): " + 
-				  Runtime.getRuntime().totalMemory());
+		System.out.println("Max memory (bytes): " + 
+				  Runtime.getRuntime().maxMemory());
 		System.out.println("Free memory (bytes): " + 
 				  Runtime.getRuntime().freeMemory());
 		HDT hdt = HDTManager.generateHDT(rdfInput, baseURI,notation , spec, this);	

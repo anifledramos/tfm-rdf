@@ -86,8 +86,14 @@ public class HDTImpl implements HDTPrivate {
 	private boolean isMapped;
 
 	private void createComponents() {
+		System.out.println("Free memory (bytes): " + 
+				  Runtime.getRuntime().freeMemory());
 		header = HeaderFactory.createHeader(spec);
+		System.out.println("Free memory (bytes): " + 
+				  Runtime.getRuntime().freeMemory());
         dictionary = DictionaryFactory.createDictionary(spec);
+        System.out.println("Free memory (bytes): " + 
+				  Runtime.getRuntime().freeMemory());
         triples = TriplesFactory.createTriples(spec);
 	}
 
