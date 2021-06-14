@@ -50,9 +50,25 @@ public class JNIDictionary extends BaseDictionary {
 	@Override
 	public void load(TempDictionary other, ProgressListener listener) throws IOException {
 		IntermediateListener iListener = new IntermediateListener(listener);
+		System.out.println("Max memory (bytes): " + 
+				  Runtime.getRuntime().maxMemory());
+		System.out.println("Free memory dict before subjects(bytes): " + 
+				  Runtime.getRuntime().freeMemory());
 		subjects.load(other.getSubjects(), iListener, "subjects");
+		System.out.println("Max memory (bytes): " + 
+				  Runtime.getRuntime().maxMemory());
+		System.out.println("Free memory dict before predicates(bytes): " + 
+				  Runtime.getRuntime().freeMemory());
 		predicates.load(other.getPredicates(), iListener, "predicates");
+		System.out.println("Max memory (bytes): " + 
+				  Runtime.getRuntime().maxMemory());
+		System.out.println("Free memory dict before objects(bytes): " + 
+				  Runtime.getRuntime().freeMemory());
 		objects.load(other.getObjects(), iListener, "objects");
+		System.out.println("Max memory (bytes): " + 
+				  Runtime.getRuntime().maxMemory());
+		System.out.println("Free memory dict before shared(bytes): " + 
+				  Runtime.getRuntime().freeMemory());
 		shared.load(other.getShared(), iListener, "shared");
 	}
 	
