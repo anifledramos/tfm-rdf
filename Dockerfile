@@ -30,6 +30,7 @@ RUN cd /opt/tfm-rdf/hdt-jni && mvn -DskipTests install
 
 RUN cd /opt/tfm-rdf/hdt-jni/hdt-java-cli/ && ./bin/rdf2hdt.sh ../../nt/test.nt ../../nt/test.hdt
 
+CMD ["tail", "-f", "/dev/null"]
 
 
 
