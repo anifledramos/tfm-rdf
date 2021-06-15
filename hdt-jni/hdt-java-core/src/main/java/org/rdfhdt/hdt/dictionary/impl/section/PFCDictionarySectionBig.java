@@ -421,19 +421,20 @@ public class PFCDictionarySectionBig implements DictionarySectionPrivate {
 		VByte.encode(out, numstrings);		
 		
 		long datasize=0;
-	
-		for (int i =0; i<data.length;i++) {
-			datasize = data[i].length+ datasize;
-			
-		}
-		System.out.println("datasize:"+datasize);		
-		VByte.encode(out, datasize);
-		VByte.encode(out, blocksize);				
-		out.writeCRC();
-		blocks.save(output, listener);	// Write blocks directly to output, they have their own CRC check.		
-		out.setCRC(new CRC32());
-		for (int i =0; i<data.length;i++) {			
-		IOUtil.writeBuffer(out, data[i], 0, data[i].length, listener);		
+		if(data!=null) {
+			for (int i =0; i<data.length;i++) {
+				datasize = data[i].length+ datasize;
+				
+			}
+			System.out.println("datasize:"+datasize);		
+			VByte.encode(out, datasize);
+			VByte.encode(out, blocksize);				
+			out.writeCRC();
+			blocks.save(output, listener);	// Write blocks directly to output, they have their own CRC check.		
+			out.setCRC(new CRC32());
+			for (int i =0; i<data.length;i++) {			
+			IOUtil.writeBuffer(out, data[i], 0, data[i].length, listener);		
+			}
 		}
 		out.writeCRC();
 		//throw new NotImplementedException();
@@ -502,7 +503,8 @@ public class PFCDictionarySectionBig implements DictionarySectionPrivate {
 	public void close() throws IOException {
 		data=null;
 		posFirst=null;
-		blocks.close();
+		if (blocks!=null)
+			blocks.close();
 		blocks=null;
 	}
 

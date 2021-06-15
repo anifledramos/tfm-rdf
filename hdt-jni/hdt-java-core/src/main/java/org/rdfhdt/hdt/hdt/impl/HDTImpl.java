@@ -174,6 +174,7 @@ public class HDTImpl implements HDTPrivate {
 		iListener.setRange(5, 60);
 		//recibe tipo de diccionario
 		dictionary = DictionaryFactory.createDictionary(ci);
+		System.out.println("Tipo de diccionario "+dictionary.getType());
 		// nuestro diccionario debería tener hdtFileName de input y no un inputStream
 		if (dictionary.singleFileStorage(dictionary.getType())==false) {
 			dictionary.load(hdtFileName, ci, iListener);

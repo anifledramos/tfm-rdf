@@ -108,6 +108,7 @@ public class HDTManagerImpl extends HDTManager {
 		HDTImpl hdt = new HDTImpl(spec); 
 		hdt.loadFromModifiableHDT(modHdt, listener);
 		hdt.populateHeaderStructure(modHdt.getBaseURI());
+		System.out.println("tipo diccionario "+hdt.getDictionary().getType());
 		
 		// Add file size to Header
 		try {

@@ -81,6 +81,7 @@ public class HDTVocabulary {
 	// Dictionary Types
 	public static final String DICTIONARY_TYPE_PLAIN = HDT_DICTIONARY_BASE+"Plain>";
 	public static final String DICTIONARY_TYPE_FOUR_SECTION = HDT_DICTIONARY_BASE+"Four>";
+	public static final String DICTIONARY_TYPE_FOUR_SECTION_BIG = HDT_DICTIONARY_BASE+"FourBig>";
 	public static final String DICTIONARY_TYPE_JNI = HDT_DICTIONARY_BASE+"JNI>";
 
 	// Triples

@@ -91,7 +91,7 @@ public class FourSectionDictionaryBig extends BaseDictionary {
 	@Override
 	public void save(OutputStream output, ControlInfo ci, ProgressListener listener) throws IOException {
 		ci.setType(Type.DICTIONARY);
-		ci.setFormat(HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION);
+		ci.setFormat(HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION_BIG);
 		ci.setInt("elements", this.getNumberOfElements());
 		ci.save(output);
 
@@ -144,7 +144,7 @@ public class FourSectionDictionaryBig extends BaseDictionary {
 	 */
 	@Override
 	public void populateHeader(Header header, String rootNode) {
-		header.insert(rootNode, HDTVocabulary.DICTIONARY_TYPE, HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION);
+		header.insert(rootNode, HDTVocabulary.DICTIONARY_TYPE, HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION_BIG);
 //		header.insert(rootNode, HDTVocabulary.DICTIONARY_NUMSUBJECTS, getNsubjects());
 //		header.insert(rootNode, HDTVocabulary.DICTIONARY_NUMPREDICATES, getNpredicates());
 //		header.insert(rootNode, HDTVocabulary.DICTIONARY_NUMOBJECTS, getNobjects());
@@ -160,15 +160,19 @@ public class FourSectionDictionaryBig extends BaseDictionary {
 	 */
 	@Override
 	public String getType() {
-		return HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION;
+		return HDTVocabulary.DICTIONARY_TYPE_FOUR_SECTION_BIG;
 	}
 
 	@Override
 	public void close() throws IOException {
-		shared.close();
-		subjects.close();
-		predicates.close();
-		objects.close();
+		if (shared!=null)
+			shared.close();
+		if (subjects!=null)
+			subjects.close();
+		if (predicates!=null)
+			predicates.close();
+		if (objects!=null)
+			objects.close();
 	}
 
 	@Override
@@ -192,6 +196,6 @@ public class FourSectionDictionaryBig extends BaseDictionary {
 
 	@Override
 	public boolean singleFileStorage(String type) {
-		return false;
+		return true;
 	}
 }
