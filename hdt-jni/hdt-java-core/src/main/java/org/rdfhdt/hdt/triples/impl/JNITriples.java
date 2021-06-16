@@ -332,7 +332,7 @@ public class JNITriples implements TriplesPrivate {
 
 	@Override
 	public void close() throws IOException {
-		_destroyJNITriples(jnitriples);
+		// _destroyJNITriples(jnitriples);
 	}
 
 	public TripleComponentOrder getOrder() {

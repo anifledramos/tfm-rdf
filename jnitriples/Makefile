@@ -32,13 +32,13 @@ all: package library bin jni
 bin: $(OBJECTS) $(BINS)
 
 package: $(OBJECTS)
-	ar rc k2triples.a $(OBJECTS)
+	ar rc jnitriples.a $(OBJECTS)
 
 library: $(OBJECTS)
 	$(CPP) -shared -fPIC -O3 -o libktriples.so $(OBJECTS)
 
 build_tree:
-	gcc $(CPPFLAGS) -o $(DEST)/build_tree src/pruebaarbol.c k2triples.a -lm
+	gcc $(CPPFLAGS) -o $(DEST)/build_tree src/pruebaarbol.c jnitriples.a -lm
 
 use_tree:
 	gcc $(CPPFLAGS) -o $(DEST)/use_tree src/usararbol.c $(OBJECTS) -lm

@@ -1,2 +1,20 @@
 #ignore generated object files
 *.o
+*.so
+*.hdt*
+*.a
+mysujetos
+
+# log files
+*.log
+
+# test datasets
+/data
+/gtfs
+
+# vscode settings
+.vscode
+
+# extra files
+byteArray.txt
+
