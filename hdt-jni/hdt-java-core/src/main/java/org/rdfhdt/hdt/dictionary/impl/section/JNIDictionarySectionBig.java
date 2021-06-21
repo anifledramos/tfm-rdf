@@ -72,12 +72,15 @@ public class JNIDictionarySectionBig implements DictionarySectionPrivate {
 	public static final int BLOCK_PER_BUFFER = 1000000;
 	
 	// FIXME: Due to java array indexes being int, only 2GB can be addressed per dictionary section.
-	protected byte [][] text; // Encoded sequence
+	protected byte [][] data; // Encoded sequence
+	protected byte [] text; // Encoded sequence
 	protected long [] postFirst;
 	
 	protected int blocksize;
 	protected int numstrings;
 	protected SequenceLog64Big blocks;
+	protected long size;
+	static int filecounter = 0;
 	protected String fname;
 	protected long jnidictionary;
 	
@@ -104,15 +107,17 @@ public class JNIDictionarySectionBig implements DictionarySectionPrivate {
 	 */
 	@Override
 	public void load(TempDictionarySection other, ProgressListener listener, String dict) throws IOException {
-		this.blocks = new SequenceLog64(BitUtil.log2(other.size()), other.getNumberOfElements()/blocksize);
+		this.blocks = new SequenceLog64Big(BitUtil.log2(other.size()), other.getNumberOfElements()/blocksize);
+		System.out.println("numbits:"+BitUtil.log2(other.size()));
 		Iterator<? extends CharSequence> it = other.getSortedEntries();
 		this.load((Iterator<CharSequence>)it, other.getNumberOfElements(), listener, dict);
 	}
 
 	public void load(Iterator<CharSequence> it, long numentries, ProgressListener listener, String dict) throws IOException {
-		this.blocks = new SequenceLog64(32, numentries/blocksize);
+		this.blocks = new SequenceLog64Big(64, numentries/blocksize);
 		this.numstrings = 0;
 		
+		long byteoutsize = 0;
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();  
 
 		while(it.hasNext()) {
@@ -125,7 +130,7 @@ public class JNIDictionarySectionBig implements DictionarySectionPrivate {
 			numstrings++;
 		}
 
-		text = outputStream.toByteArray();
+//		text = outputStream.toByteArray();
 		System.out.println("Max memory dictionary(bytes): " + 
 				  Runtime.getRuntime().maxMemory());
 		System.out.println("Free memory dictionary(bytes): " + 
@@ -133,7 +138,7 @@ public class JNIDictionarySectionBig implements DictionarySectionPrivate {
 
 		System.out.println("length of byte array : "+text.length);
 		
-		jnidictionary = _createJNIDictionary(text, blocksize, dict);
+//		jnidictionary = _createJNIDictionary(text, blocksize, dict);
 
 	}
 	
@@ -236,7 +241,7 @@ public class JNIDictionarySectionBig implements DictionarySectionPrivate {
 		}
 		
 		// Read blocks
-		blocks = new SequenceLog64();
+		blocks = new SequenceLog64Big();
 		blocks.load(input, listener);	// Read blocks from input, they have their own CRC check.
 		
 		// Read packed data
