@@ -15,9 +15,9 @@ void initBuffer() {
 int spo(K2TRIPLES * k2triples, int s, int p, int o) {
 
 	initBuffer();
-	if (DEBUG) {
-		fprintf(stdout, "<%d,%d,%d>\n", s + 1, p, o + 1);
-	}
+	// if (DEBUG) {
+	// 	fprintf(stdout, "<%d,%d,%d>\n", s + 1, p, o + 1);
+	// }
 	if (compactTreeCheckLinkQuery(k2triples->trees[p], s, o))
 
 	{
@@ -40,12 +40,12 @@ int *so(K2TRIPLES * k2triples, int s, int o) {
 
 	int * p = bufferResultados[0];
 
-	if (DEBUG)
-		fprintf(stdout, "<%d,?,%d>\n", s + 1, o + 1);
+	// if (DEBUG)
+	// 	fprintf(stdout, "<%d,?,%d>\n", s + 1, o + 1);
 	for (i = 0; i < k2triples->npreds; i++) {
 		if (compactTreeCheckLinkQuery(k2triples->trees[i], s, o)) {
-			if (DEBUG)
-				fprintf(stdout, "<%d,%d,%d>\n", s + 1, i+1, o + 1);
+			// if (DEBUG)
+			// 	fprintf(stdout, "<%d,%d,%d>\n", s + 1, i+1, o + 1);
 			resultados++;
 			if (resultados < MAXRES) p[resultados] = i;
 		}
@@ -59,8 +59,8 @@ int *so(K2TRIPLES * k2triples, int s, int o) {
 int * soIndex(K2TRIPLES * k2triples,  int s, int o) {
 	initBuffer();
 	int i, resultados = 0;
-	if (DEBUG)
-		fprintf(stdout, "<%d,?,%d>\n", s + 1, o + 1);
+	// if (DEBUG)
+	// 	fprintf(stdout, "<%d,?,%d>\n", s + 1, o + 1);
 
 	int * p = bufferResultados[0];
 
@@ -71,9 +71,9 @@ int * soIndex(K2TRIPLES * k2triples,  int s, int o) {
 		if (compactTreeCheckLinkQuery(k2triples->trees[resDAC.predicados[i]], s, o)) {
 			resultados++;
 			if (resultados < MAXRES) p[resultados] = resDAC.predicados[i];
-			if (DEBUG)
-				fprintf(stdout, "<%d,%d,%d>\n", s + 1, resDAC.predicados[i],
-						o + 1);
+			// if (DEBUG)
+			// 	fprintf(stdout, "<%d,%d,%d>\n", s + 1, resDAC.predicados[i],
+			// 			o + 1);
 
 		}
 	}
@@ -89,8 +89,8 @@ int *soDobleIndex(K2TRIPLES * k2triples, int s, int o) {
 
 	int * p = bufferResultados[0];
 
-	if (DEBUG)
-		fprintf(stdout, "<%d,?,%d>\n", s + 1, o + 1);
+	// if (DEBUG)
+	// 	fprintf(stdout, "<%d,?,%d>\n", s + 1, o + 1);
 	obtenerPredicados(*k2triples->indiceSP, s);
 	obtenerPredicados2(*k2triples->indiceOP,o);
 	int i=0,j=0;
@@ -105,7 +105,7 @@ int *soDobleIndex(K2TRIPLES * k2triples, int s, int o) {
 		}
 		else {
 			if (compactTreeCheckLinkQuery(k2triples->trees[resDAC.predicados[i]],s,o)){
-				fprintf(stdout, "<%d,%d,%d>\n", s + 1, resDAC.predicados[i],o + 1);
+				// fprintf(stdout, "<%d,%d,%d>\n", s + 1, resDAC.predicados[i],o + 1);
 				resultados++;
 				if (resultados < MAXRES) p[resultados] = resDAC.predicados[i];
 				//i++;
@@ -126,15 +126,15 @@ int *sp(K2TRIPLES * k2triples, int s, int p) {
 	uint * x = infoTOTAL[0];
 	int resultados;
 
-	if (DEBUG)
-		fprintf(stdout, "<%d,%d,?>\n", s + 1, p);
+	// if (DEBUG)
+	// 	fprintf(stdout, "<%d,%d,?>\n", s + 1, p);
 
 	resultados = compactTreeAdjacencyList(k2triples->trees[p], s, x);
 
-	if (DEBUG)
-		for (i = 0; i < x[0]; i++) {
-			fprintf(stdout, "<%d,%d,%d>\n", s + 1, p, x[i + 1] + 1);
-		}
+	// if (DEBUG)
+	// 	for (i = 0; i < x[0]; i++) {
+	// 		fprintf(stdout, "<%d,%d,%d>\n", s + 1, p, x[i + 1] + 1);
+	// 	}
 
 	return x;
 }
@@ -146,15 +146,15 @@ int* po(K2TRIPLES * k2triples, int p, int o) {
 	int resultados;
 	uint * x = infoTOTAL[0];
 
-	if (DEBUG)
-		fprintf(stdout, "<?,%d,%d>\n", p, o + 1);
+	// if (DEBUG)
+	// 	fprintf(stdout, "<?,%d,%d>\n", p, o + 1);
 
 	resultados = compactTreeInverseList(k2triples->trees[p], o, x);
 
-	if (DEBUG)
-		for (i = 0; i < x[0]; i++) {
-			fprintf(stdout, "<%d,%d,%d>", x[i + 1] + 1, p, o + 1);
-		}
+	// if (DEBUG)
+	// 	for (i = 0; i < x[0]; i++) {
+	// 		fprintf(stdout, "<%d,%d,%d>", x[i + 1] + 1, p, o + 1);
+	// 	}
 	return x;
 }
 
@@ -164,8 +164,8 @@ int **s(K2TRIPLES * k2triples, int s) {
 	uint * x = infoTOTAL[0];
 	int resultados = 0;
 
-	if (DEBUG)
-		fprintf(stdout, "<%d,?,?>\n", s + 1);
+	// if (DEBUG)
+	// 	fprintf(stdout, "<%d,?,?>\n", s + 1);
 
 
 	for (i = 0; i < k2triples->npreds; i++) {
@@ -179,10 +179,10 @@ int **s(K2TRIPLES * k2triples, int s) {
 		}
 		resultados += thisres;
 
-		if (DEBUG) {
-			for (j = 0; j < x[0]; j++)
-				fprintf(stdout, "<%d,%d,%d>\n", s + 1, i, x[j + 1] + 1);
-		}
+		// if (DEBUG) {
+		// 	for (j = 0; j < x[0]; j++)
+		// 		fprintf(stdout, "<%d,%d,%d>\n", s + 1, i, x[j + 1] + 1);
+		// }
 	}
 	bufferResultados[0][0] = resultados;
 	return bufferResultados;
@@ -192,17 +192,17 @@ int **s(K2TRIPLES * k2triples, int s) {
 int **sIndex(K2TRIPLES * k2triples,  int s) {
 	initBuffer();
 	uint * x = infoTOTAL[0];
-	if (DEBUG)
-		fprintf(stdout, "<%d,?,?>\n", s + 1);
+	// if (DEBUG)
+	// 	fprintf(stdout, "<%d,?,?>\n", s + 1);
 
 	int cont = 0, i, j;
 	obtenerPredicados(*k2triples->indiceSP, s);
 	for (i = 0; i < resDAC.numeroPredicados; i++) {
 		compactTreeAdjacencyList(k2triples->trees[resDAC.predicados[i]-1], s, x);
 		for (j = 1; j <= x[0]; j++) {
-			if (DEBUG) {
-				fprintf(stdout, "<%d,%d,%d>\n", s+1, i, x[j]+1);
-			}
+			// if (DEBUG) {
+			// 	fprintf(stdout, "<%d,%d,%d>\n", s+1, i, x[j]+1);
+			// }
 			cont++;
 		}
 	}
@@ -216,16 +216,16 @@ int **p(K2TRIPLES * k2triples, int p) {
 	initBuffer();
 	int i;
 	SET * pares=paresBuff1;
-	if (DEBUG)
-		fprintf(stdout, "<?,%d,?>\n", p);
+	// if (DEBUG)
+	// 	fprintf(stdout, "<?,%d,?>\n", p);
 
 	compactTreeRangeQuery(k2triples->trees[p], 0,pares);
 
-	if (DEBUG) {
-		for (i = 1; i <= pares[0].x; i++) {
-			fprintf(stdout, "<%d,%d,%d>\n", pares[i].x + 1, p, pares[i].y + 1);
-		}
-	}
+	// if (DEBUG) {
+	// 	for (i = 1; i <= pares[0].x; i++) {
+	// 		fprintf(stdout, "<%d,%d,%d>\n", pares[i].x + 1, p, pares[i].y + 1);
+	// 	}
+	// }
 
 	for (i = 1; i <= pares[0].x; i++) {
 		bufferResultados[0][i] = pares[i].x;
@@ -241,17 +241,17 @@ int **pOrdenado(K2TRIPLES * k2triples, int p) {
 	initBuffer();
 	int i;
 
-	if (DEBUG)
-		fprintf(stdout, "<?,%d,?>\n", p);
+	// if (DEBUG)
+	// 	fprintf(stdout, "<?,%d,?>\n", p);
 
 	SET * pares=paresBuff1;
 	compactTreeRangeQuery(k2triples->trees[p], 1,pares);
 
-	if (DEBUG) {
-		for (i = 1; i <= pares[0].x; i++) {
-			fprintf(stdout, "<%d,%d,%d>\n", pares[i].x + 1, p, pares[i].y + 1);
-		}
-	}
+	// if (DEBUG) {
+	// 	for (i = 1; i <= pares[0].x; i++) {
+	// 		fprintf(stdout, "<%d,%d,%d>\n", pares[i].x + 1, p, pares[i].y + 1);
+	// 	}
+	// }
 
 	return NULL;
 
@@ -263,8 +263,8 @@ int **o(K2TRIPLES * k2triples, int o) {
 	uint * x = infoTOTAL[0];
 	int cont = 0;
 
-	if (DEBUG)
-		fprintf(stdout, "<?,?,%d>\n", o + 1);
+	// if (DEBUG)
+	// 	fprintf(stdout, "<?,?,%d>\n", o + 1);
 
 	for (i = 0; i < k2triples->npreds; i++) {
 		int thisres = compactTreeInverseList(k2triples->trees[i], o, x);
@@ -275,9 +275,9 @@ int **o(K2TRIPLES * k2triples, int o) {
 		}
 
 		cont += thisres;
-		if (DEBUG)
-			for (j = 0; j < x[0]; j++)
-				fprintf(stdout, "<%d,%d,%d>", x[j + 1] + 1, i, o + 1);
+		// if (DEBUG)
+		// 	for (j = 0; j < x[0]; j++)
+		// 		fprintf(stdout, "<%d,%d,%d>", x[j + 1] + 1, i, o + 1);
 	}
 
 	bufferResultados[0][0] = cont;
@@ -289,8 +289,8 @@ int **oIndex(K2TRIPLES * k2triples,  int o) {
 	initBuffer();
 	int i, j;
 	uint * x = infoTOTAL[0];
-	if (DEBUG)
-		fprintf(stdout, "<?,?,%d>\n", o + 1);
+	// if (DEBUG)
+	// 	fprintf(stdout, "<?,?,%d>\n", o + 1);
 
 	int cont = 0;
 
@@ -300,7 +300,7 @@ int **oIndex(K2TRIPLES * k2triples,  int o) {
 		compactTreeInverseList(k2triples->trees[resDAC.predicados[i]-1], o, x);
 		for (j = 0; j < x[0]; j++) {
 			cont++;
-			fprintf(stdout, "<%d,%d,%d>", x[j + 1] + 1, resDAC.predicados[i], o + 1);
+			// fprintf(stdout, "<%d,%d,%d>", x[j + 1] + 1, resDAC.predicados[i], o + 1);
 		}
 
 	}

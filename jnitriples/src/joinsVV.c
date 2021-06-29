@@ -8,11 +8,11 @@ int _pp_Izquierda(TREP ** treps, int p1, int p2, int parte1, int parte2) {
 	SET * pares = paresBuff1;
 	int resultados = 0;
 
-	if (DEBUG) {
-		printTripleta(-1, p1, -1, parte1);
-		printTripleta(-1, p2, -1, parte2);
-		fprintf(stdout, "\n");
-	}
+	// if (DEBUG) {
+	// 	printTripleta(-1, p1, -1, parte1);
+	// 	printTripleta(-1, p2, -1, parte2);
+	// 	fprintf(stdout, "\n");
+	// }
 
 	if (parte1!=parte2) rango=1;
 	compactTreeRangeQuery(treps[p1], parte1, pares);
@@ -26,12 +26,12 @@ int _pp_Izquierda(TREP ** treps, int p1, int p2, int parte1, int parte2) {
 		j = i;
 		while (obtenerPar(pares[i], parte1) == obtenerPar(pares[j], parte1)) {
 		for (k = 1; k <= x[0]; k++) {
-			if (DEBUG) {
-					printTripleta(obtenerOppositePar(pares[j], parte1) + 1, p1,
-							obtenerPar(pares[j], parte1) + 1, parte1);
-					printTripleta(x[k] + 1, p2, obtenerPar(pares[j], parte1) + 1, parte2);
-					fprintf(stdout, "\n");
-				}
+			// if (DEBUG) {
+			// 		printTripleta(obtenerOppositePar(pares[j], parte1) + 1, p1,
+			// 				obtenerPar(pares[j], parte1) + 1, parte1);
+			// 		printTripleta(x[k] + 1, p2, obtenerPar(pares[j], parte1) + 1, parte2);
+			// 		fprintf(stdout, "\n");
+			// 	}
 
 				resultados++;
 			}
@@ -52,11 +52,11 @@ int _pp_Derecha(TREP ** treps, int p1, int p2, int parte1, int parte2) {
 	int resultados = 0;
 	int rango=0;
 	if (parte1!=parte2) rango=1;
-	if (DEBUG) {
-		printTripleta(-1, p1, -1, parte1);
-		printTripleta(-1, p2, -1, parte2);
-		fprintf(stdout, "\n");
-	}
+	// if (DEBUG) {
+	// 	printTripleta(-1, p1, -1, parte1);
+	// 	printTripleta(-1, p2, -1, parte2);
+	// 	fprintf(stdout, "\n");
+	// }
 
 	compactTreeRangeQuery(treps[p2], parte2, pares);
 
@@ -72,11 +72,11 @@ int _pp_Derecha(TREP ** treps, int p1, int p2, int parte1, int parte2) {
 
 			for (k = 1; k <= x[0]; k++) {
 
-				if (DEBUG) {
-					printTripleta(x[k] + 1, p1, obtenerPar(pares[j],parte2) + 1, parte1);
-					printTripleta(obtenerOppositePar(pares[j],parte2)+1, p2,  obtenerPar(pares[j],parte2)+1, parte2);
-					fprintf(stdout, "\n");
-				}
+				// if (DEBUG) {
+				// 	printTripleta(x[k] + 1, p1, obtenerPar(pares[j],parte2) + 1, parte1);
+				// 	printTripleta(obtenerOppositePar(pares[j],parte2)+1, p2,  obtenerPar(pares[j],parte2)+1, parte2);
+				// 	fprintf(stdout, "\n");
+				// }
 				resultados++;
 			}
 			j++;
@@ -94,21 +94,21 @@ int _pp_Interactiva(TREP ** treps, int p1, int p2, int parte1, int parte2) {
 	int rango=0;
 
 	if (parte1!=parte2) rango=1;
-	if (DEBUG) {
-		if (foutput==NULL){
-			printTripleta(-1, p1, -1, parte1);
-			printTripleta(-1, p2, -1, parte2);
-			fprintf(stdout,"\n");
-		}
-	}
+	// if (DEBUG) {
+	// 	if (foutput==NULL){
+	// 		printTripleta(-1, p1, -1, parte1);
+	// 		printTripleta(-1, p2, -1, parte2);
+	// 		fprintf(stdout,"\n");
+	// 	}
+	// }
 
 	joinAsim7(treps[p1], treps[p2], pares, parte1, parte2);
 
 	for (i = 1; i <= pares[0].x; i++) {
 			if (rango && pares[i].y > numeroSO -1) {i++;continue;}
-		if (DEBUG) {
-			printCompleto(pares[i].x + 1, p1, pares[i].y + 1, parte1,pares[i].z + 1, p2, pares[i].y + 1, parte2);
-		}
+		// if (DEBUG) {
+		// 	printCompleto(pares[i].x + 1, p1, pares[i].y + 1, parte1,pares[i].z + 1, p2, pares[i].y + 1, parte2);
+		// }
 		resultados++;
 	}
 	return resultados;
@@ -125,11 +125,11 @@ int _pp_Independiente(TREP ** treps, int p1, int p2, int parte1, int parte2) {
 	SET * pares2 = paresBuff2;
 	int rango=0;
 	if (parte1!=parte2) rango=1;
-	if (DEBUG) {
-		printTripleta(-1, p1, -1, parte1);
-		printTripleta(-1, p2, -1, parte2);
-		fprintf(stdout, "\n");
-	}
+	// if (DEBUG) {
+	// 	printTripleta(-1, p1, -1, parte1);
+	// 	printTripleta(-1, p2, -1, parte2);
+	// 	fprintf(stdout, "\n");
+	// }
 
 	compactTreeRangeQuery(treps[p1], parte1, pares);
 
@@ -157,12 +157,12 @@ int _pp_Independiente(TREP ** treps, int p1, int p2, int parte1, int parte2) {
 			while (l <= pares[0].x && obtenerPar(pares[l],parte1) == obtenerPar(pares[i],parte1)) {
 				m = j;
 				while (m <= pares2[0].x && obtenerPar(pares2[m],parte2) == obtenerPar(pares2[j],parte2)) {
-					if (DEBUG){
-						printTripleta(obtenerOppositePar(pares[l],parte1) + 1, p1, obtenerPar(pares[l],parte1) + 1, parte1);
-						printTripleta(obtenerOppositePar(pares2[m],parte2) + 1, p2, obtenerPar(pares[l],parte1) + 1, parte2);
-						fprintf(stdout, "\n");
+					// if (DEBUG){
+					// 	printTripleta(obtenerOppositePar(pares[l],parte1) + 1, p1, obtenerPar(pares[l],parte1) + 1, parte1);
+					// 	printTripleta(obtenerOppositePar(pares2[m],parte2) + 1, p2, obtenerPar(pares[l],parte1) + 1, parte2);
+					// 	fprintf(stdout, "\n");
 
-					}
+					// }
 						resultados++;
 					m++;
 				}
@@ -183,13 +183,13 @@ int _p__Izquierda(TREP ** treps, int p1, int nPreds, INDICEDAC sp,INDICEDAC op, 
 	SET * pares = paresBuff1;
 	int resultados = 0;
 
-	if (DEBUG){
-		if (foutput==NULL){
-			printTripleta(-1, p1, -1, parte1);
-			printTripleta(-1, -1, -1, parte2);
-			fprintf(stdout, "\n");
-		}	
-	}
+	// if (DEBUG){
+	// 	if (foutput==NULL){
+	// 		printTripleta(-1, p1, -1, parte1);
+	// 		printTripleta(-1, -1, -1, parte2);
+	// 		fprintf(stdout, "\n");
+	// 	}	
+	// }
 	int rango=0;
 	if (parte1!=parte2) rango=1;
 	compactTreeRangeQuery(treps[p1], parte1, pares);
@@ -216,13 +216,13 @@ int _p__Izquierda(TREP ** treps, int p1, int nPreds, INDICEDAC sp,INDICEDAC op, 
 				while (j<=pares[0].x && par == obtenerPar(pares[j],parte1)) {
 
 					for (k = 1; k <= x[0]; k++) {
-						if (DEBUG) {
-							printCompleto(obtenerOppositePar(pares[j],parte1) + 1, p1,
-									obtenerPar(pares[j],parte1) + 1, parte1,
-									x[k] + 1, 
-									resDAC.predicados[m], 
-									obtenerPar(pares[j],parte1) + 1, parte2);
-						}
+						// if (DEBUG) {
+						// 	printCompleto(obtenerOppositePar(pares[j],parte1) + 1, p1,
+						// 			obtenerPar(pares[j],parte1) + 1, parte1,
+						// 			x[k] + 1, 
+						// 			resDAC.predicados[m], 
+						// 			obtenerPar(pares[j],parte1) + 1, parte2);
+						// }
 						resultados++;
 					}
 					j++;
@@ -245,12 +245,12 @@ int _p__Izquierda(TREP ** treps, int p1, int nPreds, INDICEDAC sp,INDICEDAC op, 
 					for (k = 1; k <= x[0]; k++) {
 
 
-						if (DEBUG) {
-							printTripleta	(obtenerOppositePar(pares[j],parte1) + 1, p1,
-													obtenerPar(pares[j],parte1) + 1, parte1);
-							printTripleta	(x[k] + 1, m, obtenerPar(pares[j],parte1) + 1, parte2);
-							fprintf(stdout, "\n");
-						}
+						// if (DEBUG) {
+						// 	printTripleta	(obtenerOppositePar(pares[j],parte1) + 1, p1,
+						// 							obtenerPar(pares[j],parte1) + 1, parte1);
+						// 	printTripleta	(x[k] + 1, m, obtenerPar(pares[j],parte1) + 1, parte2);
+						// 	fprintf(stdout, "\n");
+						// }
 						resultados++;
 					}
 					j++;
@@ -266,11 +266,11 @@ int _p__Interactiva(TREP ** treps, int p1, int nPreds, int parte1, int parte2) {
 	int i, resultados = 0;
 	SET * pares = paresBuff1;
 	pares[0].x = 1;
-	if (DEBUG){
-		printTripleta(-1, p1, -1, parte1);
-		printTripleta(-1, -1, -1, parte2);
-		fprintf(stdout, "\n");
-	}
+	// if (DEBUG){
+	// 	printTripleta(-1, p1, -1, parte1);
+	// 	printTripleta(-1, -1, -1, parte2);
+	// 	fprintf(stdout, "\n");
+	// }
 
 	int rango=0;
 	if (parte1!=parte2) rango=1;
@@ -278,11 +278,11 @@ int _p__Interactiva(TREP ** treps, int p1, int nPreds, int parte1, int parte2) {
 
 	for (i = 1; i <= pares[0].x; i++) {
 		if (rango && pares[i].y > numeroSO -1) continue;
-		if (DEBUG) {
-			printTripleta(pares[i].x + 1, p1, pares[i].y + 1, parte1);
-			printTripleta(pares[i].w + 1, pares[i].z, pares[i].y + 1, parte2);
-			fprintf(stdout, "\n");
-		}
+		// if (DEBUG) {
+		// 	printTripleta(pares[i].x + 1, p1, pares[i].y + 1, parte1);
+		// 	printTripleta(pares[i].w + 1, pares[i].z, pares[i].y + 1, parte2);
+		// 	fprintf(stdout, "\n");
+		// }
 		resultados++;
 	}
 

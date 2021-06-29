@@ -234,41 +234,41 @@ inline int elegirDimension(int i,int j,int parte){
 }
 
 /* DEBUG */
-inline void printTripleta(int x, int y, int z, int parte) {
-	if (foutput==NULL){
-		if (parte == PORSUJETO) {
-			fprintf(stdout, "<%d,%d,%d>", z, y, x);
-		} else {
-			fprintf(stdout, "<%d,%d,%d>", x, y, z);
-		}
-	}
-	else{
-		if (parte == PORSUJETO) {
-			fprintf(foutput, "%d %d %d ", z, y, x);
-		} else {
-			fprintf(foutput, "%d %d %d ", x, y, z);
-		}
-	}	
-}
+// inline void printTripleta(int x, int y, int z, int parte) {
+// 	if (foutput==NULL){
+// 		if (parte == PORSUJETO) {
+// 			fprintf(stdout, "<%d,%d,%d>", z, y, x);
+// 		} else {
+// 			fprintf(stdout, "<%d,%d,%d>", x, y, z);
+// 		}
+// 	}
+// 	else{
+// 		if (parte == PORSUJETO) {
+// 			fprintf(foutput, "%d %d %d ", z, y, x);
+// 		} else {
+// 			fprintf(foutput, "%d %d %d ", x, y, z);
+// 		}
+// 	}	
+// }
 
 
 inline void printCompleto(int x1,int y1,int z1,int parte1,int x2,int y2,int z2,int parte2){
 
-	if (INVERTIDO){
-		printTripleta(x2,y2,z2,parte2);
-		printTripleta(x1,y1,z1,parte1);			
-	}
-	else{
-		printTripleta(x1,y1,z1,parte1);
-		printTripleta(x2,y2,z2,parte2);
-	}
+	// if (INVERTIDO){
+	// 	printTripleta(x2,y2,z2,parte2);
+	// 	printTripleta(x1,y1,z1,parte1);			
+	// }
+	// else{
+	// 	printTripleta(x1,y1,z1,parte1);
+	// 	printTripleta(x2,y2,z2,parte2);
+	// }
 
-	if (foutput==NULL){
-		fprintf(stdout,"\n");
-	}
-	else{
-		fprintf(foutput,"\n");	
-	}
+	// if (foutput==NULL){
+	// 	fprintf(stdout,"\n");
+	// }
+	// else{
+	// 	fprintf(foutput,"\n");	
+	// }
 
 }
 
