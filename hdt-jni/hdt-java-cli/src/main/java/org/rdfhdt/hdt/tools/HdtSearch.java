@@ -75,7 +75,6 @@ public class HdtSearch implements ProgressListener {
 		count = 0;
 		while(it.hasNext()) {
 			TripleString triple = it.next();
-			System.out.println(triple);
 			count++;
 		}
 

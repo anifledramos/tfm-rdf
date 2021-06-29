@@ -12,11 +12,11 @@
 #define DEBUG 1
 #define DEBUG2 1
 //#define MAX_INFO 4294967295
-#define MAX_INFO 1024*102*5
+#define MAX_INFO 1024*102*5*2
 #define PORSUJETO 1
 #define POROBJETO 2
 //#define NUM_ELEMENTOS 1024*1024*60
-#define NUM_ELEMENTOS 1024*102*5
+#define NUM_ELEMENTOS 1024*102*5*2
 
 typedef struct indiceDAC {
 	uint * predicados;

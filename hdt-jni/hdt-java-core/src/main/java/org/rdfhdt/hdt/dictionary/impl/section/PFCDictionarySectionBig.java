@@ -69,7 +69,7 @@ import org.rdfhdt.hdt.util.string.ReplazableString;
 public class PFCDictionarySectionBig implements DictionarySectionPrivate {
 	public static final int TYPE_INDEX = 2;
 	public static final int DEFAULT_BLOCK_SIZE = 16;
-	public static final int BLOCK_PER_BUFFER = 1000000;
+	public static final int BLOCK_PER_BUFFER = 100000;
 	
 	byte [][] data;
 	long [] posFirst;
@@ -188,7 +188,10 @@ public class PFCDictionarySectionBig implements DictionarySectionPrivate {
 			while(block<numBlocks-1) {
 				int nextBlock = (int) Math.min(numBlocks-1, block+BLOCK_PER_BUFFER);
 				long nextBytePos = blocks.get(nextBlock);
-				
+				System.out.println("valor de block : "+block);
+				System.out.println("valor de nextBlock : "+nextBlock);
+				System.out.println("valor de bytePos : "+bytePos);
+				System.out.println("valor de nextBytePos : "+nextBytePos);
 				//System.out.println("Loding block: "+i+" from "+previous+" to "+ current+" of size "+ (current-previous));
 				data[buffer]=IOUtil.readBuffer(in, (int)(nextBytePos-bytePos), null);
 				
