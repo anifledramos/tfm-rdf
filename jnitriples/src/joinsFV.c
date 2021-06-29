@@ -14,13 +14,13 @@ int _ppoDerecha(TREP ** treps, int p1, int p2, int o2, int parte1, int parte2) {
 	uint * x = infoTOTAL[0];
 	uint * y = infoTOTAL[1];
 
-	// if (DEBUG) {
-	// 	if (foutput==NULL){
-	// 		printTripleta(-1, p1, -1, parte1);
-	// 		printTripleta(o2 + 1, p2, -1, parte2);
-	// 		fprintf(stdout, "\n");
-	// 	}	
-	// }
+	if (DEBUG) {
+		if (foutput==NULL){
+			printTripleta(-1, p1, -1, parte1);
+			printTripleta(o2 + 1, p2, -1, parte2);
+			fprintf(stdout, "\n");
+		}	
+	}
 
 	compactNeighbour(treps[p2], o2, x, parte2);
 
@@ -32,9 +32,9 @@ int _ppoDerecha(TREP ** treps, int p1, int p2, int o2, int parte1, int parte2) {
 		compactNeighbourOpposite(treps[p1], x[i], y, parte1);
 
 		for (j = 1; j <= y[0]; j++) {
-			// if (DEBUG) {
-			// 	printCompleto(y[j] + 1, p1, x[i] + 1, parte1,o2 + 1, p2, x[i] + 1, parte2);
-			// }
+			if (DEBUG) {
+				printCompleto(y[j] + 1, p1, x[i] + 1, parte1,o2 + 1, p2, x[i] + 1, parte2);
+			}
 			resultado++;
 		}
 	}
@@ -51,11 +51,11 @@ int _ppoInteractiva(TREP ** treps, int p1, int p2, int o2, int parte1,
 
 	if (parte1 != parte2)
 		rango = 1;
-	// if (DEBUG) {
-	// 	printTripleta(-1, p1, -1, parte1);
-	// 	printTripleta(o2 + 1, p2, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(-1, p1, -1, parte1);
+		printTripleta(o2 + 1, p2, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 
 	int resultados = 0;
 
@@ -65,12 +65,12 @@ int _ppoInteractiva(TREP ** treps, int p1, int p2, int o2, int parte1,
 		if (rango && (infoTOTAL[0][i] > numeroSO - 1)) {
 
 		} else {
-			// if (DEBUG) {
-			// 	printTripleta(infoTOTAL[1][i] + 1, p1, infoTOTAL[0][i] + 1,
-			// 			parte1);
-			// 	printTripleta(o2 + 1, p2, infoTOTAL[0][i] + 1, parte2);
-			// 	fprintf(stdout, "\n");
-			// }
+			if (DEBUG) {
+				printTripleta(infoTOTAL[1][i] + 1, p1, infoTOTAL[0][i] + 1,
+						parte1);
+				printTripleta(o2 + 1, p2, infoTOTAL[0][i] + 1, parte2);
+				fprintf(stdout, "\n");
+			}
 			resultados++;
 		}
 	}
@@ -89,11 +89,11 @@ int _ppoIndependiente(TREP ** treps, int p1, int p2, int o2, int parte1,
 
 	if (parte1 != parte2)
 		rango = 1;
-	// if (DEBUG) {
-	// 	printTripleta(-1, p1, -1, parte1);
-	// 	printTripleta(o2 + 1, p2, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(-1, p1, -1, parte1);
+		printTripleta(o2 + 1, p2, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 	//Evaluación de parte izquierda: ? p1 ? --> devuelve el resultado ordenado por columnas
 	// resultado en pares
 	compactTreeRangeQuery(treps[p1], parte1, pares);
@@ -108,12 +108,12 @@ int _ppoIndependiente(TREP ** treps, int p1, int p2, int o2, int parte1,
 
 		if (obtenerPar(pares[i], parte1) == x[j]) {
 			resultado++;
-			// if (DEBUG) {
-			// 	printTripleta(obtenerOppositePar(pares[i], parte1) + 1, p1,
-			// 			x[j] + 1, parte1);
-			// 	printTripleta(o2 + 1, p2, x[j] + 1, parte2);
-			// 	fprintf(stdout, "\n");
-			// }
+			if (DEBUG) {
+				printTripleta(obtenerOppositePar(pares[i], parte1) + 1, p1,
+						x[j] + 1, parte1);
+				printTripleta(o2 + 1, p2, x[j] + 1, parte2);
+				fprintf(stdout, "\n");
+			}
 			i++;
 		} else if (obtenerPar(pares[i], parte1) > x[j]) {
 			j++;
@@ -134,13 +134,13 @@ int _p_oDerecha(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int p1,
 
 	if (parte1 != parte2)
 		rango = 1;
-	// if (DEBUG) {
-	// 	if (foutput==NULL){
-	// 		printTripleta(-1, p1, -1, parte1);
-	// 		printTripleta(o2 + 1, -1, -1, parte2);
-	// 		fprintf(stdout, "\n");
-	// 	}
-	// }
+	if (DEBUG) {
+		if (foutput==NULL){
+			printTripleta(-1, p1, -1, parte1);
+			printTripleta(o2 + 1, -1, -1, parte2);
+			fprintf(stdout, "\n");
+		}
+	}
 	if (condac) {
 		commonObtenerPredicados(sp, op, o2, parte2);
 	}
@@ -188,11 +188,11 @@ int _p_oDerecha(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int p1,
 
 					resultados++;
 
-				// if (DEBUG) {
-				// 	printCompleto(x[l] + 1, p1, vectores[0][i].value + 1,
-				// 			parte1,o2 + 1, vectores[0][i].sources[k],
-				// 			vectores[0][i].value + 1, parte2);
-				// }
+				if (DEBUG) {
+					printCompleto(x[l] + 1, p1, vectores[0][i].value + 1,
+							parte1,o2 + 1, vectores[0][i].sources[k],
+							vectores[0][i].value + 1, parte2);
+				}
 			}
 		}
 	}
@@ -210,11 +210,11 @@ int _p_oIzquierda(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int p1,
 
 	if (parte1 != parte2)
 		rango = 1;
-	// if (DEBUG) {
-	// 	printTripleta(-1, p1, -1, parte1);
-	// 	printTripleta(o2 + 1, -1, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(-1, p1, -1, parte1);
+		printTripleta(o2 + 1, -1, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 	compactTreeRangeQuery(treps[p1], parte1, pares);
 	i = 1;
 
@@ -232,15 +232,15 @@ int _p_oIzquierda(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int p1,
 					while (j <= pares[0].x
 							&& obtenerPar(pares[i], parte1)
 									== obtenerPar(pares[j], parte1)) {
-						// if (DEBUG) {
-						// 	printTripleta(
-						// 			obtenerOppositePar(pares[j], parte1) + 1,
-						// 			p1, obtenerPar(pares[j], parte1) + 1,
-						// 			parte1);
-						// 	printTripleta(o2 + 1, k,
-						// 			obtenerPar(pares[j], parte1) + 1, parte2);
-						// 	fprintf(stdout, "\n");
-						// }
+						if (DEBUG) {
+							printTripleta(
+									obtenerOppositePar(pares[j], parte1) + 1,
+									p1, obtenerPar(pares[j], parte1) + 1,
+									parte1);
+							printTripleta(o2 + 1, k,
+									obtenerPar(pares[j], parte1) + 1, parte2);
+							fprintf(stdout, "\n");
+						}
 						resultados++;
 						j++;
 					}
@@ -268,15 +268,15 @@ int _p_oIzquierda(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int p1,
 					while (j <= pares[0].x
 							&& obtenerPar(pares[i], parte1)
 									== obtenerPar(pares[j], parte1)) {
-						// if (DEBUG) {
-						// 	printTripleta(
-						// 			obtenerOppositePar(pares[j], parte1) + 1,
-						// 			p1, obtenerPar(pares[j], parte1) + 1,
-						// 			parte1);
-						// 	printTripleta(o2 + 1, resDAC.predicados[k],
-						// 			obtenerPar(pares[j], parte1) + 1, parte2);
-						// 	fprintf(stdout, "\n");
-						// }
+						if (DEBUG) {
+							printTripleta(
+									obtenerOppositePar(pares[j], parte1) + 1,
+									p1, obtenerPar(pares[j], parte1) + 1,
+									parte1);
+							printTripleta(o2 + 1, resDAC.predicados[k],
+									obtenerPar(pares[j], parte1) + 1, parte2);
+							fprintf(stdout, "\n");
+						}
 						resultados++;
 						j++;
 					}
@@ -303,11 +303,11 @@ int _p_oInteractiva(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op,
 	if (parte1 != parte2)
 		rango = 1;
 
-	// if (DEBUG) {
-	// 	printTripleta(-1, p1, -1, parte1);
-	// 	printTripleta(o2 + 1, -1, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(-1, p1, -1, parte1);
+		printTripleta(o2 + 1, -1, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 
 	joinAsim5(treps, o2, treps[p1], nPreds, p1, sp, op, condac, pares, parte1,
 			parte2);
@@ -316,11 +316,11 @@ int _p_oInteractiva(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op,
 		if (rango && pares[i].y > numeroSO - 1)
 			break;
 		resultados++;
-		// if (DEBUG) {
-		// 	printTripleta(pares[i].x + 1, p1, pares[i].y + 1, parte1);
-		// 	printTripleta(o2 + 1, pares[i].z, pares[i].y + 1, parte2);
-		// 	fprintf(stdout, "\n");
-		// }
+		if (DEBUG) {
+			printTripleta(pares[i].x + 1, p1, pares[i].y + 1, parte1);
+			printTripleta(o2 + 1, pares[i].z, pares[i].y + 1, parte2);
+			fprintf(stdout, "\n");
+		}
 	}
 	return resultados;
 
@@ -337,11 +337,11 @@ int _p_oIndependiente(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op,
 	uint * x = infoTOTAL[0];
 	int resultado = 0;
 
-	// if (DEBUG) {
-	// 	printTripleta(-1, p1, -1, parte1);
-	// 	printTripleta(o2 + 1, -1, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(-1, p1, -1, parte1);
+		printTripleta(o2 + 1, -1, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 
 	//Evaluación de parte izquierda: ? p1 ? --> devuelve el resultado ordenado por columnas
 	// resultado en pares
@@ -361,13 +361,13 @@ int _p_oIndependiente(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op,
 
 				if (obtenerPar(pares[i], parte1) == x[j]) {
 					resultado++;
-					// if (DEBUG) {
-					// 	printTripleta(obtenerOppositePar(pares[i], parte1) + 1,
-					// 			p1, obtenerPar(pares[i], parte1) + 1, parte1);
-					// 	printTripleta(o2 + 1, resDAC.predicados[k], x[j] + 1,
-					// 			parte2);
-					// 	fprintf(stdout, "\n");
-					// }
+					if (DEBUG) {
+						printTripleta(obtenerOppositePar(pares[i], parte1) + 1,
+								p1, obtenerPar(pares[i], parte1) + 1, parte1);
+						printTripleta(o2 + 1, resDAC.predicados[k], x[j] + 1,
+								parte2);
+						fprintf(stdout, "\n");
+					}
 					i++;
 				} else if (obtenerPar(pares[i], parte1) > x[j]) {
 					j++;
@@ -389,12 +389,12 @@ int _p_oIndependiente(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op,
 
 				if (obtenerPar(pares[i], parte1) == x[j]) {
 					resultado++;
-					// if (DEBUG) {
-					// 	printTripleta(obtenerOppositePar(pares[i], parte1) + 1,
-					// 			p1, obtenerPar(pares[i], parte1) + 1, parte1);
-					// 	printTripleta(o2 + 1, k, x[j] + 1, parte2);
-					// 	fprintf(stdout, "\n");
-					// }
+					if (DEBUG) {
+						printTripleta(obtenerOppositePar(pares[i], parte1) + 1,
+								p1, obtenerPar(pares[i], parte1) + 1, parte1);
+						printTripleta(o2 + 1, k, x[j] + 1, parte2);
+						fprintf(stdout, "\n");
+					}
 					i++;
 				} else if (obtenerPar(pares[i], parte1) > x[j]) {
 					j++;
@@ -421,11 +421,11 @@ int _p_oMergeIndependiente(TREP ** treps, int nPreds, INDICEDAC sp,
 	vectores[indiceVector][0].value = 0;
 	int total = 0;
 
-	// if (DEBUG) {
-	// 	printTripleta(-1, p1, -1, parte1);
-	// 	printTripleta(o2 + 1, -1, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(-1, p1, -1, parte1);
+		printTripleta(o2 + 1, -1, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 	//Evaluación de parte izquierda: ? p1 ? --> devuelve el resultado ordenado por columnas
 	// resultado en pares
 	compactTreeRangeQuery(treps[p1], parte1, pares);
@@ -468,14 +468,14 @@ int _p_oMergeIndependiente(TREP ** treps, int nPreds, INDICEDAC sp,
 		if (obtenerPar(pares[i], parte1) == vectores[0][j].value) {
 			for (k = 1; k <= vectores[0][j].sources[0]; k++) {
 				resultado++;
-				// if (DEBUG) {
+				if (DEBUG) {
 
-				// 	printTripleta(obtenerOppositePar(pares[i], parte1) + 1, p1,
-				// 			obtenerPar(pares[i], parte1) + 1, parte1);
-				// 	printTripleta(o2 + 1, vectores[0][j].sources[k],
-				// 			vectores[0][j].value + 1, parte2);
-				// 	fprintf(stdout, "\n");
-				// }
+					printTripleta(obtenerOppositePar(pares[i], parte1) + 1, p1,
+							obtenerPar(pares[i], parte1) + 1, parte1);
+					printTripleta(o2 + 1, vectores[0][j].sources[k],
+							vectores[0][j].value + 1, parte2);
+					fprintf(stdout, "\n");
+				}
 			}
 			i++;
 		} else if (obtenerPar(pares[i], parte1) > vectores[0][j].value) {
@@ -502,13 +502,13 @@ int __poDerecha(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int s1,
 	uint * y = infoTOTAL[1];
 	int resultados = 0;
 	int k;
-	// if (DEBUG) {
-	// 	if (foutput==NULL){
-	// 		printTripleta(s1+1, p1, -1, parte1);
-	// 		printTripleta(-1, -1, -1, parte2);
-	// 		fprintf(stdout, "\n");
-	// 	}	
-	// }
+	if (DEBUG) {
+		if (foutput==NULL){
+			printTripleta(s1+1, p1, -1, parte1);
+			printTripleta(-1, -1, -1, parte2);
+			fprintf(stdout, "\n");
+		}	
+	}
 
 	int total = 0;
 
@@ -529,11 +529,11 @@ int __poDerecha(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int s1,
 					parte2);
 
 			for (l = 1; l <= y[0]; l++) {
-				// if (DEBUG) {
+				if (DEBUG) {
 				
-				// 	printCompleto(s1 + 1, p1, x[i] + 1, parte1,y[l] + 1, resDAC.predicados[j], x[i] + 1,
-				// 			parte2);
-				// }
+					printCompleto(s1 + 1, p1, x[i] + 1, parte1,y[l] + 1, resDAC.predicados[j], x[i] + 1,
+							parte2);
+				}
 				resultados++;
 			}
 		}
@@ -552,11 +552,11 @@ int __poInteractiva(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op,
 
 	if (parte1 != parte2)
 		rango = 1;
-	// if (DEBUG) {
-	// 	printTripleta(s1+1, p1, -1, parte1);
-	// 	printTripleta(-1,-1, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(s1+1, p1, -1, parte1);
+		printTripleta(-1,-1, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 
 	joinAsim52(treps, s1,p1, nPreds, sp, op, 1, pares, parte1,
 			parte2);
@@ -565,11 +565,11 @@ int __poInteractiva(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op,
 		if (rango && pares[i].z > numeroSO - 1)
 			break;
 		resultados++;
-		// if (DEBUG) {
-		// 	printTripleta(s1 + 1, p1, pares[i].z + 1, parte1);
-		// 	printTripleta(pares[i].x + 1, pares[i].y, pares[i].z + 1, parte2);
-		// 	fprintf(stdout, "\n");
-		// }
+		if (DEBUG) {
+			printTripleta(s1 + 1, p1, pares[i].z + 1, parte1);
+			printTripleta(pares[i].x + 1, pares[i].y, pares[i].z + 1, parte2);
+			fprintf(stdout, "\n");
+		}
 	}
 	return resultados;
 }
@@ -587,13 +587,13 @@ int ___oDerecha(TREP ** treps, int nPreds, INDICEDAC indiceSP,
 	uint * x = infoTOTAL[0];
 	int resultados = 0;
 	int k;
-	// if (DEBUG) {
-	// 	if (foutput==NULL){
-	// 		printTripleta(-1, -1, -1, parte1);
-	// 		printTripleta(o2 + 1, -1, -1, parte2);
-	// 		fprintf(stdout, "\n");
-	// 	}	
-	// }
+	if (DEBUG) {
+		if (foutput==NULL){
+			printTripleta(-1, -1, -1, parte1);
+			printTripleta(o2 + 1, -1, -1, parte2);
+			fprintf(stdout, "\n");
+		}	
+	}
 
 	int indiceVector = 0;
 	vectores[indiceVector] = malloc(sizeof(Result2) * TAMINICIAL);
@@ -644,11 +644,11 @@ int ___oDerecha(TREP ** treps, int nPreds, INDICEDAC indiceSP,
 				for (k = 1; k <= vectores[0][i].sources[0]; k++) {
 					for (l = 1; l <= x[0]; l++) {
 						resultados++;
-						// if (DEBUG) {
-						// 	printCompleto(x[l] + 1, m, vectores[0][i].value + 1,
-						// 			parte1,o2 + 1, vectores[0][i].sources[k],
-						// 			vectores[0][i].value + 1, parte2);
-						// }
+						if (DEBUG) {
+							printCompleto(x[l] + 1, m, vectores[0][i].value + 1,
+									parte1,o2 + 1, vectores[0][i].sources[k],
+									vectores[0][i].value + 1, parte2);
+						}
 					}
 				}
 			}
@@ -665,11 +665,11 @@ int ___oDerecha(TREP ** treps, int nPreds, INDICEDAC indiceSP,
 				for (k = 1; k <= vectores[0][i].sources[0]; k++) {
 					for (l = 1; l <= x[0]; l++) {
 						resultados++;
-						// if (DEBUG) {
-						// 	printCompleto(x[l] + 1, resDAC.predicados[m],
-						// 			vectores[0][i].value + 1, parte1,o2 + 1, vectores[0][i].sources[k],
-						// 			vectores[0][i].value + 1, parte2);
-						// }
+						if (DEBUG) {
+							printCompleto(x[l] + 1, resDAC.predicados[m],
+									vectores[0][i].value + 1, parte1,o2 + 1, vectores[0][i].sources[k],
+									vectores[0][i].value + 1, parte2);
+						}
 					}
 				}
 			}
@@ -688,11 +688,11 @@ int ___oInteractiva(TREP ** treps, int nPreds, INDICEDAC indiceSP,
 
 	if (parte1 != parte2)
 		rango = 1;
-	// if (DEBUG) {
-	// 	printTripleta(-1, -1, -1, parte1);
-	// 	printTripleta(o2 + 1, -1, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(-1, -1, -1, parte1);
+		printTripleta(o2 + 1, -1, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 
 	joinAsim6(treps, o2, nPreds, indiceSP, indiceOP, condac, pares, parte1,
 			parte2);
@@ -701,11 +701,11 @@ int ___oInteractiva(TREP ** treps, int nPreds, INDICEDAC indiceSP,
 		if (rango && pares[i].z > numeroSO - 1)
 			break;
 		resultados++;
-		// if (DEBUG) {
-		// 	printTripleta(pares[i].x + 1, pares[i].y, pares[i].z + 1, parte1);
-		// 	printTripleta(o2 + 1, pares[i].w, pares[i].z + 1, parte2);
-		// 	fprintf(stdout, "\n");
-		// }
+		if (DEBUG) {
+			printTripleta(pares[i].x + 1, pares[i].y, pares[i].z + 1, parte1);
+			printTripleta(o2 + 1, pares[i].w, pares[i].z + 1, parte2);
+			fprintf(stdout, "\n");
+		}
 	}
 	return resultados;
 }

@@ -63,7 +63,7 @@ inline int getPosAbs2(int K, int i, int j, int indexRel, int indiceRel, int tamS
 inline int elegirDimension(int i,int j,int parte);
 
 /* DEBUG */
-// void printTripleta(int x,int y,int z,int parte);
+void printTripleta(int x,int y,int z,int parte);
 
 inline void printCompleto(int x1,int y1,int z1,int parte1, int x2,int y2,int z2,int parte2);
 

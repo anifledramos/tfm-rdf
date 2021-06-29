@@ -9,11 +9,11 @@ int sppo(TREP ** treps, int nPreds, int s1, int p1, int p2, int o2, int parte1,
 	int i = 1, j = 1;
 	int resultado = 0;
 
-	// if (DEBUG) {
-	// 	printTripleta(s1 + 1, p1, -1, parte1);
-	// 	printTripleta(o2 + 1, p2, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(s1 + 1, p1, -1, parte1);
+		printTripleta(o2 + 1, p2, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 
 	if (parte1 != parte2)
 		rango = 1;
@@ -29,11 +29,11 @@ int sppo(TREP ** treps, int nPreds, int s1, int p1, int p2, int o2, int parte1,
 		if (x[i] == y[j]) {
 			resultado++;
 
-			// if (DEBUG) {
-			// 	printTripleta(s1 + 1, p1, x[i] + 1, parte1);
-			// 	printTripleta(o2 + 1, p2, y[j] + 1, parte2);
-			// 	fprintf(stdout, "\n");
-			// }
+			if (DEBUG) {
+				printTripleta(s1 + 1, p1, x[i] + 1, parte1);
+				printTripleta(o2 + 1, p2, y[j] + 1, parte2);
+				fprintf(stdout, "\n");
+			}
 
 			i++;
 			j++;
@@ -52,11 +52,11 @@ int sppoParalelo(TREP ** treps, int nPreds, int s1, int p1, int p2, int o2,
 	SET * pares = paresBuff1;
 	int resultados = 0;
 	int rango = 0;
-	// if (DEBUG) {
-	// 	printTripleta(s1 + 1, p1, -1, parte1);
-	// 	printTripleta(o2 + 1, p2, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(s1 + 1, p1, -1, parte1);
+		printTripleta(o2 + 1, p2, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 	if (parte1 != parte2)
 		rango = 1;
 	joinAsim1(treps, o2, s1, p2, p1, nPreds, pares, parte2, parte1);
@@ -65,11 +65,11 @@ int sppoParalelo(TREP ** treps, int nPreds, int s1, int p1, int p2, int o2,
 		if (rango && infoTOTAL[0][i] > numeroSO - 1) {
 			break;
 		}
-		// if (DEBUG) {
-		// 	printTripleta(s1 + 1, p1, infoTOTAL[0][i] + 1, parte1);
-		// 	printTripleta(o2 + 1, p2, infoTOTAL[0][i] + 1, parte2);
-		// 	fprintf(stdout, "\n");
-		// }
+		if (DEBUG) {
+			printTripleta(s1 + 1, p1, infoTOTAL[0][i] + 1, parte1);
+			printTripleta(o2 + 1, p2, infoTOTAL[0][i] + 1, parte2);
+			fprintf(stdout, "\n");
+		}
 		resultados++;
 	}
 	return resultados;
@@ -82,13 +82,13 @@ int sppoIzquierda(TREP ** treps, int nPreds, int s1, int p1, int p2, int o2,
 	int i = 1;
 	int resultado = 0;
 	int rango = 0;
-	// if (DEBUG) {
-	// 	if (foutput==NULL){
-	// 		printTripleta(s1 + 1, p1, -1, parte1);
-	// 		printTripleta(o2 + 1, p2, -1, parte2);
-	// 		fprintf(stdout, "\n");
-	// 	}
-	// }
+	if (DEBUG) {
+		if (foutput==NULL){
+			printTripleta(s1 + 1, p1, -1, parte1);
+			printTripleta(o2 + 1, p2, -1, parte2);
+			fprintf(stdout, "\n");
+		}
+	}
 	if (parte1 != parte2)
 		rango = 1;
 	compactNeighbour(treps[p1], s1, x, parte1);
@@ -101,9 +101,9 @@ int sppoIzquierda(TREP ** treps, int nPreds, int s1, int p1, int p2, int o2,
 
 		if (compactLink(treps[p2], x[i], o2, parte2)) {
 
-			// if (DEBUG) {
-			// 	printCompleto(s1 + 1, p1, x[i] + 1, parte1,o2 + 1, p2, x[i] + 1, parte2);
-			// }
+			if (DEBUG) {
+				printCompleto(s1 + 1, p1, x[i] + 1, parte1,o2 + 1, p2, x[i] + 1, parte2);
+			}
 
 			resultado++;
 		}
@@ -123,11 +123,11 @@ int sppoDerecha(TREP ** treps, int nPreds, int s1, int p1, int p2, int o2,
 
 	if (parte1 != parte2)
 		rango = 1;
-	// if (DEBUG) {
-	// 	printTripleta(s1 + 1, p1, -1, parte1);
-	// 	printTripleta(o2 + 1, p2, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(s1 + 1, p1, -1, parte1);
+		printTripleta(o2 + 1, p2, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 
 	compactNeighbour(treps[p2], o2, x, parte2);
 
@@ -138,11 +138,11 @@ int sppoDerecha(TREP ** treps, int nPreds, int s1, int p1, int p2, int o2,
 		}
 
 		if (compactLink(treps[p1], x[i], s1, parte1)) {
-			// if (DEBUG) {
-			// 	printTripleta(s1 + 1, p1, x[i] + 1, parte1);
-			// 	printTripleta(o2 + 1, p2, x[i] + 1, parte2);
-			// 	fprintf(stdout, "\n");
-			// }
+			if (DEBUG) {
+				printTripleta(s1 + 1, p1, x[i] + 1, parte1);
+				printTripleta(o2 + 1, p2, x[i] + 1, parte2);
+				fprintf(stdout, "\n");
+			}
 			resultado++;
 		}
 	}
@@ -160,13 +160,13 @@ int sp_o(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int s1, int p1,
 	int i, j;
 	int resultados = 0;
 
-	// if (DEBUG) {
-	// 	if (foutput==NULL){
-	// 		printTripleta(s1 + 1, p1, -1, parte1);
-	// 		printTripleta(o2 + 1, -1, -1, parte2);
-	// 		fprintf(stdout, "\n");
-	// 	}
-	// }
+	if (DEBUG) {
+		if (foutput==NULL){
+			printTripleta(s1 + 1, p1, -1, parte1);
+			printTripleta(o2 + 1, -1, -1, parte2);
+			fprintf(stdout, "\n");
+		}
+	}
 	if (condac) {
 		commonObtenerPredicados(sp, op, o2, parte2);
 	}
@@ -182,12 +182,12 @@ int sp_o(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int s1, int p1,
 			for (j = 0; j < resDAC.numeroPredicados; j++) {
 
 				if (compactLink(treps[resDAC.predicados[j]], x[i], o2, parte2)) {
-					// if (DEBUG) {
-					// 	printTripleta(s1 + 1, p1, x[i] + 1, parte1);
-					// 	printTripleta(o2 + 1, resDAC.predicados[j], x[i] + 1,
-					// 			parte2);
-					// 	fprintf(stdout, "\n");
-					// }
+					if (DEBUG) {
+						printTripleta(s1 + 1, p1, x[i] + 1, parte1);
+						printTripleta(o2 + 1, resDAC.predicados[j], x[i] + 1,
+								parte2);
+						fprintf(stdout, "\n");
+					}
 					resultados++;
 				}
 			}
@@ -195,11 +195,11 @@ int sp_o(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int s1, int p1,
 			for (j = 1; j <= nPreds; j++) {
 					
 				if (compactLink(treps[j], x[i], o2, parte2)) {
-					// if (DEBUG) {
-					// 	printTripleta(s1 + 1, p1, x[i] + 1, parte1);
-					// 	printTripleta(o2 + 1, j, x[i] + 1, parte2);
-					// 	fprintf(stdout, "\n");
-					// }
+					if (DEBUG) {
+						printTripleta(s1 + 1, p1, x[i] + 1, parte1);
+						printTripleta(o2 + 1, j, x[i] + 1, parte2);
+						fprintf(stdout, "\n");
+					}
 					resultados++;
 				}
 			}
@@ -219,11 +219,11 @@ int sp_oInterseccion(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op,
 	int k;
 	int resultados = 0;
 
-	// if (DEBUG) {
-	// 	printTripleta(s1 + 1, p1, -1, parte1);
-	// 	printTripleta(o2 + 1, -1, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(s1 + 1, p1, -1, parte1);
+		printTripleta(o2 + 1, -1, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 
 	if (condac) {
 		commonObtenerPredicados(sp, op, o2, parte2);
@@ -241,12 +241,12 @@ int sp_oInterseccion(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op,
 					break;
 				}
 				if (x[i] == y[j]) {
-					// if (DEBUG) {
-					// 	printTripleta(s1 + 1, p1, x[i] + 1, parte1);
-					// 	printTripleta(o2 + 1, resDAC.predicados[k], x[i] + 1,
-					// 			parte2);
-					// 	fprintf(stdout, "\n");
-					// }
+					if (DEBUG) {
+						printTripleta(s1 + 1, p1, x[i] + 1, parte1);
+						printTripleta(o2 + 1, resDAC.predicados[k], x[i] + 1,
+								parte2);
+						fprintf(stdout, "\n");
+					}
 					i++;
 					j++;
 					resultados++;
@@ -267,11 +267,11 @@ int sp_oInterseccion(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op,
 				}
 				if (x[i] == y[j]) {
 
-					// if (DEBUG) {
-					// 	printTripleta(s1 + 1, p1, x[i] + 1, parte1);
-					// 	printTripleta(o2 + 1, k, x[i] + 1, parte2);
-					// 	fprintf(stdout, "\n");
-					// }
+					if (DEBUG) {
+						printTripleta(s1 + 1, p1, x[i] + 1, parte1);
+						printTripleta(o2 + 1, k, x[i] + 1, parte2);
+						fprintf(stdout, "\n");
+					}
 					i++;
 					j++;
 					resultados++;
@@ -295,11 +295,11 @@ int sp_oParalelo(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int s1,
 	int i;
 	int resultados = 0;
 
-	// if (DEBUG) {
-	// 	printTripleta(s1 + 1, p1, -1, parte1);
-	// 	printTripleta(o2 + 1, -1, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(s1 + 1, p1, -1, parte1);
+		printTripleta(o2 + 1, -1, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 
 	SET * pares = paresBuff1;
 
@@ -309,9 +309,9 @@ int sp_oParalelo(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int s1,
 				> numeroSO - 1)) {
 
 		} else {
-			// if (DEBUG) {
-			// 	printCompleto(s1 + 1, p1, infoTOTAL[1][i] + 1, parte1, o2 + 1, infoTOTAL[0][i], infoTOTAL[1][i] + 1,parte2);
-			// }
+			if (DEBUG) {
+				printCompleto(s1 + 1, p1, infoTOTAL[1][i] + 1, parte1, o2 + 1, infoTOTAL[0][i], infoTOTAL[1][i] + 1,parte2);
+			}
 			resultados++;
 		}
 	}
@@ -332,11 +332,11 @@ int s__o(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int s1, int o2,
 	int i = 1, j = 1, predicado;
 	int resultados = 0;
 
-	// if (DEBUG) {
-	// 	printTripleta(s1 + 1, -1, -1, parte1);
-	// 	printTripleta(o2 + 1, -1, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(s1 + 1, -1, -1, parte1);
+		printTripleta(o2 + 1, -1, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 
 	if (!condac) {
 		for (predicado = 1; predicado <= nPreds; predicado++) {
@@ -355,11 +355,11 @@ int s__o(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int s1, int o2,
 					}
 
 					if (x[i] == y[j]) {
-						// if (DEBUG) {
-						// 	printTripleta(s1 + 1, predicado, x[i] + 1, parte1);
-						// 	printTripleta(o2 + 1, predicado2, y[j] + 1, parte2);
-						// 	fprintf(stdout, "\n");
-						// }
+						if (DEBUG) {
+							printTripleta(s1 + 1, predicado, x[i] + 1, parte1);
+							printTripleta(o2 + 1, predicado2, y[j] + 1, parte2);
+							fprintf(stdout, "\n");
+						}
 						i++;
 						j++;
 						resultados++;
@@ -391,14 +391,14 @@ int s__o(TREP ** treps, int nPreds, INDICEDAC sp, INDICEDAC op, int s1, int o2,
 					}
 
 					if (x[i] == y[j]) {
-						// if (DEBUG) {
-						// 	printTripleta(s1 + 1, resDAC.predicados[predicado],
-						// 			x[i] + 1, parte1);
-						// 	printTripleta(o2 + 1,
-						// 			resDAC2.predicados[predicado2], y[j] + 1,
-						// 			parte2);
-						// 	fprintf(stdout, "\n");
-						// }
+						if (DEBUG) {
+							printTripleta(s1 + 1, resDAC.predicados[predicado],
+									x[i] + 1, parte1);
+							printTripleta(o2 + 1,
+									resDAC2.predicados[predicado2], y[j] + 1,
+									parte2);
+							fprintf(stdout, "\n");
+						}
 
 						resultados++;
 						
@@ -426,13 +426,13 @@ int s__oParalelo(TREP ** treps, INDICEDAC sp, INDICEDAC op, int nPreds, int s1,
 	int i;
 	SET * pares = paresBuff1;
 
-	// if (DEBUG) {
-	// 	if (foutput==NULL){
-	// 		printTripleta(s1 + 1, -1, -1, parte1);
-	// 		printTripleta(o2 + 1, -1, -1, parte2);
-	// 		fprintf(stdout, "\n");
-	// 	}	
-	// }
+	if (DEBUG) {
+		if (foutput==NULL){
+			printTripleta(s1 + 1, -1, -1, parte1);
+			printTripleta(o2 + 1, -1, -1, parte2);
+			fprintf(stdout, "\n");
+		}	
+	}
 	joinAsim3(treps, sp, op, o2, s1, nPreds, condac, pares, parte2, parte1);
 
 	for (i = 1; i <= pares[0].x; i++) {
@@ -440,9 +440,9 @@ int s__oParalelo(TREP ** treps, INDICEDAC sp, INDICEDAC op, int nPreds, int s1,
 
 		} else {
 			resultados++;
-			// if (DEBUG) {
-			// 	printCompleto(s1 + 1, pares[i].x, pares[i].y + 1, parte1,o2 + 1, pares[i].z, pares[i].y + 1, parte2);
-			// }
+			if (DEBUG) {
+				printCompleto(s1 + 1, pares[i].x, pares[i].y + 1, parte1,o2 + 1, pares[i].z, pares[i].y + 1, parte2);
+			}
 		}
 	}
 	return resultados;
@@ -458,11 +458,11 @@ int s__oMerge(TREP ** treps, int numPreds, INDICEDAC sp, INDICEDAC op,
 	int resultados = 0;
 	int i = 1, predicado;
 
-	// if (DEBUG) {
-	// 	printTripleta(sujeto + 1, -1, -1, parte1);
-	// 	printTripleta(objeto2 + 1, -1, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(sujeto + 1, -1, -1, parte1);
+		printTripleta(objeto2 + 1, -1, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 
 	int indiceVector = 0;
 	vectores[indiceVector] = malloc(sizeof(Result2) * TAMINICIAL);
@@ -508,14 +508,14 @@ int s__oMerge(TREP ** treps, int numPreds, INDICEDAC sp, INDICEDAC op,
 						if (rango && vectores[0][i].value > numeroSO - 1) {
 
 						} else {
-							// if (DEBUG) {
-							// 	printTripleta(sujeto + 1, predicado2,
-							// 			vectores[0][i].value + 1, parte1);
-							// 	printTripleta(objeto2 + 1,
-							// 			vectores[0][i].sources[k],
-							// 			vectores[0][i].value + 1, parte2);
-							// 	fprintf(stdout, "\n");
-							// }
+							if (DEBUG) {
+								printTripleta(sujeto + 1, predicado2,
+										vectores[0][i].value + 1, parte1);
+								printTripleta(objeto2 + 1,
+										vectores[0][i].sources[k],
+										vectores[0][i].value + 1, parte2);
+								fprintf(stdout, "\n");
+							}
 							resultados++;
 						}
 					}
@@ -532,15 +532,15 @@ int s__oMerge(TREP ** treps, int numPreds, INDICEDAC sp, INDICEDAC op,
 						if (rango && vectores[0][i].value > numeroSO - 1) {
 
 						} else {
-							// if (DEBUG) {
-							// 	printTripleta(sujeto + 1,
-							// 			resDAC.predicados[predicado2],
-							// 			vectores[0][i].value + 1, parte1);
-							// 	printTripleta(objeto2 + 1,
-							// 			vectores[0][i].sources[k],
-							// 			vectores[0][i].value + 1, parte2);
-							// 	fprintf(stdout, "\n");
-							// }
+							if (DEBUG) {
+								printTripleta(sujeto + 1,
+										resDAC.predicados[predicado2],
+										vectores[0][i].value + 1, parte1);
+								printTripleta(objeto2 + 1,
+										vectores[0][i].sources[k],
+										vectores[0][i].value + 1, parte2);
+								fprintf(stdout, "\n");
+							}
 							resultados++;
 						}
 					}
@@ -560,11 +560,11 @@ int s__oMergeParalelo(TREP ** treps, int numPreds, INDICEDAC sp, INDICEDAC op,
 	int i = 1, j = 1, predicado, predicado2, k, l;
 	int resultados = 0;
 
-	// if (DEBUG) {
-	// 	printTripleta(sujeto + 1, -1, -1, parte1);
-	// 	printTripleta(objeto2 + 1, -1, -1, parte2);
-	// 	fprintf(stdout, "\n");
-	// }
+	if (DEBUG) {
+		printTripleta(sujeto + 1, -1, -1, parte1);
+		printTripleta(objeto2 + 1, -1, -1, parte2);
+		fprintf(stdout, "\n");
+	}
 
 	int indiceVector = 0;
 	vectores[indiceVector] = malloc(sizeof(Result2) * TAMINICIAL);
@@ -649,15 +649,15 @@ int s__oMergeParalelo(TREP ** treps, int numPreds, INDICEDAC sp, INDICEDAC op,
 					if (rango && vectores[0][i].value > numeroSO - 1) {
 
 					} else {
-						// if (DEBUG) {
-						// 	printTripleta(sujeto + 1,
-						// 			vectores2[0][j].sources[l],
-						// 			vectores[0][i].value + 1, parte1);
-						// 	printTripleta(objeto2 + 1,
-						// 			vectores[0][i].sources[k],
-						// 			vectores[0][i].value + 1, parte2);
-						// 	fprintf(stdout, "\n");
-						// }
+						if (DEBUG) {
+							printTripleta(sujeto + 1,
+									vectores2[0][j].sources[l],
+									vectores[0][i].value + 1, parte1);
+							printTripleta(objeto2 + 1,
+									vectores[0][i].sources[k],
+									vectores[0][i].value + 1, parte2);
+							fprintf(stdout, "\n");
+						}
 
 						resultados++;
 					}
