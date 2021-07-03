@@ -140,6 +140,7 @@ public class HdtSearch implements ProgressListener {
 
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		try {
+			Long startTime = System.currentTimeMillis();
 			TripleString triplePattern = new TripleString();
 
 			while(true) {
@@ -167,6 +168,8 @@ public class HdtSearch implements ProgressListener {
 				}
 
 			}
+			Long endTime = System.currentTimeMillis();
+			System.out.println("Query time: "+(endTime-startTime)+" ms");
 		} finally {
 			if(hdt!=null) hdt.close();
 			in.close();
