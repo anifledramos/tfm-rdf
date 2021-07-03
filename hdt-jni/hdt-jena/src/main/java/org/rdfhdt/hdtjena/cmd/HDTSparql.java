@@ -59,6 +59,8 @@ public class HDTSparql {
 			// Create Jena wrapper on top of HDT.
 			HDTGraph graph = new HDTGraph(hdt);
 			Model model = ModelFactory.createModelForGraph(graph);
+			
+			Long startTime = System.currentTimeMillis();
 
 			// Use Jena ARQ to execute the query.
 			Query query = QueryFactory.create(sparqlQuery);
@@ -92,6 +94,8 @@ public class HDTSparql {
 			} finally {
 				qe.close();				
 			}
+			Long endTime = System.currentTimeMillis();
+			System.out.println("Query time: "+(endTime-startTime)+" ms");
 		} finally {			
 			// Close
 			hdt.close();
