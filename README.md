@@ -49,7 +49,15 @@ Makefile will try to copy the generated library into /usr/lib directory and succ
 sudo cp ./lib/libjnidictionary.so /usr/lib/
 
 ### Generate an HDT file using the hdt-java library 
-hdt-jni/hdt-java-cli$ ./bin/rdf2hdt.sh ../../nt/test.nt ../../nt/test.hdt
+
+Usage: rdf2hdt [options] <Input RDF> <Output HDT>
+  Options:
+    -base      Base URI for the dataset
+    -config    Conversion config file
+    -options   HDT Conversion options
+    -rdftype   Type of RDF Input (ntriples, n3, rdfxml)
+
+./bin/rdf2hdt -options "dictionary.type=<http://purl.org/HDT/hdt#dictionaryJNI>;" ../../nt/test.nt ../../nt/test.hdt
 
 ### Execute SPARQL Query against the file.
 hdt-jni/hdt-jena$ ./bin/hdtsparql.sh ../../nt/test.hdt "SELECT ?s ?p ?o WHERE { ?s ?p ?o . }"
