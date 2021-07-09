@@ -12,7 +12,7 @@
 #define DEBUG 0
 #define DEBUG2 0
 //#define MAX_INFO 4294967295
-#define MAX_INFO 1024*102*5*2
+#define MAX_INFO 1024*102*5*4
 #define PORSUJETO 1
 #define POROBJETO 2
 //#define NUM_ELEMENTOS 1024*1024*60

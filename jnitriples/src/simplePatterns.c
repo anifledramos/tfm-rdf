@@ -1,7 +1,7 @@
 #include "simplePatterns.h"
 #include "commons.h"
 
-int MAXRES = 1000000;
+int MAXRES = 50000000;
 int **bufferResultados = NULL;
 
 void initBuffer() {

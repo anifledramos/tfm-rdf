@@ -86,14 +86,8 @@ public class HDTImpl implements HDTPrivate {
 	private boolean isMapped;
 
 	private void createComponents() {
-		System.out.println("Free memory (bytes): " + 
-				  Runtime.getRuntime().freeMemory());
 		header = HeaderFactory.createHeader(spec);
-		System.out.println("Free memory (bytes): " + 
-				  Runtime.getRuntime().freeMemory());
         dictionary = DictionaryFactory.createDictionary(spec);
-        System.out.println("Free memory (bytes): " + 
-				  Runtime.getRuntime().freeMemory());
         triples = TriplesFactory.createTriples(spec);
 	}
 
@@ -174,7 +168,6 @@ public class HDTImpl implements HDTPrivate {
 		iListener.setRange(5, 60);
 		//recibe tipo de diccionario
 		dictionary = DictionaryFactory.createDictionary(ci);
-		System.out.println("Tipo de diccionario "+dictionary.getType());
 		// nuestro diccionario debería tener hdtFileName de input y no un inputStream
 		if (dictionary.singleFileStorage(dictionary.getType())==false) {
 			dictionary.load(hdtFileName, ci, iListener);
@@ -267,7 +260,6 @@ public class HDTImpl implements HDTPrivate {
 		stream.reset();
 		iListener.setRange(5, 60);
 		dictionary = DictionaryFactory.createDictionary(ci);
-		System.out.println("tipo del diccionario "+dictionary.getType());
 		if (dictionary.singleFileStorage(dictionary.getType())==false) {
 			dictionary.load(hdtFileName, ci, iListener);
 		} else {
@@ -280,7 +272,6 @@ public class HDTImpl implements HDTPrivate {
 		ci.load(stream);
 		stream.reset();
 		iListener.setRange(60, 100);
-		System.out.println("tipo de las tripletas "+ci.getType());
 		triples = TriplesFactory.createTriples(ci);
 		if (triples.singleFileStorage(triples.getType())==false) {
 			triples.load(hdtFileName, ci, iListener);

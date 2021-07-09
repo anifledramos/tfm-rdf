@@ -87,14 +87,8 @@ public class JNITriples implements TriplesPrivate {
 				numberOfElements++;
 			}
 			IOUtil.closeQuietly(os);
-			
-			System.out.println("Free memory before triples(bytes): " + 
-					  Runtime.getRuntime().freeMemory());
 
 			jnitriples = _createJNITriples(filename, npreds, nso);
-			
-			System.out.println("Free memory after triples (bytes): " + 
-					  Runtime.getRuntime().freeMemory());
 			
 			f.deleteOnExit();
 			if (f.exists()) {

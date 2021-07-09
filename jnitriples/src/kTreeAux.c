@@ -198,7 +198,7 @@ int comparaFrecListaDesc(const void *a, const void *b) {
 int checkLimites(TREP * trep) {
 
 	if (trep->iniq > MAX_INFO){
-		fprintf(stderr,"modulando\n");
+		// fprintf(stderr,"modulando\n");
 		trep->iniq = trep->iniq - MAX_INFO;
 		trep->finq = trep->finq - MAX_INFO;
 	}

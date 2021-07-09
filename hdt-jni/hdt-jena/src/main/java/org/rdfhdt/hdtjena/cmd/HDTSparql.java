@@ -1,6 +1,7 @@
 package org.rdfhdt.hdtjena.cmd;
 
 
+import org.rdfhdt.hdt.enums.TripleComponentRole;
 import org.rdfhdt.hdt.hdt.HDT;
 import org.rdfhdt.hdt.hdt.HDTManager;
 import org.rdfhdt.hdtjena.HDTGraph;

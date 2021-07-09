@@ -1,6 +1,6 @@
-git clone https://github.com/anifledramos/tfm-rdf.git
+#git clone https://github.com/anifledramos/tfm-rdf.git
 
-cd tfm-rdf/
+#cd tfm-rdf/
 
 cd jnitriples/
 

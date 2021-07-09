@@ -31,44 +31,19 @@ public class JNIDictionaryBig extends BaseDictionary {
 	
 	public JNIDictionaryBig(HDTOptions spec) {
 		super(spec);
-		System.out.println("Free memory dictionary init (bytes): " + 
-				  Runtime.getRuntime().freeMemory());
 		subjects = new JNIDictionarySection(spec);
-		System.out.println("Free memory dict s(bytes): " + 
-				  Runtime.getRuntime().freeMemory());
 		predicates = new JNIDictionarySection(spec);
-		System.out.println("Free memory dict p(bytes): " + 
-				  Runtime.getRuntime().freeMemory());
 		objects = new JNIDictionarySection(spec);
-		System.out.println("Free memory dict o(bytes): " + 
-				  Runtime.getRuntime().freeMemory());
 		shared = new JNIDictionarySection(spec);
-		System.out.println("Free memory dict shr (bytes): " + 
-				  Runtime.getRuntime().freeMemory());
 	}
 	
 	@Override
 	public void load(TempDictionary other, ProgressListener listener) throws IOException {
 		IntermediateListener iListener = new IntermediateListener(listener);
 		System.out.println("Max memory (bytes): " + 
-				  Runtime.getRuntime().maxMemory());
-		System.out.println("Free memory dict before subjects(bytes): " + 
-				  Runtime.getRuntime().freeMemory());
 		subjects.load(other.getSubjects(), iListener, "subjects");
-		System.out.println("Max memory (bytes): " + 
-				  Runtime.getRuntime().maxMemory());
-		System.out.println("Free memory dict before predicates(bytes): " + 
-				  Runtime.getRuntime().freeMemory());
 		predicates.load(other.getPredicates(), iListener, "predicates");
-		System.out.println("Max memory (bytes): " + 
-				  Runtime.getRuntime().maxMemory());
-		System.out.println("Free memory dict before objects(bytes): " + 
-				  Runtime.getRuntime().freeMemory());
 		objects.load(other.getObjects(), iListener, "objects");
-		System.out.println("Max memory (bytes): " + 
-				  Runtime.getRuntime().maxMemory());
-		System.out.println("Free memory dict before shared(bytes): " + 
-				  Runtime.getRuntime().freeMemory());
 		shared.load(other.getShared(), iListener, "shared");
 	}
 	
