@@ -98,3 +98,8 @@ Copy the datasets you want to use to the "data" folder
 
 ### Remove existing container (must be stopped)
     docker rm #container
+
+
+# Troubleshooting
+
+The current implementation is designed for Linux based system and can have issues running on Windows or Mac. We recommend running the prototype in Docker. 
