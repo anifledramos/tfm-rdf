@@ -92,18 +92,6 @@ public class NodeDictionary {
 		cacheNodeToId[1] = new DummyMap<String, Integer>();
 		cacheNodeToId[2] = new DummyMap<String, Integer>();
 		
-//		final int nodeToIDSize = 1000;
-//		
-//		cacheNodeToId[0] = new LRUCache<String, Integer>(nodeToIDSize);
-//		if(dictionary.getNpredicates()>nodeToIDSize) {
-//			System.out.println("Predicates LRU");
-//			cacheNodeToId[1] = new LRUCache<String, Integer>(nodeToIDSize);
-//		} else {
-//			System.out.println("Predicates Map");
-//			cacheNodeToId[1] = new ConcurrentHashMap<String, Integer>((int) dictionary.getNpredicates());
-//		}
-//		cacheNodeToId[2] = new LRUCache<String, Integer>(nodeToIDSize);
-
 	}
 
 	public Node getNode(HDTId hdtid) {

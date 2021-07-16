@@ -78,21 +78,7 @@ public final class CharSequenceComparator implements Comparator<CharSequence> {
 		// Slower but safe
 		
 		return s1.toString().compareTo(s2.toString());
-//		
-//		int len1 = s1.length();
-//        int len2 = s2.length();
-//        int n = Math.min(len1, len2);
-//
-//        int k = 0;
-//        while (k < n) {
-//            char c1 = s1.charAt(k);
-//            char c2 = s2.charAt(k);
-//            if (c1 != c2) {
-//                return c2 - c1;
-//            }
-//            k++;
-//        }
-//        return len2 - len1;
+
 	}
 
 }

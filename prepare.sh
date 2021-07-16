@@ -22,6 +22,6 @@ mvn -DskipTests install
 
 cd hdt-java-cli/ 
 
-./bin/rdf2hdt.sh ../../nt/test.nt ../../nt/test.nt
+./bin/rdf2hdt.sh ../../nt/test.nt ../../nt/test.hdt
 
 mvn clean install

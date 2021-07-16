@@ -281,45 +281,6 @@ public class PFCDictionarySection implements DictionarySectionPrivate {
 		}
 		return new CompactString(tempString).getDelayed();
 	}
-	
-//	private void dumpAll() {
-//		for(int i=0;i<blocks.getNumberOfElements();i++) {
-//			dumpBlock(i);
-//		}
-//	}
-//	
-//	private void dumpBlock(int block) {
-//		if(text==null || blocks==null || block>=blocks.getNumberOfElements()) {
-//			return;
-//		}
-//		
-//		System.out.println("Dump block "+block);
-//		ReplazableString tempString = new ReplazableString();
-//		Mutable<Integer> delta = new Mutable<Integer>(0);
-//		int idInBlock = 0;
-//			
-//		int pos = (int)blocks.get(block);
-//		
-//		// Copy first string
-//		int len = ByteStringUtil.strlen(text, pos);
-//		tempString.append(text, pos, len);
-//		pos+=len+1;
-//		
-//		System.out.println((block*blocksize+idInBlock)+ " ("+idInBlock+") => "+ tempString);
-//		idInBlock++;
-//		
-//		while( (idInBlock<blocksize) && (pos<text.length)) {
-//			pos += VByte.decode(text, pos, delta);
-//			
-//			len = ByteStringUtil.strlen(text, pos);
-//			tempString.replace(delta.getValue(), text, pos, len);
-//			
-//			System.out.println((block*blocksize+idInBlock)+ " ("+idInBlock+") => "+ tempString + " Delta="+delta.getValue()+ " Len="+len);
-//			
-//			pos+=len+1;
-//			idInBlock++;
-//		}
-//	}
 
 	/* (non-Javadoc)
 	 * @see hdt.dictionary.DictionarySection#size()

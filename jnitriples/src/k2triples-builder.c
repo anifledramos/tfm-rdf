@@ -188,7 +188,7 @@ TREP * buildKTree(int nnodes, int naristas, SUJETO * grafo) {
 			insertIntoTreeRep(trep, rep, fila, columna);
 		}
 	}
-        fprintf(stderr,"edgesInserted:%d\n",edgesInserted);
+        // fprintf(stderr,"edgesInserted:%d\n",edgesInserted);
 	compressInformationLeaves(trep);
 
 	return trep;

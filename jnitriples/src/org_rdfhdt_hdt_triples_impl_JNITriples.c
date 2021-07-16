@@ -16,7 +16,6 @@ void correctEndianness(FILE * f) {
 	fseek(f, 0, SEEK_SET);
 	int num = 1;
 	if (*(char *)&num == 1) {
-		printf("Correct endianness!!!!\n");
 		int numEnteros;
 		int buffer[MAXTRIPLEBUFFER * 3];
 		/* int posRead = 0; */

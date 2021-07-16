@@ -82,74 +82,11 @@ public class JNIHDTManagerImpl extends HDTManager {
 	@Override
 	public HDT doGenerateHDT(String rdfFileName, String baseURI, RDFNotation rdfNotation, HDTOptions spec, ProgressListener listener) throws IOException, ParserException {
 		
-//		// Let implementations override the one/two pass.
-//		try {
-//			HDTFactory.getTempFactory().checkTwoPass(spec);
-//		} catch (Exception e) {
-//			
-//		}
-//		
-//		//choose the importer
-//		String loaderType = spec.get("loader.type");
-//		TempHDTImporter loader;
-//		if ("two-pass".equals(loaderType)) {
-//			loader = new TempHDTImporterTwoPass();
-//		} else {
-//			loader = new TempHDTImporterOnePass();
-//		}
-//		
-//		StopWatch st = new StopWatch();
-//		
-//		// Create TempHDT
-//		TempHDT modHdt = loader.loadFromRDF(spec, rdfFileName, baseURI, rdfNotation, listener);
-//		
-//		// Convert to HDT
-//		HDTImpl hdt = new HDTImpl(spec); 
-//		hdt.loadFromModifiableHDT(modHdt, listener);
-//		hdt.populateHeaderStructure(modHdt.getBaseURI());
-//		
-//		// Add file size to Header
-//		try {
-//			long originalSize = HeaderUtil.getPropertyLong(modHdt.getHeader(), "_:statistics", HDTVocabulary.ORIGINAL_SIZE);
-//			hdt.getHeader().insert("_:statistics", HDTVocabulary.ORIGINAL_SIZE, originalSize);
-//		} catch (NotFoundException e) {
-//		}
-//		
-//		System.out.println("File converted in: "+st.stopAndShow());
-//		
-//		modHdt.close();
-//		
-//		return hdt;
 		return nativeGenerateHDT(rdfFileName, baseURI, rdfNotation, spec);
 	}
 
 	@Override
 	public HDT doGenerateHDT(IteratorTripleString triples, String baseURI, HDTOptions spec, ProgressListener listener) throws IOException {
-//		//choose the importer
-//		TempHDTImporterOnePass loader = new TempHDTImporterOnePass();
-//		
-//		StopWatch st = new StopWatch();
-//		
-//		// Create TempHDT
-//		TempHDT modHdt = loader.loadFromTriples(spec, triples, baseURI, listener);
-//		
-//		// Convert to HDT
-//		HDTImpl hdt = new HDTImpl(spec); 
-//		hdt.loadFromModifiableHDT(modHdt, listener);
-//		hdt.populateHeaderStructure(modHdt.getBaseURI());
-//		
-//		// Add file size to Header
-//		try {
-//			long originalSize = HeaderUtil.getPropertyLong(modHdt.getHeader(), "_:statistics", HDTVocabulary.ORIGINAL_SIZE);
-//			hdt.getHeader().insert("_:statistics", HDTVocabulary.ORIGINAL_SIZE, originalSize);
-//		} catch (NotFoundException e) {
-//		}
-//		
-//		System.out.println("File converted in: "+st.stopAndShow());
-//		
-//		modHdt.close();
-//		
-//		return hdt;
 		
 		return null;
 	}

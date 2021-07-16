@@ -143,31 +143,12 @@ public class SequenceLog64Map implements Sequence,Closeable {
 			buffer++;
 		}
 
-		// Read lastWord (it is special because it can be smaller than 8 bytes)
-//		lastword = 0;
-//		if(numwords>0) {
-//			ByteBuffer lastBuffer = buffers[buffers.length-1];
-//			int pos = lastBuffer.limit()-1;
-//			int numBytesLast = SequenceLog64.lastWordNumBytes(numbits, numentries);
-//			while(pos>=lastBuffer.limit()-numBytesLast) {
-//				long read = (lastBuffer.get(pos) & 0xFFL);
-//				System.out.println("Byte: "+pos+" / "+Long.toHexString(read));
-//				lastword = (lastword << 8) | read;
-//				pos--;
-//			}
-////			System.out.println("LastWord1: "+Long.toHexString(lastword)+" Bytes: "+numBytesLast);
-//		}
-		
-		// FIXME: Bug in the previous code, find what because it should be more efficient
 		
 		CountInputStream in = new CountInputStream(new BufferedInputStream(new FileInputStream(f)));
 		IOUtil.skip(in, base+((numwords-1)*8L));
-//		System.out.println("Last word starts at: "+in.getTotalBytes());
 		// Read only used bits from last entry (byte aligned, little endian)
 		int lastWordUsedBits = SequenceLog64.lastWordNumBits(numbits, numentries);
 		lastword = BitUtil.readLowerBitsByteAligned(lastWordUsedBits, in);
-//		System.out.println("Last word ends at: "+in.getTotalBytes());
-//		System.out.println("LastWord2: "+Long.toHexString(lastword)+" Bits: "+lastWordUsedBits);
 		in.close();
 	}
 	
