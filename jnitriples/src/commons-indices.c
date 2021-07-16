@@ -510,26 +510,26 @@ INDICEDAC * crearINDICEDAC(FILE * file, int tipo, int numPredicados) {
 			pos++;
 		}
 	}
-	printf("SUJ: ");
+	// printf("SUJ: ");
 	FILE * oFile = fopen("mysujetos", "w+");
-	printf ("pos=%d, count = %d\n", pos, count);
+	// printf ("pos=%d, count = %d\n", pos, count);
     FTRepI * sujetoDAC=createFTI(&(sujetos[1]),NUMSUJETOS);
 
     saveFTI(sujetoDAC,oFile);	
 	fclose(oFile);
 	
-	printf("%d %d %d\n", NUMSUJETOS, NUMRISTRAS, numPredicados);
-	printf("INDEX: ");
-	for (i = 1; i <= NUMRISTRAS; i++) {
-		printf("%d ", index[i]);
-	}
-	printf("\n");
+	// printf("%d %d %d\n", NUMSUJETOS, NUMRISTRAS, numPredicados);
+	// printf("INDEX: ");
+	// for (i = 1; i <= NUMRISTRAS; i++) {
+	// 	printf("%d ", index[i]);
+	// }
+	// printf("\n");
 	
-	printf("DICC:" );
-	for (i = 0; i < count; i++) {
-		printf("%d ", predicadosNEW[i]);
-	}
-	printf("\n");
+	// printf("DICC:" );
+	// for (i = 0; i < count; i++) {
+	// 	printf("%d ", predicadosNEW[i]);
+	// }
+	// printf("\n");
 
 	INDICEDAC * indice = crearIndice(NUMRISTRAS, NUMSUJETOS, numPredicados, index, predicadosNEW, sujetoDAC, 1);	
 }
@@ -599,7 +599,7 @@ INDICEDAC * crearIndice(int NUMRISTRAS, int NUMSUJETOS, int numPredicados,
 	//fprintf(stderr,"indice diccionario:%d\n",numNeededBytes);
 	//Creación vector
 	//ojooooooooo cambiado el 1 por el 0
-	printf("%d bytes, %d numBits, %d maxindex\n", numNeededBytes, numBits, NUMRISTRAS);
+	// printf("%d bytes, %d numBits, %d maxindex\n", numNeededBytes, numBits, NUMRISTRAS);
 	for (i=0;i<=NUMRISTRAS;i++){
 		
 		SetField(compactIndex,numBits,i,index[i]);

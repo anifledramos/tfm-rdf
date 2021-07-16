@@ -81,8 +81,7 @@ int identifiersStats(FILE * fdataset) {
 	fprintf(stderr, "* OBJETOS: de %d a %d\n", minObjeto, maxObjeto);
 	fprintf(stderr, "* PREDICADOS: de %d a %d\n", minPredicado, maxPredicado);
 	fprintf(stderr,
-			"*****************************************************************************************\n");
-
+			"*************************************\n");
 	return 0;
 }
 
@@ -141,7 +140,7 @@ TREP * buildKTree(int nnodes, int naristas, SUJETO * grafo) {
 	uint edges_read = 0;
 	for (fila = 0; fila < part; fila++) {
                for (columna = 0; columna < part; columna++) {
-			fprintf(stderr, "(%2.2f\%)\n", (float) (fila * part + columna) * 100 / part / part);
+			// fprintf(stderr, "(%2.2f\%)\n", (float) (fila * part + columna) * 100 / part / part);
 		        uint edges_sub = 0;
 	                if (fila*tamSubm> sujetos ) {
 			  tree = createKTree(_K1, _K2, max_real_level1, max_level1,max_level2);
@@ -283,7 +282,7 @@ K2TRIPLES * buildTrees(FILE *fdataset) {
 		}
 
 		TREP * trep = buildKTree(numColumnas, numTripletas, grafo);
-		printf("%d %d %d\n", trep->part, trep->numberOfNodes, trep->numberOfEdges);
+		// printf("%d %d %d\n", trep->part, trep->numberOfNodes, trep->numberOfEdges);
 		k2triples->trees[predicadoActual-1] = trep;
 	}
 	k2triples->npreds = MAXPREDICADO;

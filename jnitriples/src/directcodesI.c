@@ -114,7 +114,7 @@ ushort * optimizationk(uint * acumFreqs,int maxInt, int * nkvalues){
 	uint listLength = acumFreqs[sizeVoc];	
 	uint nBits = bits(sizeVoc);
 	
-	fprintf(stderr,"Length of the list: %d, max bits: %d\n",listLength,nBits);
+	// fprintf(stderr,"Length of the list: %d, max bits: %d\n",listLength,nBits);
 
 	//Esta tabla tiene el tamanho que ocupa la mejor opcion para los primeros x bits
 	long * tableSize = (long *) mymalloc(sizeof(long)*(nBits+1));
@@ -217,7 +217,7 @@ ushort * optimizationk(uint * acumFreqs,int maxInt, int * nkvalues){
 		}
 
 	//fprintf(stderr,"Valor optimo para el �ltimo nivel: %d tamanho aproximado: %d\n",tableNLevels[nBits],sumaTotal);
-	printf("%d\n",tableNLevels[nBits]);
+	// printf("%d\n",tableNLevels[nBits]);
 	
 		
 	(*nkvalues)=tableNLevels[nBits];
@@ -230,7 +230,7 @@ ushort * optimizationk(uint * acumFreqs,int maxInt, int * nkvalues){
 			kvalues[j]=bitsCount;
 	
 	
-			printf("%d\n",bitsCount);
+			// printf("%d\n",bitsCount);
 			
 			bitCountInf+=bitsCount;
 		}
@@ -488,7 +488,7 @@ FTRepI* createFTI(uint *list,uint listLength){
 				//fprintf(stderr,"i: %d, valor: $%d, con j max: %d\n",i,d,j);
 				newvalue = value- rep->tablebase[j];
 				if(i<1)
-					fprintf(stderr,"newvalue = %d j= %d\n",newvalue,j);
+					// fprintf(stderr,"newvalue = %d j= %d\n",newvalue,j);
 
 				for(k=0;k<j;k++){
 					//if(i<10)
@@ -507,7 +507,7 @@ FTRepI* createFTI(uint *list,uint listLength){
 //					}
 					
 					if(i<1)
-					fprintf(stderr,"escribiendo: %d \n",newvalue%rep->base[k]);
+					// fprintf(stderr,"escribiendo: %d \n",newvalue%rep->base[k]);
 					bitwrite(rep->levels,cont[k],rep->base_bits[k],newvalue%rep->base[k]);
 					cont[k]+=rep->base_bits[k];
 					contB[k]++;
@@ -530,7 +530,7 @@ FTRepI* createFTI(uint *list,uint listLength){
 //											}
 					
 					if(i<1)
-						fprintf(stderr,"escribiendo: %d \n",newvalue%rep->base[j]);
+						// fprintf(stderr,"escribiendo: %d \n",newvalue%rep->base[j]);
 					bitwrite(rep->levels,cont[j],rep->base_bits[j],newvalue%rep->base[j]);
 					cont[j]+=rep->base_bits[j];
 					contB[j]++;

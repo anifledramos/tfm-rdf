@@ -131,8 +131,6 @@ public class JNIDictionarySectionBig implements DictionarySectionPrivate {
 		}
 
 //		text = outputStream.toByteArray();
-
-		System.out.println("length of byte array : "+text.length);
 		
 //		jnidictionary = _createJNIDictionary(text, blocksize, dict);
 

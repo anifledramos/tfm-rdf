@@ -75,7 +75,7 @@ int main(int argc, char* argv[]) {
 	uint edges_read = 0;
 	for (fila = 0; fila < part; fila++) {
                for (columna = 0; columna < part; columna++) {
-			fprintf(stderr, "(%2.2f\%)\n", (float) (fila * part + columna) * 100 / part / part);
+			// fprintf(stderr, "(%2.2f\%)\n", (float) (fila * part + columna) * 100 / part / part);
 		        uint edges_sub = 0;
 	                if (fila*tamSubm> sujetos ) {
 			  tree = createKTree(_K1, _K2, max_real_level1, max_level1,max_level2);

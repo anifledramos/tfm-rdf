@@ -66,7 +66,7 @@ int main(int argc, char* argv[]) {
 		fprintf(stderr, "error: no se pudo abrir el fichero %s\n", argv[2]);
 		return 1;
 	} else {
-		fprintf(stderr, "%s\n", argv[2]);
+		// fprintf(stderr, "%s\n", argv[2]);
 	}
 
 

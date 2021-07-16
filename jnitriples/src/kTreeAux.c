@@ -40,7 +40,7 @@ QUEUE * AddItem(QUEUE * listpointer, NODE * elem, int cantx, int canty) {
 void AddItem2(TREP *trep, int elem, int cantx, int canty) {
 
 	if (trep->finq - trep->iniq + 1 >= MAX_INFO ) {
-			fprintf(stderr,"(%d)\n",trep->finq-trep->iniq);
+			// fprintf(stderr,"(%d)\n",trep->finq-trep->iniq);
 			fprintf(stderr, "overflow!\n");
 			exit(1);
 	}
@@ -80,7 +80,7 @@ void AddItemJoin(TREP *trep, int elem, int cantx, int canty, int indice) {
 	int finq;
 
 	if (trep->finq - trep->iniq + 1 >= MAX_INFO ) {
-			fprintf(stderr,"(%d)\n",trep->finq-trep->iniq);
+			// fprintf(stderr,"(%d)\n",trep->finq-trep->iniq);
 
 			fprintf(stderr, "overflow!\n");
 			exit(1);
@@ -113,7 +113,7 @@ void AddItemJoin2(TREP *trep, int elem, int cantx, int canty, int indice,
 		int esFila) {
 	int finq;
 	if (trep->finq - trep->iniq + 1 >= MAX_INFO ) {
-			fprintf(stderr,"(%d)\n",trep->finq-trep->iniq);
+			// fprintf(stderr,"(%d)\n",trep->finq-trep->iniq);
 
 			fprintf(stderr, "overflow!\n");
 			exit(1);
