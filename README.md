@@ -46,19 +46,21 @@ Makefile will try to copy the generated library into /usr/lib directory and succ
 
 ### Generate an HDT file using the hdt-java library 
 
-Usage: rdf2hdt [options] `<Input RDF> <Output HDT>`
+Usage: `rdf2hdt [options] <Input RDF> <Output HDT>`
 
-  Options:
+    Options:
+      -base      Base URI for the dataset
+      -config    Conversion config file
+      -options   HDT Conversion options
+      -rdftype   Type of RDF Input (ntriples, n3, rdfxml)
 
-  -base      Base URI for the dataset
+#### Generate plain HDT dataset
 
-  -config    Conversion config file
+`./bin/rdf2hdt.sh -options "dictionary.type=<http://purl.org/HDT/hdt#dictionaryFour>;triples.format=<http://purl.org/HDT/hdt#triplesBitmap>;" ../../nt/test.nt ../../nt/test.hdt`
 
-  -options   HDT Conversion options
-  
-  -rdftype   Type of RDF Input (ntriples, n3, rdfxml)
+#### Generate K2-tree + PFC dataset
 
-    hdt-jni/hdt-java-cli$ ./bin/rdf2hdt -options "dictionary.type=<http://purl.org/HDT/hdt#dictionaryJNI>;triples.format=<http://purl.org/HDT/hdt#triplesJNI>" path/to/test.nt desired/path/for/test.hdt
+`./bin/rdf2hdt.sh -options "dictionary.type=<http://purl.org/HDT/hdt#dictionaryJNI>;triples.format=<http://purl.org/HDT/hdt#triplesJNI>;" ../../nt/test.nt ../../nt/test.hdt`
 
 ### Execute SPARQL Query against the file.
     hdt-jni/hdt-jena$ ./bin/hdtsparql.sh path/to/test.hdt "SELECT ?s ?p ?o WHERE { ?s ?p ?o . }"
@@ -88,16 +90,16 @@ Copy the datasets you want to use to the "data" folder
     docker build -t rdfjni --rm=true .
 
 ### Create and run container
-    docker run --name gccdocker --mount type=bind,source="$(pwd)/data",target=/data -it rdfjni
+    docker run --name hdtdocker --mount type=bind,source="$(pwd)/data",target=/data -it rdfjni
 
 ### Execute existing container (must be started)
-    docker exec -it gccdocker /bin/bash
+    docker exec -it hdtdocker /bin/bash
 
 ### Stop existing container
-    docker stop  #container
+    docker stop  hdtdocker
 
 ### Remove existing container (must be stopped)
-    docker rm #container
+    docker rm hdtdocker
 
 
 # Troubleshooting

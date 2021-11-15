@@ -1,11 +1,11 @@
-docker stop gccdocker
+docker stop hdtdocker
 
-docker rm gccdocker
+docker rm hdtdocker
 
 docker build -t rdfjni --rm=true .
 
-docker run --name gccdocker -it rdfjni
+docker run --name hdtdocker -it rdfjni
 
-# docker run --name gccdocker --mount type=bind,source="$(pwd)/data", target=/data -it rdfjni
+# docker run --name hdtdocker --mount type=bind,source="$(pwd)/data", target=/data -it rdfjni
 
-#docker exec -it gccdocker /bin/bash
+#docker exec -it hdtdocker /bin/bash
