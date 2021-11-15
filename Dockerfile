@@ -28,9 +28,9 @@ RUN cd /opt/tfm-rdf/jnidictionary && make jni
 
 RUN cd /opt/tfm-rdf/hdt-jni && mvn -DskipTests install
 
-RUN cd /opt/tfm-rdf/hdt-jni/hdt-java-cli/ && ./bin/rdf2hdt.sh -options "dictionary.type=<http://purl.org/HDT/hdt#dictionaryFour>;triples.format=<http://purl.org/HDT/hdt#triplesBitmap>;" ../../nt/test.nt ../../nt/test.hdt
+RUN cd /opt/tfm-rdf/hdt-jni/hdt-java-cli/ && ./bin/rdf2hdt.sh -options "dictionary.type=<http://purl.org/HDT/hdt#dictionaryFour>;triples.format=<http://purl.org/HDT/hdt#triplesBitmap>;" ../../data/test.nt ../../data/test.hdt
 
-RUN cd /opt/tfm-rdf/hdt-jni/hdt-jena && ./bin/hdtsparql.sh ../../nt/test.hdt "SELECT ?s ?p ?o WHERE { ?s ?p ?o . }"
+RUN cd /opt/tfm-rdf/hdt-jni/hdt-jena && ./bin/hdtsparql.sh ../../data/test.hdt "SELECT ?s ?p ?o WHERE { ?s ?p ?o . }"
 
 
 
