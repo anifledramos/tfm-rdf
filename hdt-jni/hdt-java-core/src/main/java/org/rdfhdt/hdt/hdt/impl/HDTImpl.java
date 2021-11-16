@@ -207,7 +207,6 @@ public class HDTImpl implements HDTPrivate {
 		this.isMapped = true;
 
 		CountInputStream input;
-		InputStream stream;
 		if(hdtFileName.endsWith(".gz")) {
 			File old = f;
 			hdtFileName = hdtFileName.substring(0, hdtFileName.length()-3);
@@ -223,14 +222,13 @@ public class HDTImpl implements HDTPrivate {
 		}
 
 		input = new CountInputStream(new BufferedInputStream(new FileInputStream(hdtFileName)));
-		stream = new BufferedInputStream(new FileInputStream(hdtFileName));
 
 		ControlInfo ci = new ControlInformation();
 		IntermediateListener iListener = new IntermediateListener(listener);
 
 		// Load Global ControlInformation
 		ci.clear();
-		ci.load(stream);
+		ci.load(input);
 		String hdtFormat = ci.getFormat();
 		if(!hdtFormat.equals(HDTVocabulary.HDT_CONTAINER)) {
 			throw new IllegalFormatException("This software cannot open this version of HDT File");
@@ -238,10 +236,10 @@ public class HDTImpl implements HDTPrivate {
 
 		// Load header
 		ci.clear();
-		ci.load(stream);
+		ci.load(input);
 		iListener.setRange(0, 5);
 		header = HeaderFactory.createHeader(ci);
-		header.load(stream, ci, iListener);
+		header.load(input, ci, iListener);
 
 		// Set base URI.
 		try {
@@ -255,32 +253,31 @@ public class HDTImpl implements HDTPrivate {
 
 		// Load dictionary
 		ci.clear();
-		stream.mark(1024);
-		ci.load(stream);
-		stream.reset();
+		input.mark(1024);
+		ci.load(input);
+		input.reset();
 		iListener.setRange(5, 60);
 		dictionary = DictionaryFactory.createDictionary(ci);
 		if (dictionary.singleFileStorage(dictionary.getType())==false) {
 			dictionary.load(hdtFileName, ci, iListener);
 		} else {
-			dictionary.load(stream, ci, iListener);
+			dictionary.mapFromFile(input, f, iListener);
 		}
 
 		// Load Triples
 		ci.clear();
-		stream.mark(1024);
-		ci.load(stream);
-		stream.reset();
+		input.mark(1024);
+		ci.load(input);
+		input.reset();
 		iListener.setRange(60, 100);
 		triples = TriplesFactory.createTriples(ci);
 		if (triples.singleFileStorage(triples.getType())==false) {
 			triples.load(hdtFileName, ci, iListener);
 		} else {
-			triples.load(stream, ci, iListener);
+			triples.mapFromFile(input, f, iListener);
 		}
 
 		input.close();
-		stream.close();
 	}
 
 	/*

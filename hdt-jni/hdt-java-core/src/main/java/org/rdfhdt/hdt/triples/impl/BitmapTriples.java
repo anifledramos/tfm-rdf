@@ -218,7 +218,11 @@ public class BitmapTriples implements TriplesPrivate {
 	 */
 	@Override
 	public void load(TempTriples triples, ProgressListener listener) {
-		load(triples, listener, null);
+		triples.setOrder(order);
+		triples.sort(listener);
+		
+		IteratorTripleID it = triples.searchAll();
+		this.load(it, listener);
 	}
 	
 	/* (non-Javadoc)

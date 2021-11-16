@@ -73,7 +73,7 @@ public class TriplesFactory {
 	static public TriplesPrivate createTriples(HDTOptions spec) {
 		String type = spec.get("triples.format");		
 		if(type==null) {
-			return new JNITriples(spec);
+			return new BitmapTriples(spec);
 		} else if(HDTVocabulary.TRIPLES_TYPE_TRIPLESLIST.equals(type)) {
 			return new TriplesList(spec);
 		} else if(HDTVocabulary.TRIPLES_TYPE_BITMAP.equals(type)) {
@@ -81,7 +81,7 @@ public class TriplesFactory {
 		} else if(HDTVocabulary.TRIPLES_TYPE_JNI.equals(type)) {
 			return new JNITriples(spec);
 		} else {
-			return new JNITriples(spec);
+			return new BitmapTriples(spec);
 		}
 	}
 	
