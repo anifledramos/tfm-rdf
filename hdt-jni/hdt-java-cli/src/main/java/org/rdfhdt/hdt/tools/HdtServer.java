@@ -44,6 +44,7 @@ public class HdtServer implements ProgressListener {
 
 			count = 0;
 			while (it.hasNext()) {
+				it.next();
 				count++;
 			}
 
