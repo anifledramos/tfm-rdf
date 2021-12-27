@@ -113,7 +113,7 @@ public class HdtServer implements ProgressListener {
 	}
 	
 	public void execute() throws IOException {
-		hdt = HDTManager.mapIndexedHDT(input, this);
+		hdt = HDTManager.loadIndexedHDT(input, this);
 		ServerSocket serverSocket = null;
 		Socket socket = null;
 		try {

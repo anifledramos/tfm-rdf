@@ -133,7 +133,7 @@ public class HdtSearch implements ProgressListener {
 	public void execute() throws IOException {
 		HDT hdt;
 		if(loadInMemory) {
-			hdt = HDTManager.mapIndexedHDT(hdtInput, this);
+			hdt = HDTManager.loadIndexedHDT(hdtInput, this);
 		} else {
 			hdt= HDTManager.mapIndexedHDT(hdtInput, this);
 		}
