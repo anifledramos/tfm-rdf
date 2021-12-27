@@ -69,7 +69,7 @@ import org.rdfhdt.hdt.util.string.ReplazableString;
 public class PFCDictionarySectionBig implements DictionarySectionPrivate {
 	public static final int TYPE_INDEX = 2;
 	public static final int DEFAULT_BLOCK_SIZE = 16;
-	public static final int BLOCK_PER_BUFFER = 100000;
+	public static final int BLOCK_PER_BUFFER = 50000;
 	
 	byte [][] data;
 	long [] posFirst;
@@ -235,7 +235,7 @@ public class PFCDictionarySectionBig implements DictionarySectionPrivate {
 			int mid = (low + high) >>> 1;
 			
 			int cmp;
-			if(max==high) {
+			if(mid==max) {
 				cmp = -1;
 			} else {
 				cmp = ByteStringUtil.strcmp(str, data[mid/BLOCK_PER_BUFFER], (int)(blocks.get(mid)-posFirst[mid/BLOCK_PER_BUFFER]));
